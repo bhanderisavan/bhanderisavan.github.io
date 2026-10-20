@@ -3,9 +3,10 @@ secondary_name: ""
 navbar_name: "Savankumar Bhanderi"
 
 positions:
-- logo: /assets/images/badges/thi_logo.svg
-  name: "Research Scientist @ Technische Hochschule Ingolstadt"
-- name: "Institute of Innovative Mobility (IIMo)"
+- name: "Research Scientist @ Technische Hochschule Ingolstadt"
+  logo: /assets/images/badges/thi_logo.svg
+  logo_width: 32px
+  top_margin: 0rem
 
 email: "savankumar.bhanderi@thi.de"
 # cv_link: /assets/pdf/cv.pdf               # Uncomment once CV uploaded
@@ -15,7 +16,7 @@ linkedin: savankumarbhanderi
 orcid: 0000-0001-7257-6736
 
 short_bio_text_justify: True
-short_bio: >-
+short_bio: |
   <p>
     Hi! I am Savan, a Research Scientist in the Research Group <a href="https://www.thi.de/forschung/institut-fuer-innovative-mobilitaet-iimo/forschungsbereiche/sensorik-und-datenfusion-zur-umfeldwahrnehmung/" target="_blank">Sensor Technology and Data Fusion for Environmental Perception</a> at Technische Hochschule Ingolstadt (THI). Prior to that, I obtained Master of Engineering in International Automotive Engineering from the faculty of Electrical Engineering and Information Technology, <a href="https://www.thi.de/en/" target="_blank">Ingolstadt University of Applied Sciences</a>.  
   </p>
@@ -27,30 +28,50 @@ short_bio: >-
   </p>
 
 portrait_url: /assets/images/photos/sb.jpeg
-portrait_caption: >-
-  Savankumar Bhanderi
+# portrait_caption: >-
+#   Savankumar Bhanderi
 
 education:
 - name: Technische Hochschule Ingolstadt
   logo: /assets/images/badges/thi_logo.svg
-  position: M.Eng. in International Automotive Engineering
+  logo_vertical_margin: 7px
+  position: >-
+    M.Eng. in International Automotive Engineering 
   date: 02/2020 - 09/2024
 - name: Gujarat Technological University
-  position: B.Eng. in Mechanical Engineering
+  logo: /assets/images/badges/gtu_logo.png
+  logo_vertical_margin: 7px
+  position: >-
+    B.Eng. in Mechanical Engineering
   date: 08/2026 - 05/2019
+- name: Gujarat Technological University
+  logo: /assets/images/badges/gtu_logo.png
+  logo_vertical_margin: 7px
+  position: >-
+    Diploma in Mechanical Engineering
+  date: 08/2013 - 05/2016
 
 experience:
 - name: Technische Hochschule Ingolstadt (IIMo)
   logo: /assets/images/badges/thi_logo.svg
-  position: Research Scientist (Wissenschaftlicher Mitarbeiter)
+  logo_vertical_margin: 8px
+  position: >-
+    Research Assistant (Wissenschaftlicher Mitarbeiter) <br/>
+    <a href="https://www.thi.de/en/research/institute-of-innovative-mobility-iimo/research-areas/sensor-technology-and-sensor-data-fusion/" target="_blank">Research Group Sensor Technology and Data Fusion for Environmental Perception</a>
   date: 07/2024 - present
 - name: Technische Hochschule Ingolstadt (IIMo)
   logo: /assets/images/badges/thi_logo.svg
-  position: Part-Time Research Scientist (Wissenschaftlicher Mitarbeiter)
+  logo_vertical_margin: 8px
+  position: >-
+    Part-Time Research Scientist (Wissenschaftlicher Mitarbeiter) <br/>
+    <a href="https://www.thi.de/en/research/institute-of-innovative-mobility-iimo/research-areas/sensor-technology-and-sensor-data-fusion/" target="_blank">Research Group Sensor Technology and Data Fusion for Environmental Perception</a>
   date: 06/2023 - 06/2024
 - name: Fraunhofer Institute IVI
   logo: /assets/images/badges/fraunhofer_logo.png
-  position: Student Researche Assistant
+  logo_vertical_margin: 7px
+  position: >-
+    Student Researche Assistant </br>
+    <a href="https://www.ivi.fraunhofer.de/de/abteilungen/anwendungszentrum-ingolstadt.html" target="_blank"> Applied Center Connected Mobility and Infrastructure</a>
   date: 06/2022 - 05/2023
 
 # awards:
