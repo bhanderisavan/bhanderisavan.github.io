@@ -3,7 +3,7 @@ title:          "DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and
 date:           2026-10-15 00:01:00 +0200
 selected:       true
 pub:            "<span style='color: #00daab;'>WACV 2027</span>"
-pub_date:       "2027"
+pub_date:       ""
 cover:          /assets/images/covers/driveoss.png
 authors:
   - Zhiran Yan
@@ -14,7 +14,7 @@ authors:
   - Shiva Agrawal
   - Gordon Elger
 links:
-  Project Page: ""
+  Project Page: "/publications/2027/driveoss/"
   Paper: ""
   Supplementary: ""
   Data+Code: ""
