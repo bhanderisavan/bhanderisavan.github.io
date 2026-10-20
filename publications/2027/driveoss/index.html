@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description" content="DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving">
+  <meta name="keywords" content="DriveOSS, 3D Open-Set Segmentation, 3D Anomaly Segmentation, LiDAR, Autonomous Driving, WACV 2027">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <link rel="stylesheet" href="static/css/bulma.min.css">
+  <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="static/css/fontawesome.all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="static/css/index.css">
+
+  <style>
+    .top-navbar {
+      background-color: #ffffff;
+      border-bottom: 1px solid #eaeaea;
+      padding: 0.5rem 1.5rem;
+      font-family: 'Google Sans', sans-serif;
+    }
+    .venue-tag {
+      background: #1e3c72;
+      color: #fff;
+      padding: 5px 16px;
+      border-radius: 20px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      display: inline-block;
+      margin-bottom: 12px;
+    }
+    .info-card {
+      background: #f8f9fa;
+      border-radius: 10px;
+      padding: 20px;
+      border: 1px solid #e9ecef;
+      height: 100%;
+    }
+    .stat-num {
+      font-size: 2rem;
+      font-weight: 800;
+      color: #1e3c72;
+      font-family: 'Google Sans', sans-serif;
+    }
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="static/js/fontawesome.all.min.js"></script>
+  <script src="static/js/bulma-carousel.min.js"></script>
+  <script src="static/js/bulma-slider.min.js"></script>
+  <script src="static/js/index.js"></script>
+</head>
+<body>
+
+  <!-- TOP NAVIGATION BAR -->
+  <nav class="navbar top-navbar" role="navigation" aria-label="main navigation">
+    <div class="container is-max-desktop">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://bhanderisavan.github.io" style="font-weight: 700; font-size: 1.1rem;">
+          Savankumar Bhanderi
+        </a>
+      </div>
+      <div class="navbar-menu is-active" style="box-shadow: none;">
+        <div class="navbar-end">
+          <a class="navbar-item" href="https://bhanderisavan.github.io">Home</a>
+          <a class="navbar-item" href="https://bhanderisavan.github.io/publications">Publications</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO HEADER -->
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container is-max-desktop">
+        <div class="columns is-centered">
+          <div class="column has-text-centered">
+            <div class="venue-tag">IEEE/CVF WACV 2027</div>
+            <h1 class="title is-2 publication-title">
+              DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving
+            </h1>
+
+            <!-- AUTHORS -->
+            <div class="is-size-5 publication-authors">
+              <span class="author-block">Zhiran Yan<sup>1</sup>,</span>
+              <span class="author-block"><a href="https://bhanderisavan.github.io">Savankumar Bhanderi</a><sup>1</sup>,</span>
+              <span class="author-block">Sourabh Lolge<sup>1</sup>,</span>
+              <span class="author-block">Rui Song<sup>2</sup>,</span>
+              <span class="author-block">Girdharbhai Paneliya<sup>1</sup>,</span>
+              <span class="author-block">Shiva Agrawal<sup>1</sup>,</span>
+              <span class="author-block">Gordon Elger<sup>1</sup>,</span>
+            </div>
+
+            <!-- AFFILIATION -->
+            <div class="is-size-5 publication-authors" style="margin-top: 8px;">
+              <span class="author-block"><sup>1</sup>Institute of Innovative Mobility (IIMo), Technische Hochschule Ingolstadt</span>
+            </div>
+            <div class="is-size-5 publication-authors" style="margin-top: 8px;">
+              <span class="author-block"><sup>2</sup>UCLA</span>
+            </div>
+
+            <!-- ACTION BUTTONS -->
+            <div class="column has-text-centered" style="margin-top: 15px;">
+              <div class="publication-links">
+                <span class="link-block">
+                  <a href="static/pdfs/DriveOSS_WACV2027.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Paper</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="static/pdfs/DriveOSS_Supp_WACV2027.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span>Supplementary</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://github.com/bhanderisavan" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fab fa-github"></i></span>
+                    <span>Code</span>
+                  </a>
+                </span>
+                <span class="link-block">
+                  <a href="https://dataverse.harvard.edu/" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                    <span class="icon"><i class="fas fa-database"></i></span>
+                    <span>Dataset</span>
+                  </a>
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEASER SECTION -->
+  <section class="hero teaser">
+    <div class="container is-max-desktop">
+      <div class="hero-body">
+        <img src="static/images/overview_fig1.png" alt="DriveOSS Overview" style="border-radius: 10px; width: 100%; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
+        <h2 class="subtitle has-text-centered" style="margin-top: 16px;">
+          <strong>DriveOSS</strong> is the first real-world multimodal dataset and benchmark designed for joint <strong>3D Anomaly Segmentation</strong> and <strong>3D Open-Set Semantic Segmentation</strong> across diverse adverse weather and illumination conditions.
+        </h2>
+
+        <!-- STATS ROW -->
+        <div class="columns is-multiline has-text-centered" style="margin-top: 20px;">
+          <div class="column is-3">
+            <div class="info-card">
+              <div class="stat-num">12,661</div>
+              <div>Synchronized LiDAR & 6-Camera Scans</div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="info-card">
+              <div class="stat-num">52</div>
+              <div>Driving Scenes (19 ID / 33 OOD)</div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="info-card">
+              <div class="stat-num">5</div>
+              <div>Domains (Clear, Night, Cloudy, Rain, Snow)</div>
+            </div>
+          </div>
+          <div class="column is-3">
+            <div class="info-card">
+              <div class="stat-num">1.52M</div>
+              <div>Annotated 3D OOD Outlier Points</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABSTRACT -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered has-text-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3">Abstract</h2>
+          <div class="content has-text-justified">
+            <p>
+              Recent advances in 3D semantic segmentation have significantly improved scene understanding in autonomous driving. However, existing methods are typically developed under a closed-set assumption and evaluated under standard driving conditions, where all categories are known in advance. In real-world driving, autonomous vehicles inevitably encounter previously unseen objects, making closed-set perception insufficient for safe deployment. To address this challenge, we introduce <strong>DriveOSS</strong>, the first real-world multimodal dataset and benchmark specifically designed for 3D anomaly segmentation and open-set semantic segmentation. It contains 12,661 synchronized and annotated frames captured using six surround-view RGB cameras, a 128-beam LiDAR, and a GPS/IMU unit across 52 real-world driving scenes collected under clear, nighttime, cloudy, rainy, and snowy conditions and is organized into ID (in-distribution) and OOD (out-of-distribution) subsets. The ID scenes contain only known classes and are used for training, whereas the OOD scenes additionally contain unknown objects annotated as the outlier class and are used for validation and testing. Extensive experiments show that unseen objects remain a major challenge for current 3D perception systems.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY HIGHLIGHTS (markus-42 3-Card Style) -->
+  <section class="section">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Key Contributions</h2>
+      <div class="columns is-multiline" style="margin-top: 15px;">
+        <div class="column is-4">
+          <div class="info-card">
+            <h4 class="title is-5">🌦️ Multimodal & Adverse Weather</h4>
+            <p class="is-size-6">
+              Captured with an Ouster OS1-128 LiDAR (20 Hz), 6 surround-view Basler RGB cameras (10 Hz), and RTK-GPS/IMU (600 Hz) across Clear, Night, Cloudy, Rainy, and Snowy conditions.
+            </p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="info-card">
+            <h4 class="title is-5">🎯 Three Unified 3D Tasks</h4>
+            <p class="is-size-6">
+              Jointly benchmarks (1) Closed-Set 3D Semantic Segmentation, (2) 3D Anomaly Segmentation, and (3) 3D Open-Set Semantic Segmentation via 3D mOpen-IoU and Outlier IoU.
+            </p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="info-card">
+            <h4 class="title is-5">🔍 LiDAR & Camera-LiDAR Baselines</h4>
+            <p class="is-size-6">
+              Evaluates P3Former, LCPS-lidar, Mask4Former3D, LIDO, LCPS, and Mask4Former3D* with MSP, MaxLogit, Energy, Entropy, and RbA uncertainty scoring.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BIBTEX -->
+  <section class="section hero is-light" id="BibTeX">
+    <div class="container is-max-desktop content">
+      <h2 class="title">BibTeX</h2>
+      <pre><code>@inproceedings{TODO
+}</code></pre>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="columns is-centered">
+        <div class="column is-8">
+          <div class="content has-text-centered">
+            <p>
+              Template adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a> and <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
