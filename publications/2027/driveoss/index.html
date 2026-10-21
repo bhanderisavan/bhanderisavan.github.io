@@ -904,7 +904,7 @@
         <div style="position: relative;">
           <div id="abstractContent" class="abstract-collapsible">
             <p style="margin-bottom: 1rem;">
-              Recent advances in 3D semantic segmentation have significantly improved scene understanding in autonomous driving. However, existing methods are typically developed under a <strong>closed-set assumption</strong> and evaluated under standard driving conditions, where all categories are known in advance. In real-world driving, autonomous vehicles inevitably encounter previously unseen objects, making closed-set perception insufficient for safe deployment. To address this challenge, we introduce <strong>DriveOSS</strong>, which, to the best of our knowledge, is the first real-world multimodal dataset and benchmark specifically designed for <strong>3D anomaly segmentation</strong> and <strong>open-set semantic segmentation</strong>. It contains <strong>12,661 synchronized and annotated frames</strong> captured using six surround-view RGB cameras, a 128-beam LiDAR, and a GPS/IMU unit. The dataset comprises 52 real-world driving scenes collected under clear, nighttime, cloudy, rainy, and snowy conditions and is organized into ID (in-distribution) and OOD (out-of-distribution) subsets. The ID scenes contain only known classes and are used for training, whereas the OOD scenes additionally contain unknown objects annotated as the <em>outlier</em> class and are used for validation and testing. Extensive experiments show that unseen objects remain a major challenge for current 3D perception systems. We will release the dataset, benchmark protocols, and code upon publication.
+              Recent advances in 3D semantic segmentation have significantly improved scene understanding in autonomous driving. However, existing methods are typically developed under a <strong>closed-set assumption</strong> and evaluated under standard driving conditions, where all categories are known in advance. In real-world driving, autonomous vehicles inevitably encounter previously unseen objects, making closed-set perception insufficient for safe deployment. To address this challenge, we introduce <strong>DriveOSS</strong>, which, to the best of our knowledge, is the first real-world multimodal dataset and benchmark specifically designed for <strong>3D anomaly segmentation</strong> and <strong>open-set semantic segmentation</strong>. It contains <strong>12,661 synchronized and annotated frames</strong> captured using six surround-view RGB cameras, a 128-beam LiDAR, and a GPS/IMU unit. The dataset comprises 52 real-world driving scenes collected under clear, nighttime, cloudy, rainy, and snowy conditions and is organized into ID (in-distribution) and OOD (out-of-distribution) subsets. The ID scenes contain only known classes and are used for training, whereas the OOD scenes additionally contain unknown objects annotated as the <em>outlier</em> class and are used for validation and testing. Extensive experiments show that unseen objects remain a major challenge for current 3D perception systems.
             </p>
           </div>
           <div class="abstract-fade"></div>
@@ -1084,7 +1084,7 @@
     <div class="container is-max-desktop">
       <div class="has-text-centered" style="margin-bottom: 2rem;">
         <span class="section-eyebrow">Anomalies &amp; Ground Truth Quality</span>
-        <h2 class="title is-3">OOD Hazard Taxonomy &amp; Multi-Stage Annotation QC</h2>
+        <h2 class="title is-3">OOD Hazard Taxonomy &amp; Two-Stage Annotation</h2>
       </div>
 
       <div class="media-window" style="margin-bottom: 2rem;">
@@ -1145,7 +1145,7 @@
       <div class="columns is-vcentered">
         <div class="column is-5">
           <div class="pillar-card">
-            <h4 class="title is-5" style="margin-bottom: 10px;">Spatial-Hazard Protocol &amp; 6-Stage QC</h4>
+            <h4 class="title is-5" style="margin-bottom: 10px;">Spatial-Hazard Protocol &amp; Annotation Workflow</h4>
             <p style="color:#475569; font-size:0.9rem; margin-bottom: 10px;">
               To maintain an objective boundary between <code>outlier</code> and <code>other-object</code>, any non-ID object located on or immediately adjacent to the drivable surface (road, parking, lane-marking, or sidewalk curb) is strictly annotated as <code>outlier</code>, while permanent off-road fixtures (bus shelters, benches) are labeled <code>other-object</code>.
             </p>
@@ -1183,12 +1183,12 @@
         <span class="section-eyebrow">Quantitative Evaluation</span>
         <h2 class="title is-3" style="margin-bottom: 0.75rem !important;">Interactive Benchmark Explorer</h2>
         <p style="color:#475569; max-width: 720px; margin: 0 auto 1.5rem;">
-          Showing the best-performing anomaly scoring variant per architecture across all 19 known classes + Outlier.
+          Showing the best-performing anomaly scoring variant per architecture.
         </p>
 
         <div class="pill-tabs">
           <button class="pill-tab-btn active" onclick="switchBenchTab('tab-oss', this)">
-            <i class="fas fa-bullseye" style="margin-right:6px;"></i>3D Open-Set (All 19 Classes + Outlier)
+            <i class="fas fa-bullseye" style="margin-right:6px;"></i>3D Open-Set
           </button>
           <button class="pill-tab-btn" onclick="switchBenchTab('tab-anom', this)">
             <i class="fas fa-exclamation-circle" style="margin-right:6px;"></i>3D Anomaly (AUROC / FPR@95)
