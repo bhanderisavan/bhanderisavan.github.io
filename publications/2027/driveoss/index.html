@@ -23,8 +23,9 @@
   <style>
     :root {
       --brand-dark: #0f172a;
-      --brand-primary: #2563eb;
-      --brand-indigo: #4f46e5;
+      --brand-teal: #0d9488;
+      --brand-emerald: #059669;
+      --brand-amber: #d97706;
       --surface-bg: #f8fafc;
       --border-subtle: #e2e8f0;
       --text-main: #0f172a;
@@ -81,11 +82,11 @@
       gap: 8px;
       padding: 6px 12px;
       border-radius: 8px;
-      transition: background 0.2s;
+      transition: all 0.25s ease;
     }
     .nav-brand:hover {
-      background: #f1f5f9;
-      color: var(--brand-primary);
+      background: #f0fdfa;
+      color: var(--brand-teal);
     }
     .nav-links {
       display: flex;
@@ -93,22 +94,38 @@
       align-items: center;
     }
     .nav-links a {
+      position: relative;
+      overflow: hidden;
       color: var(--text-muted);
       font-weight: 500;
       font-size: 0.9rem;
       padding: 6px 14px;
       border-radius: 8px;
       text-decoration: none;
-      transition: all 0.2s;
+      transition: all 0.25s ease;
+    }
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 2.5px;
+      background: linear-gradient(90deg, #0d9488, #f59e0b);
+      transition: width 0.3s ease;
     }
     .nav-links a:hover {
-      color: var(--brand-primary);
+      color: var(--brand-dark);
       background: #f1f5f9;
     }
+    .nav-links a:hover::after {
+      width: 100%;
+    }
     .nav-links a.nav-cta {
-      background: #eff6ff;
-      color: var(--brand-primary);
+      background: #f0fdfa;
+      color: #0f766e;
       font-weight: 600;
+      border: 1px solid #99f6e4;
     }
 
     /* 2. ARCHITECTURAL HERO SECTION */
@@ -116,70 +133,51 @@
       position: relative;
       background-color: #ffffff;
       background-image: 
-        radial-gradient(at 50% 0%, rgba(37, 99, 235, 0.10) 0px, transparent 60%),
-        radial-gradient(at 85% 20%, rgba(79, 70, 229, 0.07) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(13, 148, 136, 0.09) 0px, transparent 60%),
+        radial-gradient(at 85% 20%, rgba(245, 158, 11, 0.06) 0px, transparent 50%),
         radial-gradient(#cbd5e1 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 24px 24px;
-      padding: 3.5rem 1.5rem 2.75rem;
+      padding: 3.25rem 1.5rem 2.75rem;
       border-bottom: 1px solid var(--border-subtle);
     }
 
-    .conf-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
-      color: #ffffff;
-      padding: 6px 18px;
-      border-radius: 999px;
-      font-size: 0.82rem;
-      font-weight: 700;
-      letter-spacing: 0.6px;
-      text-transform: uppercase;
-      box-shadow: 0 8px 20px -4px rgba(30, 58, 138, 0.35);
-      margin-bottom: 1.25rem;
-    }
-    .conf-badge .dot {
-      width: 8px;
-      height: 8px;
-      background: #38bdf8;
-      border-radius: 50%;
-      box-shadow: 0 0 8px #38bdf8;
-    }
-
-    /* 2-Line Balanced Title */
+    /* STRICT 2-LINE TITLE ON DESKTOP */
     .hero-title {
-      font-size: 2.05rem !important;
+      font-size: clamp(1.32rem, 2.08vw, 1.82rem) !important;
       font-weight: 800 !important;
-      line-height: 1.28 !important;
+      line-height: 1.32 !important;
       letter-spacing: -0.02em;
       color: #0f172a;
-      max-width: 1080px;
+      max-width: 1140px;
       margin: 0 auto 1.5rem !important;
     }
+    .title-line {
+      display: block;
+      white-space: nowrap;
+    }
     .gradient-brand {
-      background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 50%, #4f46e5 100%);
+      background: linear-gradient(135deg, #0f766e 0%, #0284c7 60%, #4f46e5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* 3. AUTHOR PILLS WITH LEFT-TO-RIGHT UNDERLINE & LIFT ANIMATION */
+    /* 3. AUTHOR PILLS WITH HOVER SHADE + LEFT-TO-RIGHT SWEEP */
     .authors-wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      max-width: 960px;
-      margin: 0 auto 1.75rem;
+      max-width: 980px;
+      margin: 0 auto 1.25rem;
     }
     .author-chip {
       position: relative;
       overflow: hidden;
-      background: rgba(255, 255, 255, 0.92);
-      border: 1px solid #e2e8f0;
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
       padding: 7px 16px;
       border-radius: 999px;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       font-weight: 600;
       color: #1e293b;
       box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
@@ -189,39 +187,38 @@
       display: inline-flex;
       align-items: center;
     }
+    /* Bottom sweep bar on every author pill */
+    .author-chip::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #0d9488, #f59e0b, #ec4899);
+      transition: width 0.32s cubic-bezier(0.4, 0, 0.2, 1);
+    }
     .author-chip span.author-name {
       position: relative;
       z-index: 1;
       transition: color 0.25s ease;
     }
-    /* Left-to-Right Animated Underline inside Author Pill */
-    .author-chip span.author-name::after {
-      content: '';
-      position: absolute;
-      left: 0;
-      bottom: -2px;
-      width: 0%;
-      height: 2px;
-      background: linear-gradient(90deg, #2563eb, #ec4899);
-      border-radius: 2px;
-      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
     .author-chip:hover {
       transform: translateY(-4px) scale(1.03);
-      border-color: #93c5fd;
-      background: #ffffff;
-      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.18);
+      border-color: #5eead4;
+      background: #f0fdfa;
+      box-shadow: 0 10px 20px -5px rgba(13, 148, 136, 0.20);
     }
     .author-chip:hover span.author-name {
-      color: #2563eb;
+      color: #0f766e;
     }
-    .author-chip:hover span.author-name::after {
+    .author-chip:hover::after {
       width: 100%;
     }
     .author-chip.is-self {
-      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
-      border-color: #93c5fd;
-      color: #1d4ed8;
+      background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
+      border-color: #5eead4;
+      color: #0f766e;
     }
     .author-chip sup {
       color: #64748b;
@@ -230,14 +227,62 @@
       font-size: 0.75rem;
     }
 
-    /* 4. MARKUS-42 STYLE AFFILIATION CARDS WITH PILL HOVER & LEFT-TO-RIGHT SWEEP */
+    /* 4. CONFERENCE PILL (BETWEEN AUTHORS & AFFILIATIONS) */
+    .conf-badge-wrap {
+      margin: 0.4rem auto 0.85rem;
+    }
+    .conf-badge {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      gap: 9px;
+      background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%);
+      color: #ffffff;
+      padding: 7px 22px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      letter-spacing: 0.7px;
+      text-transform: uppercase;
+      box-shadow: 0 8px 20px -4px rgba(15, 118, 110, 0.38);
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      cursor: default;
+    }
+    .conf-badge::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #fbbf24, #34d399);
+      transition: width 0.35s ease;
+    }
+    .conf-badge:hover {
+      transform: translateY(-3px) scale(1.03);
+      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
+      box-shadow: 0 12px 24px -4px rgba(13, 148, 136, 0.48);
+    }
+    .conf-badge:hover::after {
+      width: 100%;
+    }
+    .conf-badge .dot {
+      width: 8px;
+      height: 8px;
+      background: #fbbf24;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #fbbf24;
+    }
+
+    /* 5. MARKUS-42 STYLE AFFILIATION CARDS */
     .affiliations-grid {
       display: flex;
       justify-content: center;
       align-items: stretch;
       flex-wrap: wrap;
       gap: 2.5rem;
-      margin: 0.5rem auto 2rem;
+      margin: 0.25rem auto 1.85rem;
       max-width: 780px;
     }
     .affiliation-card {
@@ -247,7 +292,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 1.15rem 2rem;
+      padding: 1.1rem 2rem;
       border-radius: 16px;
       background: transparent;
       border: 1px solid transparent;
@@ -256,7 +301,6 @@
       min-width: 280px;
       cursor: pointer;
     }
-    /* Left-to-Right Bottom Underline Sweep on the Pill */
     .affiliation-card::after {
       content: '';
       position: absolute;
@@ -264,13 +308,13 @@
       left: 0;
       width: 0%;
       height: 3.5px;
-      background: linear-gradient(90deg, #2563eb 0%, #06b6d4 50%, #ec4899 100%);
+      background: linear-gradient(90deg, #0d9488 0%, #f59e0b 50%, #ec4899 100%);
       transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .affiliation-card:hover {
       background: #ffffff;
-      border-color: #e2e8f0;
-      box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.10);
+      border-color: #cbd5e1;
+      box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.12);
       transform: translateY(-4px);
     }
     .affiliation-card:hover::after {
@@ -278,16 +322,16 @@
     }
     .affiliation-title {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.15rem;
+      font-size: 1.12rem;
       font-weight: 700;
       color: #1e293b !important;
       line-height: 1.32;
       text-align: center;
-      margin-bottom: 0.3rem;
+      margin-bottom: 0.25rem;
       transition: color 0.25s ease;
     }
     .affiliation-card:hover .affiliation-title {
-      color: #2563eb !important;
+      color: #0f766e !important;
     }
     .affiliation-title sup {
       font-size: 0.78rem;
@@ -296,18 +340,18 @@
     }
     .affiliation-dept {
       font-family: 'Inter', sans-serif;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
       font-style: italic;
       color: #64748b !important;
       text-align: center;
-      margin-bottom: 0.85rem;
+      margin-bottom: 0.8rem;
       transition: color 0.25s ease;
     }
     .affiliation-card:hover .affiliation-dept {
-      color: #1e293b !important;
+      color: #0f172a !important;
     }
     .affiliation-logo {
-      height: 42px;
+      height: 40px;
       width: 100%;
       display: flex;
       align-items: center;
@@ -316,7 +360,7 @@
     }
     .affiliation-logo svg,
     .affiliation-logo img {
-      height: 38px;
+      height: 36px;
       width: auto;
       display: block;
       margin: 0 auto;
@@ -324,50 +368,79 @@
     }
     .affiliation-card:hover .affiliation-logo svg,
     .affiliation-card:hover .affiliation-logo img {
-      transform: scale(1.06);
+      transform: scale(1.07);
     }
 
-    /* 5. ACTION BUTTONS */
+    /* 6. UNIFIED ACTION PILLS WITH SHADE-SHIFT & SWEEP ANIMATION */
     .cta-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
     }
-    .btn-modern {
+    .btn-action-pill {
+      position: relative;
+      overflow: hidden;
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      padding: 11px 22px;
-      border-radius: 12px;
-      font-weight: 600;
-      font-size: 0.95rem;
+      padding: 11px 24px;
+      border-radius: 999px;
+      background: #1e293b;
+      color: #f8fafc !important;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.92rem;
+      border: 1px solid #334155;
+      box-shadow: 0 6px 16px -3px rgba(15, 23, 42, 0.22);
       text-decoration: none !important;
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: 1;
+      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .btn-modern:hover { transform: translateY(-3px); }
-    .btn-primary-grad {
-      background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
+    /* Animated shade-changing fill layer on hover */
+    .btn-action-pill::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #0f766e 0%, #0d9488 55%, #059669 100%);
+      z-index: -1;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    /* Animated bottom gold-amber underline sweep */
+    .btn-action-pill::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: linear-gradient(90deg, #fbbf24, #38bdf8);
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .btn-action-pill i {
+      color: #5eead4;
+      transition: transform 0.3s ease, color 0.3s ease;
+    }
+    .btn-action-pill:hover {
+      transform: translateY(-4px) scale(1.03);
+      border-color: #14b8a6;
+      box-shadow: 0 12px 26px -5px rgba(13, 148, 136, 0.42);
       color: #ffffff !important;
-      box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.45);
     }
-    .btn-dark-sleek {
-      background: #0f172a;
-      color: #ffffff !important;
-      box-shadow: 0 6px 16px -3px rgba(15, 23, 42, 0.25);
+    .btn-action-pill:hover::before {
+      transform: scaleX(1);
     }
-    .btn-outline-glass {
-      background: #ffffff;
-      color: #0f172a !important;
-      border: 1.5px solid #cbd5e1;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+    .btn-action-pill:hover::after {
+      width: 100%;
     }
-    .btn-outline-glass:hover {
-      border-color: #2563eb;
-      color: #2563eb !important;
+    .btn-action-pill:hover i {
+      color: #fde68a;
+      transform: scale(1.12);
     }
 
-    /* 6. SHOWCASE MEDIA FRAMES */
+    /* 7. SHOWCASE MEDIA FRAMES */
     .media-window {
       background: #ffffff;
       border-radius: 16px;
@@ -398,15 +471,15 @@
     .media-body { padding: 12px; background: #ffffff; }
     .media-body img { width: 100%; border-radius: 8px; display: block; }
     .img-fallback {
-      background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
-      border: 2px dashed #93c5fd;
+      background: linear-gradient(135deg, #f8fafc 0%, #f0fdfa 100%);
+      border: 2px dashed #5eead4;
       border-radius: 12px;
       padding: 2.5rem 1.5rem;
       text-align: center;
-      color: #1e3a8a;
+      color: #0f766e;
     }
 
-    /* 7. METRIC BENTO CARDS */
+    /* 8. METRIC BENTO CARDS */
     .metric-bento {
       background: #ffffff;
       border-radius: 16px;
@@ -415,7 +488,7 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       text-align: center;
       height: 100%;
-      transition: all 0.25s ease;
+      transition: all 0.28s ease;
       position: relative;
       overflow: hidden;
     }
@@ -423,16 +496,16 @@
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, #2563eb, #06b6d4);
+      background: linear-gradient(90deg, #0d9488, #f59e0b);
     }
     .metric-bento:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.14);
-      border-color: #bfdbfe;
+      transform: translateY(-5px);
+      box-shadow: 0 14px 26px -6px rgba(13, 148, 136, 0.16);
+      border-color: #99f6e4;
     }
     .metric-icon {
       width: 36px; height: 36px; border-radius: 10px;
-      background: #eff6ff; color: #2563eb;
+      background: #f0fdfa; color: #0d9488;
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 1rem; margin-bottom: 8px;
     }
@@ -444,11 +517,11 @@
       font-size: 0.8rem; font-weight: 600; color: #64748b; margin-top: 5px;
     }
 
-    /* 8. EXPANDABLE ABSTRACT & PILLARS */
+    /* 9. EXPANDABLE ABSTRACT & PILLARS */
     .tldr-banner {
-      background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
-      border: 1px solid #bfdbfe;
-      border-left: 5px solid #2563eb;
+      background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
+      border: 1px solid #99f6e4;
+      border-left: 5px solid #0d9488;
       border-radius: 14px;
       padding: 16px 22px;
       margin-bottom: 1.75rem;
@@ -471,9 +544,7 @@
       overflow: hidden;
       transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .abstract-collapsible.expanded {
-      max-height: 900px;
-    }
+    .abstract-collapsible.expanded { max-height: 900px; }
     .abstract-fade {
       position: absolute;
       bottom: 0; left: 0; right: 0; height: 60px;
@@ -482,16 +553,38 @@
       transition: opacity 0.3s ease;
     }
     .abstract-collapsible.expanded + .abstract-fade { opacity: 0; }
-    .abstract-toggle-wrap { text-align: center; margin-top: 12px; }
+    .abstract-toggle-wrap { text-align: center; margin-top: 14px; }
     .btn-expand-abstract {
-      background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe;
-      padding: 7px 18px; border-radius: 999px;
+      position: relative;
+      overflow: hidden;
+      background: #1e293b;
+      color: #ffffff;
+      border: 1px solid #334155;
+      padding: 8px 22px;
+      border-radius: 999px;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 0.85rem; font-weight: 700; cursor: pointer;
-      display: inline-flex; align-items: center; gap: 6px;
-      transition: all 0.2s ease;
+      font-size: 0.85rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      transition: all 0.28s ease;
     }
-    .btn-expand-abstract:hover { background: #dbeafe; transform: translateY(-1px); }
+    .btn-expand-abstract::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; width: 0%; height: 3px;
+      background: linear-gradient(90deg, #34d399, #fbbf24);
+      transition: width 0.3s ease;
+    }
+    .btn-expand-abstract:hover {
+      background: #0f766e;
+      border-color: #0d9488;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 14px rgba(13, 148, 136, 0.28);
+    }
+    .btn-expand-abstract:hover::after { width: 100%; }
 
     .pillar-card {
       background: #ffffff;
@@ -504,19 +597,19 @@
     }
     .pillar-card:hover {
       transform: translateY(-4px);
-      border-color: #93c5fd;
-      box-shadow: 0 14px 28px -8px rgba(37, 99, 235, 0.12);
+      border-color: #5eead4;
+      box-shadow: 0 14px 28px -8px rgba(13, 148, 136, 0.12);
     }
     .pillar-icon-box {
       width: 44px; height: 44px; border-radius: 12px;
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 1.25rem; margin-bottom: 14px;
     }
-    .icon-blue { background: #eff6ff; color: #2563eb; }
-    .icon-indigo { background: #eef2ff; color: #4f46e5; }
-    .icon-teal { background: #f0fdfa; color: #0d9488; }
+    .icon-blue { background: #f0fdfa; color: #0d9488; }
+    .icon-indigo { background: #fef3c7; color: #d97706; }
+    .icon-teal { background: #eef2ff; color: #4f46e5; }
 
-    /* 9. BENCHMARK TABLES (ZERO HORIZONTAL SCROLL ON 19-CLASS OPEN-SET) */
+    /* 10. REDESIGNED WEATHER SPLIT TABLE (ZERO SLASHES, MULTI-TIER HEADERS) */
     .section-bg-slate {
       background-color: #f8fafc;
       border-top: 1px solid #e2e8f0;
@@ -527,34 +620,10 @@
       letter-spacing: 1.2px;
       font-size: 0.78rem;
       font-weight: 800;
-      color: #2563eb;
+      color: #0d9488;
       margin-bottom: 6px;
       display: block;
     }
-    .pill-tabs {
-      display: inline-flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 6px;
-      background: #e2e8f0;
-      padding: 6px;
-      border-radius: 14px;
-      margin-bottom: 1.5rem;
-    }
-    .pill-tab-btn {
-      background: transparent; border: none; color: #475569;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700; font-size: 0.88rem;
-      padding: 9px 16px; border-radius: 10px;
-      cursor: pointer; transition: all 0.2s ease;
-    }
-    .pill-tab-btn.active {
-      background: #ffffff; color: #2563eb;
-      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
-    }
-    .tab-pane { display: none; }
-    .tab-pane.active { display: block; animation: fadeInUp 0.3s ease-out; }
-
     .modern-table-card {
       background: #ffffff;
       border-radius: 16px;
@@ -566,30 +635,129 @@
       width: 100%;
       border-collapse: collapse;
       font-size: 0.9rem;
+      font-variant-numeric: tabular-nums;
     }
     .modern-table thead th {
-      background: #0f172a; color: #ffffff;
-      font-weight: 600; padding: 13px 14px;
-      text-align: center; font-size: 0.84rem;
+      background: #0f172a;
+      color: #ffffff;
+      font-weight: 600;
+      padding: 12px 14px;
+      text-align: center;
+      font-size: 0.84rem;
     }
     .modern-table thead th:first-child { text-align: left; }
+    .modern-table thead tr.sub-header th {
+      background: #1e293b;
+      color: #cbd5e1;
+      font-size: 0.76rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 8px 10px;
+      border-top: 1px solid #334155;
+    }
+    .th-group-divider {
+      border-left: 1px solid #334155 !important;
+    }
+    .td-group-divider {
+      border-left: 1px solid #e2e8f0 !important;
+    }
     .modern-table tbody td {
-      padding: 12px 14px; border-bottom: 1px solid #f1f5f9;
-      text-align: center; color: #334155;
+      padding: 12px 12px;
+      border-bottom: 1px solid #f1f5f9;
+      text-align: center;
+      color: #334155;
+      vertical-align: middle;
     }
     .modern-table tbody td:first-child {
-      text-align: left; font-weight: 600; color: #0f172a;
+      text-align: left;
+      font-weight: 700;
+      color: #0f172a;
     }
     .modern-table tbody tr:hover { background-color: #f8fafc; }
+
+    .seq-badge {
+      display: inline-block;
+      background: #f1f5f9;
+      color: #475569;
+      font-weight: 700;
+      font-size: 0.78rem;
+      padding: 2px 9px;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+    }
+    .ood-pts-pill {
+      display: inline-block;
+      background: #fffbeb;
+      color: #b45309;
+      font-weight: 700;
+      font-size: 0.82rem;
+      padding: 3px 10px;
+      border-radius: 8px;
+      border: 1px solid #fde68a;
+    }
+    .weather-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+    }
     .ours-row {
-      background: linear-gradient(90deg, #eff6ff 0%, #f0f9ff 100%) !important;
+      background: linear-gradient(90deg, #f0fdfa 0%, #ecfeff 100%) !important;
       font-weight: 700;
     }
     .ours-row td {
-      color: #1e3a8a !important;
-      border-top: 1.5px solid #93c5fd !important;
-      border-bottom: 1.5px solid #93c5fd !important;
+      color: #0f766e !important;
+      border-top: 1.5px solid #5eead4 !important;
+      border-bottom: 1.5px solid #5eead4 !important;
     }
+
+    /* 11. BENCHMARK PILL TABS WITH HOVER ANIMATION */
+    .pill-tabs {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 8px;
+      background: #e2e8f0;
+      padding: 6px;
+      border-radius: 999px;
+      margin-bottom: 1.5rem;
+    }
+    .pill-tab-btn {
+      position: relative;
+      overflow: hidden;
+      background: transparent;
+      border: none;
+      color: #475569;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-weight: 700;
+      font-size: 0.86rem;
+      padding: 9px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+    .pill-tab-btn::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 15%; width: 0%; height: 2.5px;
+      background: linear-gradient(90deg, #0d9488, #f59e0b);
+      transition: width 0.3s ease;
+    }
+    .pill-tab-btn:hover {
+      color: #0f172a;
+      background: rgba(255,255,255,0.6);
+      transform: translateY(-1px);
+    }
+    .pill-tab-btn:hover::after { width: 70%; }
+    .pill-tab-btn.active {
+      background: #1e293b;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+    }
+    .pill-tab-btn.active i { color: #5eead4; }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeInUp 0.3s ease-out; }
 
     /* ZERO-SCROLL 22-COLUMN FULL-CLASS TABLE */
     .fit-all-table {
@@ -661,9 +829,9 @@
       display: inline-block; padding: 2px 6px;
       border-radius: 6px; font-size: 0.68rem; font-weight: 700;
     }
-    .tag-l { background: #e0f2fe; color: #0369a1; }
-    .tag-lc { background: #f3e8ff; color: #7e22ce; }
-    .check-yes { color: #10b981; font-weight: 700; }
+    .tag-l { background: #ccfbf1; color: #115e59; }
+    .tag-lc { background: #fef3c7; color: #92400e; }
+    .check-yes { color: #059669; font-weight: 700; }
     .check-no { color: #94a3b8; }
     .gold-medal {
       background: #fef3c7; color: #b45309;
@@ -675,7 +843,7 @@
       text-decoration: underline;
     }
 
-    /* 10. DARK MODE TERMINAL BIBTEX */
+    /* 12. DARK MODE TERMINAL BIBTEX */
     .terminal-card {
       background: #0f172a !important;
       border-radius: 16px;
@@ -693,9 +861,13 @@
       margin: 0 !important; padding: 1.5rem !important; color: #e2e8f0 !important;
     }
     .terminal-card code {
-      background: transparent !important; color: #38bdf8 !important;
+      background: transparent !important; color: #5eead4 !important;
       font-family: 'JetBrains Mono', monospace !important;
       font-size: 0.86rem !important; line-height: 1.65;
+    }
+
+    @media screen and (max-width: 900px) {
+      .title-line { white-space: normal; }
     }
   </style>
 
@@ -711,7 +883,7 @@
   <header class="glass-nav">
     <div class="nav-container">
       <a class="nav-brand" href="https://bhanderisavan.github.io">
-        <i class="fas fa-arrow-left" style="color: #2563eb;"></i>
+        <i class="fas fa-arrow-left" style="color: #0d9488;"></i>
         <span>Savankumar Bhanderi</span>
       </a>
       <nav class="nav-links">
@@ -730,17 +902,13 @@
   <section class="hero-mesh">
     <div class="container is-max-desktop has-text-centered">
       
-      <div class="conf-badge">
-        <span class="dot"></span>
-        <span>Accepted at IEEE/CVF WACV 2027 &bull; Datasets Track</span>
-      </div>
-
+      <!-- STRICT 2-LINE TITLE -->
       <h1 class="hero-title">
-        <span class="gradient-brand">DriveOSS:</span> Dataset and Benchmark for 3D Anomaly Segmentation<br>
-        and Open-set Semantic Segmentation in Autonomous Driving
+        <span class="title-line"><span class="gradient-brand">DriveOSS:</span> Dataset and Benchmark for 3D Anomaly Segmentation</span>
+        <span class="title-line">and Open-set Semantic Segmentation in Autonomous Driving</span>
       </h1>
 
-      <!-- Interactive Author Chips with Hover Lift & Left-to-Right Underline -->
+      <!-- Interactive Author Chips -->
       <div class="authors-wrap">
         <a href="#overview" class="author-chip"><span class="author-name">Zhiran Yan</span><sup>1</sup></a>
         <a href="https://bhanderisavan.github.io" class="author-chip is-self">
@@ -754,7 +922,15 @@
         <a href="#overview" class="author-chip"><span class="author-name">Gordon Elger</span><sup>1</sup></a>
       </div>
 
-      <!-- Markus-42 Style Institution Cards (Normal by default -> Pill + Left-to-Right Underline on Hover) -->
+      <!-- WACV 2027 PILL (MOVED BETWEEN AUTHORS & AFFILIATIONS) -->
+      <div class="conf-badge-wrap">
+        <div class="conf-badge">
+          <span class="dot"></span>
+          <span>Accepted at IEEE/CVF WACV 2027 &bull; Datasets Track</span>
+        </div>
+      </div>
+
+      <!-- Markus-42 Style Institution Cards -->
       <div class="affiliations-grid">
         
         <!-- 1: THI Ingolstadt -->
@@ -768,7 +944,7 @@
             </div>
           </div>
           <div class="affiliation-logo">
-            <svg viewBox="0 0 100 72" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 100 72" height="36" fill="none" xmlns="http://www.w3.org/2000/svg">
               <path d="M40 12L28 60M18 28H62C68 28 71 32 69 39L62 62" stroke="#005A9B" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
               <circle cx="69" cy="12" r="5.5" fill="#005A9B"/>
             </svg>
@@ -786,7 +962,7 @@
             </div>
           </div>
           <div class="affiliation-logo">
-            <svg viewBox="0 0 150 48" height="36" xmlns="http://www.w3.org/2000/svg">
+            <svg viewBox="0 0 150 48" height="34" xmlns="http://www.w3.org/2000/svg">
               <text x="50%" y="36" text-anchor="middle" fill="#2774AE" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-style="italic" font-size="36" letter-spacing="1">UCLA</text>
             </svg>
           </div>
@@ -794,23 +970,23 @@
 
       </div>
 
-      <!-- Action Buttons -->
+      <!-- Unified Charcoal-Slate Action Pills with Emerald-Teal Hover Sweep -->
       <div class="cta-group">
-        <a href="static/pdfs/DriveOSS_WACV2027.pdf" target="_blank" class="btn-modern btn-primary-grad">
+        <a href="static/pdfs/DriveOSS_WACV2027.pdf" target="_blank" class="btn-action-pill">
           <i class="fas fa-file-pdf"></i>
-          <span>Main Paper (PDF)</span>
+          <span>Main Paper</span>
         </a>
-        <a href="static/pdfs/DriveOSS_Supp_WACV2027.pdf" target="_blank" class="btn-modern btn-outline-glass">
+        <a href="static/pdfs/DriveOSS_Supp_WACV2027.pdf" target="_blank" class="btn-action-pill">
           <i class="fas fa-file-alt"></i>
           <span>Supplementary</span>
         </a>
-        <a href="https://github.com/bhanderisavan/DriveOSS" target="_blank" class="btn-modern btn-dark-sleek">
+        <a href="https://github.com/bhanderisavan/DriveOSS" target="_blank" class="btn-action-pill">
           <i class="fab fa-github"></i>
           <span>Code &amp; Benchmark</span>
         </a>
-        <a href="https://dataverse.harvard.edu/" target="_blank" class="btn-modern btn-outline-glass">
-          <i class="fas fa-database" style="color:#2563eb;"></i>
-          <span>Dataset (Dataverse)</span>
+        <a href="https://dataverse.harvard.edu/" target="_blank" class="btn-action-pill">
+          <i class="fas fa-database"></i>
+          <span>Dataset</span>
         </a>
       </div>
 
@@ -822,7 +998,7 @@
     <div class="container is-max-desktop">
 
       <div class="tldr-banner">
-        <strong><i class="fas fa-bolt" style="color:#2563eb; margin-right:6px;"></i>TL;DR:</strong>
+        <strong><i class="fas fa-bolt" style="color:#0d9488; margin-right:6px;"></i>TL;DR:</strong>
         <strong>DriveOSS</strong> is the first real-world multimodal autonomous driving dataset and benchmark designed to jointly evaluate <strong>Closed-Set 3D Semantic Segmentation</strong>, <strong>3D Anomaly Segmentation</strong>, and <strong>3D Open-Set Semantic Segmentation</strong> across 5 weather and lighting conditions (Clear, Night, Cloudy, Rain, Snow).
       </div>
 
@@ -837,8 +1013,8 @@
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="img-fallback" style="display:none;">
             <i class="fas fa-images" style="font-size: 2rem; margin-bottom: 8px;"></i>
-            <h4 class="title is-5" style="margin-bottom: 4px; color:#1e3a8a;">Teaser Figure Placeholder</h4>
-            <p style="font-size: 0.88rem; color:#475569;"> Figure 1 at <code>static/images/overview_fig1.png</code></p>
+            <h4 class="title is-5" style="margin-bottom: 4px; color:#0f766e;">Teaser Figure Placeholder</h4>
+            <p style="font-size: 0.88rem; color:#475569;"> Figure 1  as <code>static/images/overview_fig1.png</code></p>
           </div>
         </div>
       </div>
@@ -996,7 +1172,7 @@
     </div>
   </section>
 
-  <!-- 6. SENSOR SUITE, CALIBRATION & WEATHER DISTRIBUTION -->
+  <!-- 6. SENSOR SUITE, CALIBRATION & REDESIGNED WEATHER DISTRIBUTION TABLE -->
   <section class="section section-bg-slate" id="sensors">
     <div class="container is-max-desktop">
       <div class="has-text-centered" style="margin-bottom: 2rem;">
@@ -1049,42 +1225,127 @@
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="img-fallback" style="display:none; padding: 2rem;">
             <i class="fas fa-camera-retro" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
-            <p style="font-size: 0.88rem;"> Figure 3 at <code>static/images/calibration_6views.png</code></p>
+            <p style="font-size: 0.88rem;">Figure 3 at <code>static/images/calibration_6views.png</code></p>
           </div>
         </div>
       </div>
 
+      <!-- REDESIGNED MULTI-COLUMN WEATHER DISTRIBUTION TABLE (NO SLASHES) -->
       <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.25rem;">Distribution Across Splits &amp; 5 Weather Domains</h3>
       <div class="modern-table-card">
         <table class="modern-table">
           <thead>
             <tr>
-              <th>Condition</th>
-              <th>ID Train (Seq / Frames)</th>
-              <th>ID Val (Seq / Frames)</th>
-              <th>OOD Val (Seq / Frames / OOD Points)</th>
-              <th>OOD Test (Seq / Frames / OOD Points)</th>
+              <th rowspan="2" style="vertical-align: middle;">Environmental Domain</th>
+              <th colspan="2" class="th-group-divider">ID Train Split</th>
+              <th colspan="2" class="th-group-divider">ID Validation Split</th>
+              <th colspan="3" class="th-group-divider">OOD Validation Split</th>
+              <th colspan="3" class="th-group-divider">OOD Test Split</th>
+            </tr>
+            <tr class="sub-header">
+              <th class="th-group-divider">Seq.</th>
+              <th>Frames</th>
+              <th class="th-group-divider">Seq.</th>
+              <th>Frames</th>
+              <th class="th-group-divider">Seq.</th>
+              <th>Frames</th>
+              <th>OOD Points</th>
+              <th class="th-group-divider">Seq.</th>
+              <th>Frames</th>
+              <th>OOD Points</th>
             </tr>
           </thead>
           <tbody>
-            <tr><td>☀️ Clear</td><td>4 / 809</td><td>6 / 1,701</td><td>9 / 2,315 / 252,606</td><td>8 / 1,766 / 885,729</td></tr>
-            <tr><td>🌙 Nighttime</td><td>1 / 184</td><td>1 / 79</td><td>2 / 287 / 22,132</td><td>2 / 357 / 42,979</td></tr>
-            <tr><td>☁️ Cloudy</td><td>2 / 636</td><td>1 / 186</td><td>2 / 742 / 43,548</td><td>2 / 666 / 71,440</td></tr>
-            <tr><td>🌧️ Rainy</td><td>1 / 399</td><td>1 / 165</td><td>2 / 696 / 35,104</td><td>2 / 618 / 66,509</td></tr>
-            <tr><td>❄️ Snowy</td><td>1 / 212</td><td>1 / 253</td><td>2 / 238 / 12,898</td><td>2 / 352 / 89,803</td></tr>
-            <tr class="ours-row"><td>Overall DriveOSS</td><td>9 / 2,240</td><td>10 / 2,384</td><td>17 / 4,278 / 366,288</td><td>16 / 3,759 / 1,156,460</td></tr>
+            <tr>
+              <td><span class="weather-chip"><i class="fas fa-sun" style="color:#f59e0b;"></i> Clear</span></td>
+              <td class="td-group-divider"><span class="seq-badge">4</span></td>
+              <td>809</td>
+              <td class="td-group-divider"><span class="seq-badge">6</span></td>
+              <td>1,701</td>
+              <td class="td-group-divider"><span class="seq-badge">9</span></td>
+              <td>2,315</td>
+              <td><span class="ood-pts-pill">252,606</span></td>
+              <td class="td-group-divider"><span class="seq-badge">8</span></td>
+              <td>1,766</td>
+              <td><span class="ood-pts-pill">885,729</span></td>
+            </tr>
+            <tr>
+              <td><span class="weather-chip"><i class="fas fa-moon" style="color:#6366f1;"></i> Nighttime</span></td>
+              <td class="td-group-divider"><span class="seq-badge">1</span></td>
+              <td>184</td>
+              <td class="td-group-divider"><span class="seq-badge">1</span></td>
+              <td>79</td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>287</td>
+              <td><span class="ood-pts-pill">22,132</span></td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>357</td>
+              <td><span class="ood-pts-pill">42,979</span></td>
+            </tr>
+            <tr>
+              <td><span class="weather-chip"><i class="fas fa-cloud" style="color:#64748b;"></i> Cloudy</span></td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>636</td>
+              <td class="td-group-divider"><span class="seq-badge">1</span></td>
+              <td>186</td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>742</td>
+              <td><span class="ood-pts-pill">43,548</span></td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>666</td>
+              <td><span class="ood-pts-pill">71,440</span></td>
+            </tr>
+            <tr>
+              <td><span class="weather-chip"><i class="fas fa-cloud-showers-heavy" style="color:#0284c7;"></i> Rainy</span></td>
+              <td class="td-group-divider"><span class="seq-badge">1</span></td>
+              <td>399</td>
+              <td class="td-group-divider"><span class="seq-badge">1</span></td>
+              <td>165</td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>696</td>
+              <td><span class="ood-pts-pill">35,104</span></td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>618</td>
+              <td><span class="ood-pts-pill">66,509</span></td>
+            </tr>
+            <tr>
+              <td><span class="weather-chip"><i class="fas fa-snowflake" style="color:#38bdf8;"></i> Snowy</span></td>
+              <td class="td-group-divider"><span class="seq-badge">1</span></td>
+              <td>212</td>
+              <td class="td-group-divider"><span class="seq-badge">1</span></td>
+              <td>253</td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>238</td>
+              <td><span class="ood-pts-pill">12,898</span></td>
+              <td class="td-group-divider"><span class="seq-badge">2</span></td>
+              <td>352</td>
+              <td><span class="ood-pts-pill">89,803</span></td>
+            </tr>
+            <tr class="ours-row">
+              <td>Overall DriveOSS</td>
+              <td class="td-group-divider"><strong>9</strong></td>
+              <td><strong>2,240</strong></td>
+              <td class="td-group-divider"><strong>10</strong></td>
+              <td><strong>2,384</strong></td>
+              <td class="td-group-divider"><strong>17</strong></td>
+              <td><strong>4,278</strong></td>
+              <td><strong>366,288</strong></td>
+              <td class="td-group-divider"><strong>16</strong></td>
+              <td><strong>3,759</strong></td>
+              <td><strong>1,156,460</strong></td>
+            </tr>
           </tbody>
         </table>
       </div>
     </div>
   </section>
 
-  <!-- 7. OOD TAXONOMY & 6-STAGE ANNOTATION QC -->
+  <!-- 7. OOD TAXONOMY & ANNOTATION  -->
   <section class="section" id="taxonomy">
     <div class="container is-max-desktop">
       <div class="has-text-centered" style="margin-bottom: 2rem;">
         <span class="section-eyebrow">Anomalies &amp; Ground Truth Quality</span>
-        <h2 class="title is-3">OOD Hazard Taxonomy &amp; Two-Stage Annotation</h2>
+        <h2 class="title is-3">OOD Hazard Taxonomy &amp; Two-Stage Annotations</h2>
       </div>
 
       <div class="media-window" style="margin-bottom: 2rem;">
@@ -1098,7 +1359,7 @@
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="img-fallback" style="display:none; padding: 2rem;">
             <i class="fas fa-boxes" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
-            <p style="font-size: 0.88rem;"> Figure 4 at <code>static/images/ood_anomalies_grid.png</code></p>
+            <p style="font-size: 0.88rem;">Place Figure 4 at <code>static/images/ood_anomalies_grid.png</code></p>
           </div>
         </div>
       </div>
@@ -1106,37 +1367,37 @@
       <div class="columns is-multiline" style="margin-bottom: 2rem;">
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">📦 1. Containers &amp; Packaging</h5>
+            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">📦 1. Containers &amp; Packaging</h5>
             <p style="color:#475569; font-size:0.88rem;">Cardboard boxes, plastic boxes, foam blocks, garbage bags, and small trash bins with simple geometries and diverse materials.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🪑 2. Furniture &amp; Fixtures</h5>
+            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🪑 2. Furniture &amp; Fixtures</h5>
             <p style="color:#475569; font-size:0.88rem;">Office chairs, folding chairs, wooden chairs, clothes racks, and advertising signs with complex structures and varying heights.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🪜 3. Tools &amp; Industrial Equipment</h5>
+            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🪜 3. Tools &amp; Industrial Equipment</h5>
             <p style="color:#475569; font-size:0.88rem;">Ladders, shovels, metal barriers, and maintenance equipment featuring rigid structures and occasionally high reflectivity.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🎒 4. Personal Belongings</h5>
+            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🎒 4. Personal Belongings</h5>
             <p style="color:#475569; font-size:0.88rem;">Backpacks, bicycle helmets, bags, and personal items representing small low-profile hazards with irregular shapes.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🛒 5. Utility &amp; Service Equipment</h5>
+            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🛒 5. Utility &amp; Service Equipment</h5>
             <p style="color:#475569; font-size:0.88rem;">Shopping carts, waste-collection carts, and mobile bins commonly encountered in urban and commercial driving zones.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🪵 6. Roadside Debris &amp; Misc.</h5>
+            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🪵 6. Roadside Debris &amp; Misc.</h5>
             <p style="color:#475569; font-size:0.88rem;">Wooden boards, fallen signs, tires, and unstructured obstacles with diverse appearances and physical properties.</p>
           </div>
         </div>
@@ -1166,7 +1427,7 @@
                    onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
               <div class="img-fallback" style="display:none; padding: 2rem;">
                 <i class="fas fa-check-double" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
-                <p style="font-size: 0.88rem;"> Supplementary Figure 4 at <code>static/images/prelabel_vs_gt.png</code></p>
+                <p style="font-size: 0.88rem;">Supplementary Figure 4 at <code>static/images/prelabel_vs_gt.png</code></p>
               </div>
             </div>
           </div>
@@ -1183,18 +1444,18 @@
         <span class="section-eyebrow">Quantitative Evaluation</span>
         <h2 class="title is-3" style="margin-bottom: 0.75rem !important;">Interactive Benchmark Explorer</h2>
         <p style="color:#475569; max-width: 720px; margin: 0 auto 1.5rem;">
-          Showing the best-performing anomaly scoring variant per architecture.
+          Showing the best-performing anomaly scoring variant per architecture across all 19 known classes + Outlier.
         </p>
 
         <div class="pill-tabs">
           <button class="pill-tab-btn active" onclick="switchBenchTab('tab-oss', this)">
-            <i class="fas fa-bullseye" style="margin-right:6px;"></i>3D Open-Set
+            <i class="fas fa-bullseye" style="margin-right:6px;"></i>3D Open-Set Seg.
           </button>
           <button class="pill-tab-btn" onclick="switchBenchTab('tab-anom', this)">
-            <i class="fas fa-exclamation-circle" style="margin-right:6px;"></i>3D Anomaly (AUROC / FPR@95)
+            <i class="fas fa-exclamation-circle" style="margin-right:6px;"></i>3D Anomaly
           </button>
           <button class="pill-tab-btn" onclick="switchBenchTab('tab-closed', this)">
-            <i class="fas fa-shapes" style="margin-right:6px;"></i>Closed-Set (mIoU)
+            <i class="fas fa-shapes" style="margin-right:6px;"></i>3D Closed-Set
           </button>
           <button class="pill-tab-btn" onclick="switchBenchTab('tab-speed', this)">
             <i class="fas fa-tachometer-alt" style="margin-right:6px;"></i>Runtime Efficiency
@@ -1240,7 +1501,7 @@
                 <th><span class="th-vert"><span class="cls-dot" style="background:#fff096;"></span>pole</span></th>
                 <th><span class="th-vert"><span class="cls-dot" style="background:#ff0000;"></span>traffic-sign</span></th>
                 <th><span class="th-vert"><span class="cls-dot" style="background:#ef4444;"></span>outlier &uarr;</span></th>
-                <th><span class="th-vert" style="color:#38bdf8;">mOpen-IoU &uarr;</span></th>
+                <th><span class="th-vert" style="color:#5eead4;">mOpen-IoU &uarr;</span></th>
               </tr>
             </thead>
             <tbody>
@@ -1384,7 +1645,7 @@
                  onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
             <div class="img-fallback" style="display:none; padding: 2rem;">
               <i class="fas fa-layer-group" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
-              <p style="font-size: 0.88rem;">Supplementary Figure 1 at <code>static/images/qualitative_results.png</code></p>
+              <p style="font-size: 0.88rem;"> Supplementary Figure 1 at <code>static/images/qualitative_results.png</code></p>
             </div>
           </div>
         </div>
@@ -1402,7 +1663,7 @@
             <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
             <span style="color:#94a3b8; font-family:'JetBrains Mono', monospace; font-size:0.82rem; font-weight:600;">citation.bib</span>
           </div>
-          <button class="copy-bibtex-btn" onclick="copyBibTeX()" style="padding: 6px 14px; font-size: 0.82rem;">
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" style="padding: 6px 14px; font-size: 0.82rem; background:#0d9488;">
             <i class="fas fa-copy"></i>
             <span class="copy-text">Copy BibTeX</span>
           </button>
@@ -1418,7 +1679,7 @@
   </section>
 
   <!-- SCROLL TO TOP BUTTON -->
-  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top" style="background:#0d9488;">
     <i class="fas fa-arrow-up"></i>
   </button>
 
