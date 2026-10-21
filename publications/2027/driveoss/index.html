@@ -1,13 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving">
+  <meta name="description" content="DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving (WACV 2027)">
   <meta name="keywords" content="DriveOSS, 3D Open-Set Segmentation, 3D Anomaly Segmentation, LiDAR, Autonomous Driving, WACV 2027">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving</title>
+  <title>DriveOSS: Dataset and Benchmark for 3D Anomaly & Open-Set Segmentation | WACV 2027</title>
 
-  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet">
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Google+Sans:wght@500;700&display=swap" rel="stylesheet">
+  
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
   <link rel="stylesheet" href="static/css/bulma-carousel.min.css">
   <link rel="stylesheet" href="static/css/bulma-slider.min.css">
@@ -15,36 +18,252 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
   <link rel="stylesheet" href="static/css/index.css">
 
+  <!-- MathJax for equations -->
+  <script>
+    window.MathJax = {
+      tex: { inlineMath: [['$', '$'], ['\\(', '\\)']] }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
   <style>
+    /* Custom Aesthetic Enhancements */
     .top-navbar {
-      background-color: #ffffff;
-      border-bottom: 1px solid #eaeaea;
-      padding: 0.5rem 1.5rem;
-      font-family: 'Google Sans', sans-serif;
+      background-color: rgba(255, 255, 255, 0.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid #e2e8f0;
+      padding: 0.4rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .venue-tag {
-      background: #1e3c72;
-      color: #fff;
-      padding: 5px 16px;
-      border-radius: 20px;
-      font-weight: 600;
-      font-size: 0.95rem;
+    .venue-pill {
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      color: #ffffff;
+      padding: 6px 20px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 1.25rem;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .author-block {
       display: inline-block;
-      margin-bottom: 12px;
+      margin: 0 6px 6px 6px;
+      font-size: 1.15rem;
     }
-    .info-card {
-      background: #f8f9fa;
-      border-radius: 10px;
-      padding: 20px;
-      border: 1px solid #e9ecef;
+    .author-self {
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      padding: 2px 10px;
+      border-radius: 8px;
+      border: 1px solid #bfdbfe;
+    }
+    .affiliation-pills {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 12px;
+      margin-bottom: 20px;
+    }
+    .affiliation-pill {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      padding: 6px 16px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      color: #334155;
+      font-weight: 500;
+    }
+    .stat-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 22px 16px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+      transition: all 0.25s ease;
       height: 100%;
     }
-    .stat-num {
-      font-size: 2rem;
-      font-weight: 800;
-      color: #1e3c72;
-      font-family: 'Google Sans', sans-serif;
+    .stat-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 20px -4px rgba(37, 99, 235, 0.12);
+      border-color: #93c5fd;
     }
+    .stat-num {
+      font-size: 2.2rem;
+      font-weight: 800;
+      background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      line-height: 1.2;
+    }
+    .stat-label {
+      font-size: 0.9rem;
+      color: #475569;
+      font-weight: 600;
+      margin-top: 6px;
+    }
+    .feature-card {
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 24px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 6px -1px rgba(0,0,0,0.04);
+      height: 100%;
+      transition: all 0.25s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 18px -3px rgba(0,0,0,0.08);
+    }
+    /* Custom Benchmark Tables */
+    .bench-table-wrapper {
+      overflow-x: auto;
+      background: #ffffff;
+      border-radius: 14px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+      padding: 1rem;
+    }
+    .table.is-benchmark {
+      width: 100%;
+      font-size: 0.92rem;
+      border-collapse: collapse;
+    }
+    .table.is-benchmark th {
+      background: #f8fafc;
+      color: #1e293b;
+      font-weight: 700;
+      border-bottom: 2px solid #cbd5e1;
+      text-align: center !important;
+      vertical-align: middle;
+    }
+    .table.is-benchmark td {
+      text-align: center;
+      vertical-align: middle;
+      padding: 0.65rem 0.75rem;
+    }
+    .table.is-benchmark td:first-child,
+    .table.is-benchmark th:first-child {
+      text-align: left !important;
+      font-weight: 600;
+    }
+    .row-highlight {
+      background-color: #eff6ff !important;
+      font-weight: 700;
+    }
+    .badge-mod {
+      padding: 3px 10px;
+      border-radius: 6px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+    .badge-lidar { background: #e0f2fe; color: #0369a1; }
+    .badge-fusion { background: #fae8ff; color: #86198f; }
+    .best-val { color: #1d4ed8; font-weight: 800; }
+    .second-val { color: #0f766e; font-weight: 700; text-decoration: underline; }
+
+    /* Interactive Tab Buttons */
+    .custom-tabs {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 1.5rem;
+    }
+    .tab-btn {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      color: #475569;
+      padding: 10px 20px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover {
+      border-color: #2563eb;
+      color: #2563eb;
+    }
+    .tab-btn.active {
+      background: #2563eb;
+      color: #ffffff;
+      border-color: #2563eb;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+    }
+    .tab-pane { display: none; }
+    .tab-pane.active { display: block; animation: fadeInUp 0.35s ease-out; }
+
+    /* Before / After Image Comparison Slider */
+    .ba-slider-container {
+      position: relative;
+      width: 100%;
+      overflow: hidden;
+      border-radius: 12px;
+      border: 1px solid #e2e8f0;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      user-select: none;
+    }
+    .ba-slider-container img {
+      width: 100%;
+      display: block;
+    }
+    .ba-Resize {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 50%;
+      overflow: hidden;
+      border-right: 3px solid #ffffff;
+    }
+    .ba-handle {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #ffffff;
+      cursor: ew-resize;
+      transform: translateX(-50%);
+    }
+    .ba-handle::after {
+      content: '⇄';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 40px;
+      height: 40px;
+      background: #2563eb;
+      color: #fff;
+      border: 3px solid #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.25);
+    }
+    .ba-label {
+      position: absolute;
+      bottom: 14px;
+      padding: 4px 12px;
+      background: rgba(15, 23, 42, 0.75);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border-radius: 6px;
+      pointer-events: none;
+    }
+    .ba-label-left { left: 14px; }
+    .ba-label-right { right: 14px; }
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -59,68 +278,77 @@
   <nav class="navbar top-navbar" role="navigation" aria-label="main navigation">
     <div class="container is-max-desktop">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://bhanderisavan.github.io" style="font-weight: 700; font-size: 1.1rem;">
-          Savankumar Bhanderi
+        <a class="navbar-item" href="https://bhanderisavan.github.io" style="font-weight: 700; font-size: 1.05rem; color: #1e293b;">
+          <i class="fas fa-arrow-left" style="margin-right: 8px; font-size: 0.9rem; color: #2563eb;"></i> Savankumar Bhanderi
         </a>
       </div>
-      <div class="navbar-menu is-active" style="box-shadow: none;">
+      <div class="navbar-menu is-active" style="box-shadow: none; background: transparent;">
         <div class="navbar-end">
-          <a class="navbar-item" href="https://bhanderisavan.github.io">Home</a>
-          <a class="navbar-item" href="https://bhanderisavan.github.io/publications">Publications</a>
+          <a class="navbar-item" href="#overview">Overview</a>
+          <a class="navbar-item" href="#dataset">Dataset</a>
+          <a class="navbar-item" href="#benchmark">Benchmark</a>
+          <a class="navbar-item" href="#BibTeX">BibTeX</a>
+          <a class="navbar-item" href="https://bhanderisavan.github.io/publications" style="font-weight: 600; color: #2563eb;">All Publications</a>
         </div>
       </div>
     </div>
   </nav>
 
   <!-- HERO HEADER -->
-  <section class="hero">
-    <div class="hero-body">
+  <section class="hero publication-header">
+    <div class="hero-body" style="padding: 3.5rem 1.5rem 2.5rem;">
       <div class="container is-max-desktop">
         <div class="columns is-centered">
           <div class="column has-text-centered">
-            <div class="venue-tag">IEEE/CVF WACV 2027</div>
-            <h1 class="title is-2 publication-title">
+            
+            <div class="venue-pill">
+              <i class="fas fa-award"></i> IEEE/CVF WACV 2027 &bull; Datasets Track
+            </div>
+
+            <h1 class="title is-2 publication-title" style="margin-bottom: 1.25rem !important;">
               DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving
             </h1>
 
             <!-- AUTHORS -->
-            <div class="is-size-5 publication-authors">
-              <span class="author-block">Zhiran Yan<sup>1</sup>,</span>
-              <span class="author-block"><a href="https://bhanderisavan.github.io">Savankumar Bhanderi</a><sup>1</sup>,</span>
+            <div class="publication-authors" style="margin-bottom: 0.75rem;">
+              <span class="author-block"><a href="https://de.linkedin.com/in/zhiran-yan">Zhiran Yan</a><sup>1</sup>,</span>
+              <span class="author-block author-self"><a href="https://bhanderisavan.github.io">Savankumar Bhanderi</a><sup>1</sup>,</span>
               <span class="author-block">Sourabh Lolge<sup>1</sup>,</span>
               <span class="author-block">Rui Song<sup>2</sup>,</span>
               <span class="author-block">Girdharbhai Paneliya<sup>1</sup>,</span>
               <span class="author-block">Shiva Agrawal<sup>1</sup>,</span>
-              <span class="author-block">Gordon Elger<sup>1</sup>,</span>
+              <span class="author-block">Gordon Elger<sup>1</sup></span>
             </div>
 
-            <!-- AFFILIATION -->
-            <div class="is-size-5 publication-authors" style="margin-top: 8px;">
-              <span class="author-block"><sup>1</sup>Institute of Innovative Mobility (IIMo), Technische Hochschule Ingolstadt</span>
-            </div>
-            <div class="is-size-5 publication-authors" style="margin-top: 8px;">
-              <span class="author-block"><sup>2</sup>UCLA</span>
+            <!-- AFFILIATIONS -->
+            <div class="affiliation-pills">
+              <div class="affiliation-pill">
+                <sup>1</sup> <strong>Technische Hochschule Ingolstadt</strong> &bull; Institute of Innovative Mobility (IIMo)
+              </div>
+              <div class="affiliation-pill">
+                <sup>2</sup> <strong>University of California, Los Angeles (UCLA)</strong>
+              </div>
             </div>
 
             <!-- ACTION BUTTONS -->
-            <div class="column has-text-centered" style="margin-top: 15px;">
+            <div class="column has-text-centered" style="margin-top: 10px;">
               <div class="publication-links">
                 <span class="link-block">
                   <a href="static/pdfs/DriveOSS_WACV2027.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fas fa-file-pdf"></i></span>
-                    <span>Paper</span>
+                    <span>Main Paper</span>
                   </a>
                 </span>
                 <span class="link-block">
                   <a href="static/pdfs/DriveOSS_Supp_WACV2027.pdf" target="_blank" class="external-link button is-normal is-rounded is-dark">
-                    <span class="icon"><i class="fas fa-file-pdf"></i></span>
+                    <span class="icon"><i class="fas fa-file-alt"></i></span>
                     <span>Supplementary</span>
                   </a>
                 </span>
                 <span class="link-block">
-                  <a href="https://github.com/bhanderisavan" target="_blank" class="external-link button is-normal is-rounded is-dark">
+                  <a href="https://github.com/bhanderisavan/DriveOSS" target="_blank" class="external-link button is-normal is-rounded is-dark">
                     <span class="icon"><i class="fab fa-github"></i></span>
-                    <span>Code</span>
+                    <span>Code &amp; Benchmark</span>
                   </a>
                 </span>
                 <span class="link-block">
@@ -139,41 +367,56 @@
   </section>
 
   <!-- TEASER SECTION -->
-  <section class="hero teaser">
+  <section class="hero teaser" id="overview">
     <div class="container is-max-desktop">
-      <div class="hero-body">
-        <img src="static/images/overview_fig1.png" alt="DriveOSS Overview" style="border-radius: 10px; width: 100%; box-shadow: 0 6px 20px rgba(0,0,0,0.08);">
-        <h2 class="subtitle has-text-centered" style="margin-top: 16px;">
-          <strong>DriveOSS</strong> is the first real-world multimodal dataset and benchmark designed for joint <strong>3D Anomaly Segmentation</strong> and <strong>3D Open-Set Semantic Segmentation</strong> across diverse adverse weather and illumination conditions.
+      <div class="hero-body" style="padding-top: 0.5rem;">
+        <div class="publication-banner" style="margin-top: 0;">
+          <img src="static/images/overview_fig1.png" alt="DriveOSS Overview" style="width: 100%; display: block;">
+        </div>
+        <h2 class="subtitle has-text-centered" style="margin-top: 18px; font-size: 1.1rem; color: #334155; line-height: 1.6;">
+          <strong>DriveOSS</strong> is the first real-world multimodal autonomous driving dataset and benchmark specifically designed for joint <strong>3D Anomaly Segmentation</strong> and <strong>3D Open-Set Semantic Segmentation</strong> across clear, nighttime, cloudy, rainy, and snowy conditions.
         </h2>
 
-        <!-- STATS ROW -->
-        <div class="columns is-multiline has-text-centered" style="margin-top: 20px;">
-          <div class="column is-3">
-            <div class="info-card">
+        <!-- 6 STATS CARDS -->
+        <div class="columns is-multiline has-text-centered" style="margin-top: 22px;">
+          <div class="column is-2-desktop is-4-tablet is-6-mobile">
+            <div class="stat-card">
               <div class="stat-num">12,661</div>
-              <div>Synchronized LiDAR & 6-Camera Scans</div>
+              <div class="stat-label">Annotated LiDAR Scans</div>
             </div>
           </div>
-          <div class="column is-3">
-            <div class="info-card">
+          <div class="column is-2-desktop is-4-tablet is-6-mobile">
+            <div class="stat-card">
+              <div class="stat-num">75,966</div>
+              <div class="stat-label">Surround RGB Images</div>
+            </div>
+          </div>
+          <div class="column is-2-desktop is-4-tablet is-6-mobile">
+            <div class="stat-card">
               <div class="stat-num">52</div>
-              <div>Driving Scenes (19 ID / 33 OOD)</div>
+              <div class="stat-label">Sequences (19 ID / 33 OOD)</div>
             </div>
           </div>
-          <div class="column is-3">
-            <div class="info-card">
+          <div class="column is-2-desktop is-4-tablet is-6-mobile">
+            <div class="stat-card">
               <div class="stat-num">5</div>
-              <div>Domains (Clear, Night, Cloudy, Rain, Snow)</div>
+              <div class="stat-label">Weather &amp; Light Domains</div>
             </div>
           </div>
-          <div class="column is-3">
-            <div class="info-card">
+          <div class="column is-2-desktop is-4-tablet is-6-mobile">
+            <div class="stat-card">
+              <div class="stat-num">19 + 1</div>
+              <div class="stat-label">ID Classes + Outlier</div>
+            </div>
+          </div>
+          <div class="column is-2-desktop is-4-tablet is-6-mobile">
+            <div class="stat-card">
               <div class="stat-num">1.52M</div>
-              <div>Annotated 3D OOD Outlier Points</div>
+              <div class="stat-label">Annotated OOD Points</div>
             </div>
           </div>
         </div>
+
       </div>
     </div>
   </section>
@@ -186,7 +429,7 @@
           <h2 class="title is-3">Abstract</h2>
           <div class="content has-text-justified">
             <p>
-              Recent advances in 3D semantic segmentation have significantly improved scene understanding in autonomous driving. However, existing methods are typically developed under a closed-set assumption and evaluated under standard driving conditions, where all categories are known in advance. In real-world driving, autonomous vehicles inevitably encounter previously unseen objects, making closed-set perception insufficient for safe deployment. To address this challenge, we introduce <strong>DriveOSS</strong>, the first real-world multimodal dataset and benchmark specifically designed for 3D anomaly segmentation and open-set semantic segmentation. It contains 12,661 synchronized and annotated frames captured using six surround-view RGB cameras, a 128-beam LiDAR, and a GPS/IMU unit across 52 real-world driving scenes collected under clear, nighttime, cloudy, rainy, and snowy conditions and is organized into ID (in-distribution) and OOD (out-of-distribution) subsets. The ID scenes contain only known classes and are used for training, whereas the OOD scenes additionally contain unknown objects annotated as the outlier class and are used for validation and testing. Extensive experiments show that unseen objects remain a major challenge for current 3D perception systems.
+              Recent advances in 3D semantic segmentation have significantly improved scene understanding in autonomous driving. However, existing methods are typically developed under a closed-set assumption and evaluated under standard driving conditions, where all categories are known in advance. In real-world driving, autonomous vehicles inevitably encounter previously unseen objects, making closed-set perception insufficient for safe deployment. To address this challenge, we introduce <strong>DriveOSS</strong>, which, to the best of our knowledge, is the first real-world multimodal dataset and benchmark specifically designed for 3D anomaly segmentation and open-set semantic segmentation. It contains <strong>12,661 synchronized and annotated frames</strong> captured using six surround-view RGB cameras, a 128-beam LiDAR, and a GPS/IMU unit. The dataset comprises 52 real-world driving scenes collected under clear, nighttime, cloudy, rainy, and snowy conditions and is organized into ID (in-distribution) and OOD (out-of-distribution) subsets. The ID scenes contain only known classes and are used for training, whereas the OOD scenes additionally contain unknown objects annotated as the <em>outlier</em> class and are used for validation and testing. Extensive experiments show that unseen objects remain a major challenge for current 3D perception systems.
             </p>
           </div>
         </div>
@@ -194,54 +437,639 @@
     </div>
   </section>
 
-  <!-- KEY HIGHLIGHTS (markus-42 3-Card Style) -->
+  <!-- WHY DRIVEOSS? COMPARISON WITH EXISTING DATASETS (Table 1) -->
+  <section class="section" id="dataset">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">How DriveOSS Advances 3D Open-World Perception</h2>
+      <p class="has-text-centered" style="max-width: 780px; margin: 0 auto 2rem; color: #475569;">
+        Unlike synthetic CARLA benchmarks or clear-weather binary anomaly datasets (e.g., STU), <strong>DriveOSS</strong> captures physically present real-world road hazards across <strong>5 environmental domains</strong> while retaining full <strong>19-class semantic annotations</strong> in OOD scenes to jointly evaluate closed-set, anomaly, and open-set segmentation.
+      </p>
+
+      <div class="bench-table-wrapper">
+        <table class="table is-benchmark is-hoverable">
+          <thead>
+            <tr>
+              <th>Dataset</th>
+              <th>Year</th>
+              <th>Weather &amp; Lighting</th>
+              <th>Modality</th>
+              <th>#Beam</th>
+              <th>Camera View</th>
+              <th>OOD Scene Labels</th>
+              <th>Supported 3D Tasks</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>SemanticKITTI</td>
+              <td>2019</td>
+              <td>Clear</td>
+              <td><span class="badge-mod badge-fusion">L + C</span></td>
+              <td>64</td>
+              <td>Front-view</td>
+              <td><span style="color:#94a3b8;">None (Closed-set)</span></td>
+              <td>SS, PS</td>
+            </tr>
+            <tr>
+              <td>Panoptic nuScenes</td>
+              <td>2021</td>
+              <td>Diverse</td>
+              <td><span class="badge-mod badge-fusion">L + C</span></td>
+              <td>32</td>
+              <td>Surround-view</td>
+              <td><span style="color:#94a3b8;">None (Closed-set)</span></td>
+              <td>PS</td>
+            </tr>
+            <tr>
+              <td>SemanticSTF</td>
+              <td>2023</td>
+              <td>Fog / Rain / Snow</td>
+              <td><span class="badge-mod badge-fusion">L + C</span></td>
+              <td>64</td>
+              <td>Front-view</td>
+              <td><span style="color:#94a3b8;">None (Closed-set)</span></td>
+              <td>SS</td>
+            </tr>
+            <tr>
+              <td>Panoptic-CUDAL</td>
+              <td>2025</td>
+              <td>Rain</td>
+              <td><span class="badge-mod badge-fusion">L + C</span></td>
+              <td>128</td>
+              <td>Surround-view</td>
+              <td><span style="color:#94a3b8;">None (Closed-set)</span></td>
+              <td>PS</td>
+            </tr>
+            <tr>
+              <td>STU</td>
+              <td>2025</td>
+              <td>Clear only</td>
+              <td><span class="badge-mod badge-fusion">L + C</span></td>
+              <td>128</td>
+              <td>Surround-view</td>
+              <td>Binary Inlier + Outlier</td>
+              <td>PS, AS</td>
+            </tr>
+            <tr>
+              <td>LIDO (Synthetic Mix)</td>
+              <td>2026</td>
+              <td>Clear only</td>
+              <td><span class="badge-mod badge-lidar">L</span></td>
+              <td>32 / 40 / 64</td>
+              <td>—</td>
+              <td>Binary Inlier + Outlier</td>
+              <td>AS</td>
+            </tr>
+            <tr class="row-highlight">
+              <td>⭐ DriveOSS (Ours)</td>
+              <td>2027</td>
+              <td><strong style="color:#1d4ed8;">Clear / Night / Cloudy / Rain / Snow</strong></td>
+              <td><span class="badge-mod badge-fusion">L + C</span></td>
+              <td><strong>128</strong></td>
+              <td><strong>6&times; Surround-view</strong></td>
+              <td><strong style="color:#1d4ed8;">19 ID Classes + Outlier</strong></td>
+              <td><strong>SS, AS, OSS</strong></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- MULTIMODAL SENSOR PLATFORM & CALIBRATION -->
+  <section class="section hero is-light">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Multimodal Sensor Suite &amp; Adverse Weather Coverage</h2>
+
+      <div class="columns is-vcentered" style="margin-bottom: 1.5rem;">
+        <div class="column is-5">
+          <div class="feature-card">
+            <h4 class="title is-5" style="margin-bottom: 12px;">🚗 Hardware Specifications</h4>
+            <ul style="line-height: 1.8; color: #475569; font-size: 0.95rem;">
+              <li><strong>LiDAR (1&times; Ouster OS1-128):</strong> 128 beams, 360&deg; H-FOV, 45&deg; V-FOV (&minus;22.5&deg; to +22.5&deg;), 20 Hz.</li>
+              <li><strong>Cameras (6&times; Basler ace2R):</strong> Surround-view RGB, 1920&times;1080 resolution, synchronized @ 10 Hz.</li>
+              <li><strong>GNSS/INS (1&times; Certus RTK):</strong> &gt;600 Hz update rate, 0.01 m horizontal &amp; 0.015 m vertical RTK accuracy.</li>
+              <li><strong>Disjoint Splits:</strong> 19 ID sequences and 33 OOD sequences recorded on non-overlapping routes.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="column is-7">
+          <img src="static/images/sensor_platform.png" alt="DriveOSS Sensor Platform" style="border-radius: 12px; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+        </div>
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column is-12">
+          <img src="static/images/calibration_6views.png" alt="Six Surround-View LiDAR Projections" style="border-radius: 12px; width: 100%; box-shadow: 0 4px 12px rgba(0,0,0,0.08);">
+          <p class="has-text-centered" style="font-size: 0.9rem; color: #64748b; margin-top: 8px;">
+            <strong>Figure:</strong> Accurate extrinsic projection of 128-beam LiDAR point clouds onto all six surround-view Basler RGB cameras.
+          </p>
+        </div>
+      </div>
+
+      <!-- ENVIRONMENTAL SPLIT BREAKDOWN (Table 3) -->
+      <div style="margin-top: 2.5rem;">
+        <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.2rem;">Distribution Across 5 Environmental Conditions</h3>
+        <div class="bench-table-wrapper">
+          <table class="table is-benchmark is-hoverable">
+            <thead>
+              <tr>
+                <th>Environmental Condition</th>
+                <th>ID Train (Seq / Frames)</th>
+                <th>ID Val (Seq / Frames)</th>
+                <th>OOD Val (Seq / Frames / OOD Pts)</th>
+                <th>OOD Test (Seq / Frames / OOD Pts)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>☀️ Clear</td>
+                <td>4 / 809</td>
+                <td>6 / 1,701</td>
+                <td>9 / 2,315 / 252,606</td>
+                <td>8 / 1,766 / 885,729</td>
+              </tr>
+              <tr>
+                <td>🌙 Nighttime</td>
+                <td>1 / 184</td>
+                <td>1 / 79</td>
+                <td>2 / 287 / 22,132</td>
+                <td>2 / 357 / 42,979</td>
+              </tr>
+              <tr>
+                <td>☁️ Cloudy</td>
+                <td>2 / 636</td>
+                <td>1 / 186</td>
+                <td>2 / 742 / 43,548</td>
+                <td>2 / 666 / 71,440</td>
+              </tr>
+              <tr>
+                <td>🌧️ Rainy</td>
+                <td>1 / 399</td>
+                <td>1 / 165</td>
+                <td>2 / 696 / 35,104</td>
+                <td>2 / 618 / 66,509</td>
+              </tr>
+              <tr>
+                <td>❄️ Snowy</td>
+                <td>1 / 212</td>
+                <td>1 / 253</td>
+                <td>2 / 238 / 12,898</td>
+                <td>2 / 352 / 89,803</td>
+              </tr>
+              <tr class="row-highlight">
+                <td>Total DriveOSS</td>
+                <td>9 / 2,240</td>
+                <td>10 / 2,384</td>
+                <td>17 / 4,278 / 366,288</td>
+                <td>16 / 3,759 / 1,156,460</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- OOD TAXONOMY & ANNOTATION QUALITY CONTROL -->
   <section class="section">
     <div class="container is-max-desktop">
-      <h2 class="title is-3 has-text-centered">Key Contributions</h2>
-      <div class="columns is-multiline" style="margin-top: 15px;">
+      <h2 class="title is-3 has-text-centered">OOD Hazard Taxonomy &amp; Multi-Stage Annotation QC</h2>
+      
+      <div style="margin-bottom: 1.75rem;">
+        <img src="static/images/ood_anomalies_grid.png" alt="Representative OOD Anomalies" style="border-radius: 12px; width: 100%; box-shadow: 0 6px 16px rgba(0,0,0,0.08);">
+      </div>
+
+      <!-- 6 FUNCTIONAL CATEGORIES -->
+      <div class="columns is-multiline" style="margin-bottom: 2rem;">
         <div class="column is-4">
-          <div class="info-card">
-            <h4 class="title is-5">🌦️ Multimodal & Adverse Weather</h4>
-            <p class="is-size-6">
-              Captured with an Ouster OS1-128 LiDAR (20 Hz), 6 surround-view Basler RGB cameras (10 Hz), and RTK-GPS/IMU (600 Hz) across Clear, Night, Cloudy, Rainy, and Snowy conditions.
-            </p>
+          <div class="feature-card">
+            <h5 class="title is-6" style="color:#1e3a8a;">📦 1. Containers &amp; Packaging</h5>
+            <p class="is-size-7" style="color:#475569;">Cardboard boxes, plastic crates, foam blocks, garbage bags, and small trash bins with diverse surface reflectivities.</p>
           </div>
         </div>
         <div class="column is-4">
-          <div class="info-card">
-            <h4 class="title is-5">🎯 Three Unified 3D Tasks</h4>
-            <p class="is-size-6">
-              Jointly benchmarks (1) Closed-Set 3D Semantic Segmentation, (2) 3D Anomaly Segmentation, and (3) 3D Open-Set Semantic Segmentation via 3D mOpen-IoU and Outlier IoU.
-            </p>
+          <div class="feature-card">
+            <h5 class="title is-6" style="color:#1e3a8a;">🪑 2. Furniture &amp; Fixtures</h5>
+            <p class="is-size-7" style="color:#475569;">Office chairs, folding chairs, wooden chairs, clothes racks, and A-frame advertising signs with thin structural parts.</p>
           </div>
         </div>
         <div class="column is-4">
-          <div class="info-card">
-            <h4 class="title is-5">🔍 LiDAR & Camera-LiDAR Baselines</h4>
-            <p class="is-size-6">
-              Evaluates P3Former, LCPS-lidar, Mask4Former3D, LIDO, LCPS, and Mask4Former3D* with MSP, MaxLogit, Energy, Entropy, and RbA uncertainty scoring.
-            </p>
+          <div class="feature-card">
+            <h5 class="title is-6" style="color:#1e3a8a;">🪜 3. Tools &amp; Industrial Equipment</h5>
+            <p class="is-size-7" style="color:#475569;">Ladders, shovels, metal barriers, and maintenance equipment featuring rigid frames and high metallic reflectivity.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="feature-card">
+            <h5 class="title is-6" style="color:#1e3a8a;">🎒 4. Personal Belongings</h5>
+            <p class="is-size-7" style="color:#475569;">Backpacks, bicycle helmets, duffle bags, and small low-profile road hazards with irregular geometries.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="feature-card">
+            <h5 class="title is-6" style="color:#1e3a8a;">🛒 5. Utility &amp; Service Equipment</h5>
+            <p class="is-size-7" style="color:#475569;">Shopping carts, wheelbarrows, waste-collection carts, and mobile bins encountered in urban zones.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="feature-card">
+            <h5 class="title is-6" style="color:#1e3a8a;">🪵 6. Roadside Debris &amp; Misc.</h5>
+            <p class="is-size-7" style="color:#475569;">Wooden pallets, fallen signs, tires, and unstructured debris posing sudden collision risks.</p>
           </div>
         </div>
       </div>
+
+      <!-- INTERACTIVE BEFORE/AFTER SLIDER DEMO -->
+      <div class="columns is-vcentered" style="margin-top: 2rem;">
+        <div class="column is-5">
+          <h3 class="title is-4">6-Stage Human Refinement &amp; Spatial-Hazard Policy</h3>
+          <p style="color:#475569; font-size:0.95rem; margin-bottom: 12px;">
+            To eliminate ambiguity between <code>outlier</code> and <code>other-object</code>, any non-ID object on or immediately adjacent to the drivable surface is strictly labeled as <code>outlier</code>, whereas permanent off-road fixtures (e.g., bus shelters, benches) are labeled <code>other-object</code>.
+          </p>
+          <p style="color:#475569; font-size:0.95rem;">
+            <strong>100% of OOD objects are manually annotated from scratch.</strong> For known classes, KISS-ICP registered scans are refined via plane removal, class-isolation filtering, and independent dual-annotator verification.
+          </p>
+        </div>
+        <div class="column is-7">
+          <!-- Upload static/images/prelabel_vs_gt.png (or Suppl Fig 4) -->
+          <img src="static/images/prelabel_vs_gt.png" alt="Automatic Pre-Labeling vs Refined Ground Truth" style="border-radius: 12px; width: 100%; box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
+          <p class="has-text-centered is-size-7" style="color:#64748b; margin-top: 6px;">
+            Visual comparison of RGB reference, raw Mask4Former pre-labeling, and human-refined ground truth across ID, OOD Val, and OOD Test.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
 
-  <!-- BIBTEX -->
-  <section class="section hero is-light" id="BibTeX">
+  <!-- INTERACTIVE BENCHMARK RESULTS -->
+  <section class="section hero is-light" id="benchmark">
+    <div class="container is-max-desktop">
+      <h2 class="title is-3 has-text-centered">Unified 3D Open-World Benchmark Results</h2>
+      <p class="has-text-centered" style="max-width: 800px; margin: 0 auto 1.5rem; color: #475569;">
+        Click through the tabs below to inspect quantitative results across our three benchmark tasks and real-time inference analysis on an NVIDIA RTX 4090 GPU.
+      </p>
+
+      <!-- TAB BUTTONS -->
+      <div class="custom-tabs">
+        <button class="tab-btn active" onclick="switchBenchTab('tab-openset', this)">🎯 Task 3: 3D Open-Set Segmentation</button>
+        <button class="tab-btn" onclick="switchBenchTab('tab-anomaly', this)">🚨 Task 2: 3D Anomaly Segmentation</button>
+        <button class="tab-btn" onclick="switchBenchTab('tab-closed', this)">🧱 Task 1: Closed-Set Segmentation</button>
+        <button class="tab-btn" onclick="switchBenchTab('tab-runtime', this)">⚡ Inference Runtime &amp; M4F3D*</button>
+      </div>
+
+      <!-- TAB 1: OPEN-SET SEGMENTATION (Table 6 Summary) -->
+      <div id="tab-openset" class="tab-pane active">
+        <div class="bench-table-wrapper">
+          <table class="table is-benchmark is-hoverable">
+            <thead>
+              <tr>
+                <th>Method (Best Scoring Variant per Architecture)</th>
+                <th>Modality</th>
+                <th>Car</th>
+                <th>Person</th>
+                <th>Road</th>
+                <th>Building</th>
+                <th>Vegetation</th>
+                <th>Outlier IoU (%) &uarr;</th>
+                <th>3D mOpen-IoU (%) &uarr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P3Former + RbA</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>2.13</td>
+                <td>0.00</td>
+                <td>16.62</td>
+                <td>65.18</td>
+                <td>53.47</td>
+                <td class="Best-val">1.51</td>
+                <td>8.36</td>
+              </tr>
+              <tr>
+                <td>LCPS-lidar + Entropy</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>41.47</td>
+                <td>29.53</td>
+                <td>31.51</td>
+                <td>75.30</td>
+                <td>55.06</td>
+                <td>0.61</td>
+                <td class="second-val">20.75</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D + RbA</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>34.90</td>
+                <td>28.14</td>
+                <td>18.85</td>
+                <td>4.44</td>
+                <td>2.64</td>
+                <td>0.32</td>
+                <td>9.58</td>
+              </tr>
+              <tr class="row-highlight">
+                <td>LIDO (Joint Feature-Based)</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>38.77</td>
+                <td>18.52</td>
+                <td>38.76</td>
+                <td>93.97</td>
+                <td>62.56</td>
+                <td class="second-val">1.07</td>
+                <td class="best-val">22.98</td>
+              </tr>
+              <tr>
+                <td>LCPS + Entropy</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td>37.88</td>
+                <td>24.64</td>
+                <td>26.08</td>
+                <td>77.60</td>
+                <td>26.88</td>
+                <td>0.57</td>
+                <td>17.41</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D* + RbA (Query Fusion)</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td>44.83</td>
+                <td>37.81</td>
+                <td>17.18</td>
+                <td>0.65</td>
+                <td>2.91</td>
+                <td>0.21</td>
+                <td>11.27</td>
+              </tr>
+            </tbody>
+          </table>
+          <p class="is-size-7 has-text-centered" style="color:#64748b; margin-top: 8px;">
+            <strong>Key Finding:</strong> High threshold-independent anomaly scores (e.g., M4F3D AP &gt; 10%) often suffer from near-100% FPR@95, causing calibrated thresholding ($\tau_{95}$) to reject known ID points and collapse 3D mOpen-IoU.
+          </p>
+        </div>
+      </div>
+
+      <!-- TAB 2: ANOMALY SEGMENTATION (Table 5) -->
+      <div id="tab-anomaly" class="tab-pane">
+        <div class="bench-table-wrapper">
+          <table class="table is-benchmark is-hoverable">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Modality</th>
+                <th>AUROC (%) &uarr;</th>
+                <th>FPR@95 (%) &darr;</th>
+                <th>AP (%) &uarr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P3Former + RbA</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td class="second-val">89.80</td>
+                <td class="second-val">45.94</td>
+                <td>3.53</td>
+              </tr>
+              <tr>
+                <td>LCPS-lidar + Entropy</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>79.76</td>
+                <td>46.95</td>
+                <td>1.38</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D + MSP</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>79.43</td>
+                <td>98.74</td>
+                <td class="second-val">10.27</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D + RbA</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>67.91</td>
+                <td>100.00</td>
+                <td class="best-val">12.57</td>
+              </tr>
+              <tr class="row-highlight">
+                <td>LIDO</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td class="best-val">91.70</td>
+                <td class="best-val">32.66</td>
+                <td>4.44</td>
+              </tr>
+              <tr>
+                <td>LCPS + Entropy</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td>78.67</td>
+                <td>54.44</td>
+                <td>1.59</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D* + MSP</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td>70.38</td>
+                <td>96.85</td>
+                <td>7.11</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 3: CLOSED-SET SEGMENTATION (Table 4) -->
+      <div id="tab-closed" class="tab-pane">
+        <div class="bench-table-wrapper">
+          <table class="table is-benchmark is-hoverable">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Modality</th>
+                <th>DriveOSS-ID Val mIoU (%) &uarr;</th>
+                <th>DriveOSS-OOD Test (ID Points) mIoU (%) &uarr;</th>
+                <th>Domain Shift Drop (&Delta;)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P3Former</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>43.27</td>
+                <td>29.58</td>
+                <td>&minus;13.69</td>
+              </tr>
+              <tr>
+                <td>LCPS-lidar</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>51.94</td>
+                <td>33.75</td>
+                <td>&minus;18.19</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>34.98</td>
+                <td>31.11</td>
+                <td class="best-val">&minus;3.87</td>
+              </tr>
+              <tr class="row-highlight">
+                <td>LIDO</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td class="best-val">58.35</td>
+                <td class="best-val">40.99</td>
+                <td>&minus;17.36</td>
+              </tr>
+              <tr>
+                <td>LCPS</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td class="second-val">54.05</td>
+                <td class="second-val">34.00</td>
+                <td>&minus;20.05</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D* (Query Fusion)</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td>48.44</td>
+                <td>28.46</td>
+                <td>&minus;19.98</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- TAB 4: INFERENCE EFFICIENCY (Table 7) -->
+      <div id="tab-runtime" class="tab-pane">
+        <div class="bench-table-wrapper">
+          <table class="table is-benchmark is-hoverable">
+            <thead>
+              <tr>
+                <th>Method</th>
+                <th>Modality</th>
+                <th>Base Network (ms)</th>
+                <th>+MSP</th>
+                <th>+MaxLogit</th>
+                <th>+Energy</th>
+                <th>+Entropy</th>
+                <th>+RbA</th>
+                <th>Total Per-Frame Time (ms) &darr;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-highlight">
+                <td>P3Former</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>51.29</td>
+                <td>0.07</td>
+                <td>0.10</td>
+                <td>0.13</td>
+                <td>0.10</td>
+                <td>0.11</td>
+                <td class="best-val">51.36 &ndash; 51.42 ms (~19.5 FPS)</td>
+              </tr>
+              <tr>
+                <td>LIDO (Joint End-to-End)</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>68.01</td>
+                <td colspan="5"><em>Joint Semantic + Feature Anomaly Prediction</em></td>
+                <td class="second-val">68.01 ms (~14.7 FPS)</td>
+              </tr>
+              <tr>
+                <td>LCPS-lidar</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>85.44</td>
+                <td>0.12</td>
+                <td>0.17</td>
+                <td>0.25</td>
+                <td>0.19</td>
+                <td>0.18</td>
+                <td>85.56 &ndash; 85.69 ms</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D</td>
+                <td><span class="badge-mod badge-lidar">L</span></td>
+                <td>104.21</td>
+                <td>0.11</td>
+                <td>0.17</td>
+                <td>0.23</td>
+                <td>0.18</td>
+                <td>0.13</td>
+                <td>104.32 &ndash; 104.44 ms</td>
+              </tr>
+              <tr>
+                <td>Mask4Former3D* (Query Fusion)</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td>106.35</td>
+                <td>0.10</td>
+                <td>0.16</td>
+                <td>0.21</td>
+                <td>0.17</td>
+                <td>0.12</td>
+                <td><strong>106.45 &ndash; 106.56 ms (+2.05% vs L-only)</strong></td>
+              </tr>
+              <tr>
+                <td>LCPS (Dense Fusion)</td>
+                <td><span class="badge-mod badge-fusion">L + C</span></td>
+                <td>179.80</td>
+                <td>0.11</td>
+                <td>0.16</td>
+                <td>0.21</td>
+                <td>0.15</td>
+                <td>0.16</td>
+                <td>179.91 &ndash; 180.01 ms (+110.4% vs L-only)</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- QUALITATIVE FIGURE -->
+      <div style="margin-top: 2.5rem;">
+        <h3 class="title is-4 has-text-centered">Qualitative Comparison Across Tasks</h3>
+        <img src="static/images/qualitative_results.png" alt="Qualitative Comparison" style="border-radius: 12px; width: 100%; box-shadow: 0 6px 18px rgba(0,0,0,0.08);">
+        <p class="has-text-centered is-size-7" style="color:#64748b; margin-top: 8px;">
+          From left to right: RGB Image, Closed-Set Semantic Prediction, Anomaly Score Prediction, 3D Open-Set Prediction, and Ground Truth.
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- BIBTEX SECTION (Connected to copyBibTeX() in index.js) -->
+  <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
-      <h2 class="title">BibTeX</h2>
-      <pre><code>@inproceedings{TODO
+      <div class="bibtex-header">
+        <h2 class="title" style="margin-bottom: 0;">BibTeX</h2>
+        <button class="copy-bibtex-btn" onclick="copyBibTeX()">
+          <i class="fas fa-copy"></i>
+          <span class="copy-text">Copy</span>
+        </button>
+      </div>
+      <pre><code id="bibtex-code">@inproceedings{yan2027driveoss,
+  title     = {DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving},
+  author    = {Yan, Zhiran and Bhanderi, Savankumar and Lolge, Sourabh and Song, Rui and Paneliya, Girdharbhai and Agrawal, Shiva and Elger, Gordon},
+  booktitle = {TODO TODO},
+  year      = {TODO TODO}
 }</code></pre>
     </div>
   </section>
 
+  <!-- SCROLL TO TOP BUTTON (Connected to index.js) -->
+  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
       <div class="columns is-centered">
         <div class="column is-8">
           <div class="content has-text-centered">
             <p>
+              <strong>DriveOSS Benchmark</strong> &bull; Institute of Innovative Mobility (IIMo), Technische Hochschule Ingolstadt.<br>
               Template adapted from <a href="https://nerfies.github.io" target="_blank">Nerfies</a> and <a href="https://github.com/eliahuhorwitz/Academic-project-page-template" target="_blank">Academic Project Page Template</a>.
             </p>
           </div>
@@ -249,6 +1077,16 @@
       </div>
     </div>
   </footer>
+
+  <!-- Tab Switching Script -->
+  <script>
+    function switchBenchTab(tabId, btnElement) {
+      document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
+      document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+      document.getElementById(tabId).classList.add('active');
+      btnElement.classList.add('active');
+    }
+  </script>
 
 </body>
 </html>
