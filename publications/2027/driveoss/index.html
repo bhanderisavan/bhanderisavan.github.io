@@ -7,10 +7,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>DriveOSS | WACV 2027 Dataset & Benchmark</title>
 
-  <!-- Modern Typography: Plus Jakarta Sans + Inter + JetBrains Mono -->
+  <!-- Modern Typography -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
 
   <!-- Existing Template Dependencies -->
   <link rel="stylesheet" href="static/css/bulma.min.css">
@@ -25,9 +25,7 @@
       --brand-dark: #0f172a;
       --brand-primary: #2563eb;
       --brand-indigo: #4f46e5;
-      --brand-cyan: #0891b2;
       --surface-bg: #f8fafc;
-      --card-bg: #ffffff;
       --border-subtle: #e2e8f0;
       --text-main: #0f172a;
       --text-muted: #475569;
@@ -44,20 +42,29 @@
       font-family: 'Plus Jakarta Sans', sans-serif !important;
     }
 
+    /* GLOBAL JUSTIFIED TEXT */
+    .abstract-card p,
+    .pillar-card p,
+    .tldr-banner,
+    .justified-text {
+      text-align: justify;
+      hyphens: auto;
+      -webkit-hyphens: auto;
+    }
+
     /* 1. FLOATING GLASS NAVBAR */
     .glass-nav {
       position: sticky;
       top: 0;
       z-index: 1000;
-      background: rgba(255, 255, 255, 0.85);
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(226, 232, 240, 0.8);
       padding: 0.65rem 1.5rem;
-      transition: all 0.2s ease;
     }
     .nav-container {
-      max-width: 1120px;
+      max-width: 1150px;
       margin: 0 auto;
       display: flex;
       justify-content: space-between;
@@ -109,30 +116,28 @@
       position: relative;
       background-color: #ffffff;
       background-image: 
-        radial-gradient(at 50% 0%, rgba(37, 99, 235, 0.11) 0px, transparent 60%),
-        radial-gradient(at 85% 20%, rgba(79, 70, 229, 0.08) 0px, transparent 50%),
+        radial-gradient(at 50% 0%, rgba(37, 99, 235, 0.10) 0px, transparent 60%),
+        radial-gradient(at 85% 20%, rgba(79, 70, 229, 0.07) 0px, transparent 50%),
         radial-gradient(#cbd5e1 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 24px 24px;
-      background-position: 0 0, 0 0, 0 0;
-      padding: 4.5rem 1.5rem 3rem;
+      padding: 3.5rem 1.5rem 2.75rem;
       border-bottom: 1px solid var(--border-subtle);
     }
 
-    /* Conference Badge */
     .conf-badge {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       background: linear-gradient(135deg, #0f172a 0%, #1e3a8a 100%);
       color: #ffffff;
-      padding: 7px 18px;
+      padding: 6px 18px;
       border-radius: 999px;
-      font-size: 0.85rem;
+      font-size: 0.82rem;
       font-weight: 700;
       letter-spacing: 0.6px;
       text-transform: uppercase;
       box-shadow: 0 8px 20px -4px rgba(30, 58, 138, 0.35);
-      margin-bottom: 1.5rem;
+      margin-bottom: 1.25rem;
     }
     .conf-badge .dot {
       width: 8px;
@@ -142,50 +147,76 @@
       box-shadow: 0 0 8px #38bdf8;
     }
 
-    /* Main Title with Brand Gradient */
+    /* 2-Line Balanced Title */
     .hero-title {
-  font-size: 2.35rem !important;
-  font-weight: 800 !important;
-  line-height: 1.25 !important;
-  letter-spacing: -0.02em;
-  color: #0f172a;
-  max-width: 1080px;
-  margin: 0 auto 1.5rem !important;
-}
+      font-size: 2.05rem !important;
+      font-weight: 800 !important;
+      line-height: 1.28 !important;
+      letter-spacing: -0.02em;
+      color: #0f172a;
+      max-width: 1080px;
+      margin: 0 auto 1.5rem !important;
+    }
     .gradient-brand {
       background: linear-gradient(135deg, #1d4ed8 0%, #0284c7 50%, #4f46e5 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* Author Chips */
+    /* 3. AUTHOR PILLS WITH LEFT-TO-RIGHT UNDERLINE & LIFT ANIMATION */
     .authors-wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
-      max-width: 920px;
-      margin: 0 auto 1.25rem;
+      max-width: 960px;
+      margin: 0 auto 1.75rem;
     }
     .author-chip {
-      background: rgba(255, 255, 255, 0.9);
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 255, 255, 0.92);
       border: 1px solid #e2e8f0;
-      padding: 6px 15px;
+      padding: 7px 16px;
       border-radius: 999px;
-      font-size: 1rem;
+      font-size: 0.98rem;
       font-weight: 600;
       color: #1e293b;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-      transition: all 0.2s ease;
+      box-shadow: 0 2px 5px rgba(15, 23, 42, 0.04);
+      cursor: pointer;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
+      text-decoration: none !important;
+      display: inline-flex;
+      align-items: center;
+    }
+    .author-chip span.author-name {
+      position: relative;
+      z-index: 1;
+      transition: color 0.25s ease;
+    }
+    /* Left-to-Right Animated Underline inside Author Pill */
+    .author-chip span.author-name::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -2px;
+      width: 0%;
+      height: 2px;
+      background: linear-gradient(90deg, #2563eb, #ec4899);
+      border-radius: 2px;
+      transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .author-chip:hover {
+      transform: translateY(-4px) scale(1.03);
       border-color: #93c5fd;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 12px rgba(37, 99, 235, 0.08);
+      background: #ffffff;
+      box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.18);
     }
-    .author-chip a {
-      color: inherit !important;
-      text-decoration: none;
+    .author-chip:hover span.author-name {
+      color: #2563eb;
+    }
+    .author-chip:hover span.author-name::after {
+      width: 100%;
     }
     .author-chip.is-self {
       background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
@@ -195,49 +226,113 @@
     .author-chip sup {
       color: #64748b;
       font-weight: 700;
-      margin-left: 2px;
-    }
-
-    /* Affiliation Row */
-    .affil-wrap {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 14px;
-      margin-bottom: 2rem;
-    }
-    .affil-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 0.92rem;
-      color: #475569;
-      background: #f8fafc;
-      padding: 6px 16px;
-      border-radius: 10px;
-      border: 1px solid #e2e8f0;
-      font-weight: 500;
-    }
-    .affil-num {
-      background: #e2e8f0;
-      color: #0f172a;
-      font-weight: 700;
+      margin-left: 3px;
       font-size: 0.75rem;
-      width: 20px;
-      height: 20px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5px;
     }
 
-    /* Custom Action Buttons */
+    /* 4. MARKUS-42 STYLE AFFILIATION CARDS WITH PILL HOVER & LEFT-TO-RIGHT SWEEP */
+    .affiliations-grid {
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      flex-wrap: wrap;
+      gap: 2.5rem;
+      margin: 0.5rem auto 2rem;
+      max-width: 780px;
+    }
+    .affiliation-card {
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.15rem 2rem;
+      border-radius: 16px;
+      background: transparent;
+      border: 1px solid transparent;
+      text-decoration: none !important;
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      min-width: 280px;
+      cursor: pointer;
+    }
+    /* Left-to-Right Bottom Underline Sweep on the Pill */
+    .affiliation-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3.5px;
+      background: linear-gradient(90deg, #2563eb 0%, #06b6d4 50%, #ec4899 100%);
+      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .affiliation-card:hover {
+      background: #ffffff;
+      border-color: #e2e8f0;
+      box-shadow: 0 12px 30px -8px rgba(15, 23, 42, 0.10);
+      transform: translateY(-4px);
+    }
+    .affiliation-card:hover::after {
+      width: 100%;
+    }
+    .affiliation-title {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1e293b !important;
+      line-height: 1.32;
+      text-align: center;
+      margin-bottom: 0.3rem;
+      transition: color 0.25s ease;
+    }
+    .affiliation-card:hover .affiliation-title {
+      color: #2563eb !important;
+    }
+    .affiliation-title sup {
+      font-size: 0.78rem;
+      font-weight: 800;
+      margin-right: 3px;
+    }
+    .affiliation-dept {
+      font-family: 'Inter', sans-serif;
+      font-size: 0.92rem;
+      font-style: italic;
+      color: #64748b !important;
+      text-align: center;
+      margin-bottom: 0.85rem;
+      transition: color 0.25s ease;
+    }
+    .affiliation-card:hover .affiliation-dept {
+      color: #1e293b !important;
+    }
+    .affiliation-logo {
+      height: 42px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+    .affiliation-logo svg,
+    .affiliation-logo img {
+      height: 38px;
+      width: auto;
+      display: block;
+      margin: 0 auto;
+      transition: transform 0.25s ease;
+    }
+    .affiliation-card:hover .affiliation-logo svg,
+    .affiliation-card:hover .affiliation-logo img {
+      transform: scale(1.06);
+    }
+
+    /* 5. ACTION BUTTONS */
     .cta-group {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 12px;
-      margin-top: 0.5rem;
     }
     .btn-modern {
       display: inline-flex;
@@ -250,24 +345,16 @@
       text-decoration: none !important;
       transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    .btn-modern:hover {
-      transform: translateY(-3px);
-    }
+    .btn-modern:hover { transform: translateY(-3px); }
     .btn-primary-grad {
       background: linear-gradient(135deg, #2563eb 0%, #4f46e5 100%);
       color: #ffffff !important;
       box-shadow: 0 8px 20px -4px rgba(37, 99, 235, 0.45);
     }
-    .btn-primary-grad:hover {
-      box-shadow: 0 12px 25px -4px rgba(37, 99, 235, 0.6);
-    }
     .btn-dark-sleek {
       background: #0f172a;
       color: #ffffff !important;
       box-shadow: 0 6px 16px -3px rgba(15, 23, 42, 0.25);
-    }
-    .btn-dark-sleek:hover {
-      background: #1e293b;
     }
     .btn-outline-glass {
       background: #ffffff;
@@ -278,69 +365,52 @@
     .btn-outline-glass:hover {
       border-color: #2563eb;
       color: #2563eb !important;
-      background: #f8fafc;
     }
 
-    /* 3. SHOWCASE WINDOW FRAME FOR FIGURES */
+    /* 6. SHOWCASE MEDIA FRAMES */
     .media-window {
       background: #ffffff;
       border-radius: 16px;
       border: 1px solid #cbd5e1;
-      box-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 18px 36px -14px rgba(15, 23, 42, 0.10);
       overflow: hidden;
       margin-bottom: 1.5rem;
     }
     .media-window-bar {
       background: #f1f5f9;
-      padding: 10px 16px;
+      padding: 9px 16px;
       border-bottom: 1px solid #e2e8f0;
       display: flex;
       align-items: center;
       justify-content: space-between;
     }
-    .window-dots {
-      display: flex;
-      gap: 6px;
-    }
-    .window-dots span {
-      width: 10px;
-      height: 10px;
-      border-radius: 50%;
-    }
+    .window-dots { display: flex; gap: 6px; }
+    .window-dots span { width: 10px; height: 10px; border-radius: 50%; }
     .dot-red { background: #f87171; }
     .dot-amber { background: #fbbf24; }
     .dot-green { background: #34d399; }
     .window-title {
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 600;
       color: #64748b;
       font-family: 'JetBrains Mono', monospace;
     }
-    .media-body {
-      padding: 12px;
-      background: #ffffff;
-    }
-    .media-body img {
-      width: 100%;
-      border-radius: 8px;
-      display: block;
-    }
-
-    /* Fallback if image isn't uploaded yet */
+    .media-body { padding: 12px; background: #ffffff; }
+    .media-body img { width: 100%; border-radius: 8px; display: block; }
     .img-fallback {
       background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 100%);
       border: 2px dashed #93c5fd;
       border-radius: 12px;
-      padding: 3rem 1.5rem;
+      padding: 2.5rem 1.5rem;
       text-align: center;
       color: #1e3a8a;
     }
 
-    /* 4. METRIC BENTO CARDS */
+    /* 7. METRIC BENTO CARDS */
     .metric-bento {
       background: #ffffff;
       border-radius: 16px;
-      padding: 20px 14px;
+      padding: 18px 12px;
       border: 1px solid #e2e8f0;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       text-align: center;
@@ -352,96 +422,101 @@
     .metric-bento::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 4px;
+      top: 0; left: 0; right: 0; height: 4px;
       background: linear-gradient(90deg, #2563eb, #06b6d4);
     }
     .metric-bento:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 28px -6px rgba(37, 99, 235, 0.14);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px -6px rgba(37, 99, 235, 0.14);
       border-color: #bfdbfe;
     }
     .metric-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
-      background: #eff6ff;
-      color: #2563eb;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.1rem;
-      margin-bottom: 10px;
+      width: 36px; height: 36px; border-radius: 10px;
+      background: #eff6ff; color: #2563eb;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1rem; margin-bottom: 8px;
     }
     .metric-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-size: 1.85rem;
-      font-weight: 800;
-      color: #0f172a;
-      line-height: 1.15;
+      font-size: 1.75rem; font-weight: 800; color: #0f172a; line-height: 1.15;
     }
     .metric-title {
-      font-size: 0.82rem;
-      font-weight: 600;
-      color: #64748b;
-      margin-top: 6px;
+      font-size: 0.8rem; font-weight: 600; color: #64748b; margin-top: 5px;
     }
 
-    /* 5. TL;DR & ABSTRACT CARD */
+    /* 8. EXPANDABLE ABSTRACT & PILLARS */
     .tldr-banner {
       background: linear-gradient(135deg, #eff6ff 0%, #eef2ff 100%);
       border: 1px solid #bfdbfe;
       border-left: 5px solid #2563eb;
       border-radius: 14px;
-      padding: 18px 22px;
-      margin-bottom: 2rem;
-      font-size: 1.02rem;
+      padding: 16px 22px;
+      margin-bottom: 1.75rem;
+      font-size: 1rem;
       color: #1e293b;
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.06);
     }
     .abstract-card {
       background: #ffffff;
       border-radius: 18px;
-      padding: 2.25rem 2.5rem;
+      padding: 2rem 2.25rem;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.07);
-      font-size: 1.05rem;
-      line-height: 1.8;
+      box-shadow: 0 12px 30px -10px rgba(15, 23, 42, 0.06);
+      font-size: 1.02rem;
+      line-height: 1.78;
       color: #334155;
     }
+    .abstract-collapsible {
+      position: relative;
+      max-height: 110px;
+      overflow: hidden;
+      transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    .abstract-collapsible.expanded {
+      max-height: 900px;
+    }
+    .abstract-fade {
+      position: absolute;
+      bottom: 0; left: 0; right: 0; height: 60px;
+      background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1) 90%);
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .abstract-collapsible.expanded + .abstract-fade { opacity: 0; }
+    .abstract-toggle-wrap { text-align: center; margin-top: 12px; }
+    .btn-expand-abstract {
+      background: #eff6ff; color: #2563eb; border: 1px solid #bfdbfe;
+      padding: 7px 18px; border-radius: 999px;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 0.85rem; font-weight: 700; cursor: pointer;
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: all 0.2s ease;
+    }
+    .btn-expand-abstract:hover { background: #dbeafe; transform: translateY(-1px); }
 
-    /* 6. CONTRIBUTION PILLAR CARDS */
     .pillar-card {
       background: #ffffff;
       border-radius: 16px;
-      padding: 26px 24px;
+      padding: 24px 22px;
       border: 1px solid #e2e8f0;
-      box-shadow: 0 6px 18px -4px rgba(15, 23, 42, 0.05);
+      box-shadow: 0 6px 18px -4px rgba(15, 23, 42, 0.04);
       height: 100%;
       transition: all 0.25s ease;
     }
     .pillar-card:hover {
       transform: translateY(-4px);
       border-color: #93c5fd;
-      box-shadow: 0 16px 32px -8px rgba(37, 99, 235, 0.12);
+      box-shadow: 0 14px 28px -8px rgba(37, 99, 235, 0.12);
     }
     .pillar-icon-box {
-      width: 48px;
-      height: 48px;
-      border-radius: 12px;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.35rem;
-      margin-bottom: 16px;
+      width: 44px; height: 44px; border-radius: 12px;
+      display: inline-flex; align-items: center; justify-content: center;
+      font-size: 1.25rem; margin-bottom: 14px;
     }
     .icon-blue { background: #eff6ff; color: #2563eb; }
     .icon-indigo { background: #eef2ff; color: #4f46e5; }
     .icon-teal { background: #f0fdfa; color: #0d9488; }
 
-    /* 7. STYLISH TABLES & TABS */
+    /* 9. BENCHMARK TABLES (ZERO HORIZONTAL SCROLL ON 19-CLASS OPEN-SET) */
     .section-bg-slate {
       background-color: #f8fafc;
       border-top: 1px solid #e2e8f0;
@@ -464,26 +539,17 @@
       background: #e2e8f0;
       padding: 6px;
       border-radius: 14px;
-      margin-bottom: 1.75rem;
+      margin-bottom: 1.5rem;
     }
     .pill-tab-btn {
-      background: transparent;
-      border: none;
-      color: #475569;
+      background: transparent; border: none; color: #475569;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      font-weight: 700;
-      font-size: 0.9rem;
-      padding: 10px 18px;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .pill-tab-btn:hover {
-      color: #0f172a;
+      font-weight: 700; font-size: 0.88rem;
+      padding: 9px 16px; border-radius: 10px;
+      cursor: pointer; transition: all 0.2s ease;
     }
     .pill-tab-btn.active {
-      background: #ffffff;
-      color: #2563eb;
+      background: #ffffff; color: #2563eb;
       box-shadow: 0 4px 10px rgba(15, 23, 42, 0.08);
     }
     .tab-pane { display: none; }
@@ -494,79 +560,122 @@
       border-radius: 16px;
       border: 1px solid #e2e8f0;
       box-shadow: 0 10px 25px -8px rgba(15, 23, 42, 0.07);
-      overflow-x: auto;
+      overflow: hidden;
     }
     .modern-table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
     .modern-table thead th {
+      background: #0f172a; color: #ffffff;
+      font-weight: 600; padding: 13px 14px;
+      text-align: center; font-size: 0.84rem;
+    }
+    .modern-table thead th:first-child { text-align: left; }
+    .modern-table tbody td {
+      padding: 12px 14px; border-bottom: 1px solid #f1f5f9;
+      text-align: center; color: #334155;
+    }
+    .modern-table tbody td:first-child {
+      text-align: left; font-weight: 600; color: #0f172a;
+    }
+    .modern-table tbody tr:hover { background-color: #f8fafc; }
+    .ours-row {
+      background: linear-gradient(90deg, #eff6ff 0%, #f0f9ff 100%) !important;
+      font-weight: 700;
+    }
+    .ours-row td {
+      color: #1e3a8a !important;
+      border-top: 1.5px solid #93c5fd !important;
+      border-bottom: 1.5px solid #93c5fd !important;
+    }
+
+    /* ZERO-SCROLL 22-COLUMN FULL-CLASS TABLE */
+    .fit-all-table {
+      width: 100%;
+      table-layout: fixed;
+      border-collapse: collapse;
+      font-size: 0.73rem;
+      font-variant-numeric: tabular-nums;
+    }
+    .fit-all-table col.col-method { width: 15.5%; }
+    .fit-all-table col.col-mod { width: 4.3%; }
+    .fit-all-table col.col-cls { width: 3.65%; }
+    .fit-all-table col.col-out { width: 5.2%; }
+    .fit-all-table col.col-mean { width: 5.6%; }
+
+    .fit-all-table thead th {
       background: #0f172a;
       color: #ffffff;
-      font-weight: 600;
-      padding: 14px 16px;
+      padding: 8px 1px;
+      vertical-align: bottom;
       text-align: center;
-      font-size: 0.85rem;
-      letter-spacing: 0.3px;
       border: none;
     }
-    .modern-table thead th:first-child {
+    .fit-all-table thead th:first-child {
       text-align: left;
+      padding-left: 10px;
+      vertical-align: middle;
+      font-size: 0.8rem;
     }
-    .modern-table tbody td {
-      padding: 13px 16px;
+    .th-vert {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-weight: 600;
+      font-size: 0.72rem;
+      height: 96px;
+      margin: 0 auto;
+    }
+    .cls-dot {
+      width: 7px; height: 7px; border-radius: 2px;
+      display: inline-block; flex-shrink: 0;
+    }
+    .fit-all-table tbody td {
+      padding: 9px 1px;
       border-bottom: 1px solid #f1f5f9;
       text-align: center;
       color: #334155;
-      vertical-align: middle;
+      overflow: hidden;
     }
-    .modern-table tbody td:first-child {
+    .fit-all-table tbody td:first-child {
       text-align: left;
-      font-weight: 600;
-      color: #0f172a;
-    }
-    .modern-table tbody tr:hover {
-      background-color: #f8fafc;
-    }
-    .modern-table tbody tr.ours-row {
-      background: linear-gradient(90deg, #eff6ff 0%, #f0f9ff 100%);
+      padding-left: 10px;
       font-weight: 700;
+      color: #0f172a;
+      white-space: nowrap;
+      font-size: 0.76rem;
     }
-    .modern-table tbody tr.ours-row td {
-      color: #1e3a8a;
-      border-top: 1.5px solid #93c5fd;
-      border-bottom: 1.5px solid #93c5fd;
+    .fit-all-table tbody tr:hover { background-color: #f1f5f9; }
+    .fit-all-table td.col-summary {
+      background: #f8fafc;
+      font-weight: 700;
+      border-left: 1.5px solid #cbd5e1;
     }
 
     .tag-mod {
-      display: inline-block;
-      padding: 3px 10px;
-      border-radius: 999px;
-      font-size: 0.75rem;
-      font-weight: 700;
+      display: inline-block; padding: 2px 6px;
+      border-radius: 6px; font-size: 0.68rem; font-weight: 700;
     }
     .tag-l { background: #e0f2fe; color: #0369a1; }
     .tag-lc { background: #f3e8ff; color: #7e22ce; }
     .check-yes { color: #10b981; font-weight: 700; }
     .check-no { color: #94a3b8; }
     .gold-medal {
-      background: #fef3c7;
-      color: #b45309;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-weight: 800;
+      background: #fef3c7; color: #b45309;
+      padding: 2px 5px; border-radius: 5px; font-weight: 800;
     }
     .silver-medal {
-      background: #f1f5f9;
-      color: #334155;
-      padding: 3px 8px;
-      border-radius: 6px;
-      font-weight: 700;
+      background: #e2e8f0; color: #1e293b;
+      padding: 2px 5px; border-radius: 5px; font-weight: 700;
       text-decoration: underline;
     }
 
-    /* 8. DARK MODE TERMINAL BIBTEX */
+    /* 10. DARK MODE TERMINAL BIBTEX */
     .terminal-card {
       background: #0f172a !important;
       border-radius: 16px;
@@ -575,157 +684,19 @@
       overflow: hidden;
     }
     .terminal-header {
-      background: #1e293b;
-      padding: 12px 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+      background: #1e293b; padding: 12px 20px;
+      display: flex; justify-content: space-between; align-items: center;
       border-bottom: 1px solid #334155;
     }
     .terminal-card pre {
-      background: #0f172a !important;
-      border: none !important;
-      margin: 0 !important;
-      padding: 1.5rem !important;
-      color: #e2e8f0 !important;
+      background: #0f172a !important; border: none !important;
+      margin: 0 !important; padding: 1.5rem !important; color: #e2e8f0 !important;
     }
     .terminal-card code {
-      background: transparent !important;
-      color: #38bdf8 !important;
+      background: transparent !important; color: #38bdf8 !important;
       font-family: 'JetBrains Mono', monospace !important;
-      font-size: 0.88rem !important;
-      line-height: 1.65;
+      font-size: 0.86rem !important; line-height: 1.65;
     }
-
-    @media screen and (max-width: 768px) {
-      .hero-title { font-size: 1.95rem !important; }
-      .abstract-card { padding: 1.5rem; }
-      .nav-links { display: none; }
-    }
-    /* 1. GLOBAL JUSTIFIED TEXT FOR BODY PARAGRAPHS */
-.abstract-card p,
-.pillar-card p,
-.tldr-banner,
-.feature-card p,
-.feature-card ul,
-.justified-text {
-  text-align: justify;
-  hyphens: auto;
-  -webkit-hyphens: auto;
-}
-
-/* 2. COLLAPSIBLE ABSTRACT WITH FADE-OUT MASK */
-.abstract-collapsible {
-  position: relative;
-  max-height: 115px; /* Shows first ~3.5 lines */
-  overflow: hidden;
-  transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
-}
-.abstract-collapsible.expanded {
-  max-height: 900px;
-}
-.abstract-fade {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 65px;
-  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,1) 90%);
-  pointer-events: none;
-  transition: opacity 0.3s ease;
-}
-.abstract-collapsible.expanded + .abstract-fade {
-  opacity: 0;
-}
-.abstract-toggle-wrap {
-  text-align: center;
-  margin-top: 14px;
-}
-.btn-expand-abstract {
-  background: #eff6ff;
-  color: #2563eb;
-  border: 1px solid #bfdbfe;
-  padding: 7px 18px;
-  border-radius: 999px;
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 0.85rem;
-  font-weight: 700;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  transition: all 0.2s ease;
-}
-.btn-expand-abstract:hover {
-  background: #dbeafe;
-  transform: translateY(-1px);
-}
-
-/* 3. COMPACT FULL-CLASS BENCHMARK TABLE WITH VERTICAL HEADERS */
-.dense-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 0.76rem;
-  font-variant-numeric: tabular-nums;
-}
-.dense-table thead th {
-  background: #0f172a;
-  color: #ffffff;
-  padding: 10px 4px;
-  border: none;
-  vertical-align: bottom;
-  text-align: center;
-}
-.dense-table thead th:first-child {
-  text-align: left;
-  padding-left: 12px;
-  vertical-align: middle;
-  min-width: 145px;
-}
-.th-vert {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  white-space: nowrap;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-weight: 600;
-  font-size: 0.75rem;
-  letter-spacing: 0.3px;
-  height: 105px;
-  margin: 0 auto;
-}
-.cls-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 2px;
-  display: inline-block;
-  flex-shrink: 0;
-}
-.dense-table tbody td {
-  padding: 6px 3.5px;
-  border-bottom: 1px solid #f1f5f9;
-  text-align: center;
-  color: #334155;
-}
-.dense-table tbody td:first-child {
-  text-align: left;
-  padding-left: 12px;
-  font-weight: 600;
-  color: #0f172a;
-  white-space: nowrap;
-}
-.dense-table tbody tr:hover {
-  background-color: #f1f5f9;
-}
-.dense-table tbody tr.group-divider td {
-  border-top: 2px solid #cbd5e1;
-}
-.dense-table td.col-summary {
-  background: #f8fafc;
-  font-weight: 700;
-  border-left: 1.5px solid #e2e8f0;
-}
   </style>
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -745,8 +716,9 @@
       </a>
       <nav class="nav-links">
         <a href="#overview">Overview</a>
-        <a href="#contributions">Highlights</a>
-        <a href="#comparison">Dataset</a>
+        <a href="#contributions">Abstract</a>
+        <a href="#sensors">Sensors &amp; Splits</a>
+        <a href="#taxonomy">OOD Taxonomy</a>
         <a href="#benchmark">Benchmark</a>
         <a href="#BibTeX">BibTeX</a>
         <a href="https://bhanderisavan.github.io/publications" class="nav-cta">All Publications &rarr;</a>
@@ -754,35 +726,35 @@
     </div>
   </header>
 
-  <!-- 2. ARCHITECTURAL HERO SECTION -->
+  <!-- 2. HERO HEADER -->
   <section class="hero-mesh">
     <div class="container is-max-desktop has-text-centered">
       
-      <!-- Conference Badge -->
       <div class="conf-badge">
         <span class="dot"></span>
         <span>Accepted at IEEE/CVF WACV 2027 &bull; Datasets Track</span>
       </div>
 
-      <!-- Gradient Title -->
       <h1 class="hero-title">
-        <span class="gradient-brand">DriveOSS:</span> Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving
+        <span class="gradient-brand">DriveOSS:</span> Dataset and Benchmark for 3D Anomaly Segmentation<br>
+        and Open-set Semantic Segmentation in Autonomous Driving
       </h1>
 
-      <!-- Interactive Author Chips -->
+      <!-- Interactive Author Chips with Hover Lift & Left-to-Right Underline -->
       <div class="authors-wrap">
-        <div class="author-chip">Zhiran Yan<sup>1</sup></div>
-        <div class="author-chip is-self">
-          <a href="https://bhanderisavan.github.io"><i class="fas fa-user-astronaut" style="margin-right:4px; font-size:0.85rem;"></i>Savankumar Bhanderi<sup>1</sup></a>
-        </div>
-        <div class="author-chip">Sourabh Lolge<sup>1</sup></div>
-        <div class="author-chip">Rui Song<sup>2</sup></div>
-        <div class="author-chip">Girdharbhai Paneliya<sup>1</sup></div>
-        <div class="author-chip">Shiva Agrawal<sup>1</sup></div>
-        <div class="author-chip">Gordon Elger<sup>1</sup></div>
+        <a href="#overview" class="author-chip"><span class="author-name">Zhiran Yan</span><sup>1</sup></a>
+        <a href="https://bhanderisavan.github.io" class="author-chip is-self">
+          <i class="fas fa-user-astronaut" style="margin-right:6px; font-size:0.82rem;"></i>
+          <span class="author-name">Savankumar Bhanderi</span><sup>1</sup>
+        </a>
+        <a href="#overview" class="author-chip"><span class="author-name">Sourabh Lolge</span><sup>1</sup></a>
+        <a href="#overview" class="author-chip"><span class="author-name">Rui Song</span><sup>2</sup></a>
+        <a href="#overview" class="author-chip"><span class="author-name">Girdharbhai Paneliya</span><sup>1</sup></a>
+        <a href="#overview" class="author-chip"><span class="author-name">Shiva Agrawal</span><sup>1</sup></a>
+        <a href="#overview" class="author-chip"><span class="author-name">Gordon Elger</span><sup>1</sup></a>
       </div>
-      
-      <!-- Institution Cards (Markus-42 Style) -->
+
+      <!-- Markus-42 Style Institution Cards (Normal by default -> Pill + Left-to-Right Underline on Hover) -->
       <div class="affiliations-grid">
         
         <!-- 1: THI Ingolstadt -->
@@ -796,17 +768,15 @@
             </div>
           </div>
           <div class="affiliation-logo">
-            <img src="static/images/thi_logo.png" alt="THI Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <svg style="display:none;" viewBox="0 0 100 75" height="42" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <!-- Stylized THI 'ti' blue icon -->
-              <path d="M42 12L30 62M20 28H64C70 28 73 32 71 39L64 64" stroke="#005A9B" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
-              <circle cx="71" cy="12" r="5.5" fill="#005A9B"/>
+            <svg viewBox="0 0 100 72" height="38" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M40 12L28 60M18 28H62C68 28 71 32 69 39L62 62" stroke="#005A9B" stroke-width="8.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="69" cy="12" r="5.5" fill="#005A9B"/>
             </svg>
           </div>
         </a>
-      
+
         <!-- 2: UCLA -->
-        <a href="https://www.ucla.edu/" target="_blank" class="affiliation-card">
+        <a href="https://mobility-lab.seas.ucla.edu/" target="_blank" class="affiliation-card">
           <div>
             <div class="affiliation-title">
               <sup>2</sup>University of California,<br>Los Angeles
@@ -816,16 +786,15 @@
             </div>
           </div>
           <div class="affiliation-logo">
-            <img src="static/images/ucla_logo.png" alt="UCLA Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-            <svg style="display:none;" viewBox="0 0 150 48" height="38" xmlns="http://www.w3.org/2000/svg">
-              <text x="50%" y="36" text-anchor="middle" fill="#2774AE" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-style="italic" font-size="38" letter-spacing="1">UCLA</text>
+            <svg viewBox="0 0 150 48" height="36" xmlns="http://www.w3.org/2000/svg">
+              <text x="50%" y="36" text-anchor="middle" fill="#2774AE" font-family="'Plus Jakarta Sans', Arial, sans-serif" font-weight="800" font-style="italic" font-size="36" letter-spacing="1">UCLA</text>
             </svg>
           </div>
         </a>
-      
+
       </div>
 
-      <!-- Multi-Style Action Buttons -->
+      <!-- Action Buttons -->
       <div class="cta-group">
         <a href="static/pdfs/DriveOSS_WACV2027.pdf" target="_blank" class="btn-modern btn-primary-grad">
           <i class="fas fa-file-pdf"></i>
@@ -849,39 +818,32 @@
   </section>
 
   <!-- 3. TEASER SHOWCASE & BENTO STATS -->
-  <section class="section" id="overview" style="padding-top: 2.5rem;">
+  <section class="section" id="overview" style="padding-top: 2.25rem;">
     <div class="container is-max-desktop">
 
-      <!-- TL;DR Banner -->
       <div class="tldr-banner">
         <strong><i class="fas fa-bolt" style="color:#2563eb; margin-right:6px;"></i>TL;DR:</strong>
-        <strong>DriveOSS</strong> is the first real-world multimodal driving benchmark designed to jointly evaluate <strong>Closed-Set 3D Semantic Segmentation</strong>, <strong>3D Anomaly Segmentation</strong>, and <strong>3D Open-Set Semantic Segmentation</strong> across 5 weather &amp; lighting domains (Clear, Night, Cloudy, Rain, Snow).
+        <strong>DriveOSS</strong> is the first real-world multimodal autonomous driving dataset and benchmark designed to jointly evaluate <strong>Closed-Set 3D Semantic Segmentation</strong>, <strong>3D Anomaly Segmentation</strong>, and <strong>3D Open-Set Semantic Segmentation</strong> across 5 weather and lighting conditions (Clear, Night, Cloudy, Rain, Snow).
       </div>
 
-      <!-- macOS-Style Window Frame for Teaser Figure -->
       <div class="media-window">
         <div class="media-window-bar">
-          <div class="window-dots">
-            <span class="dot-red"></span>
-            <span class="dot-amber"></span>
-            <span class="dot-green"></span>
-          </div>
-          <span class="window-title">DriveOSS_Overview_Teaser.png &mdash; 128-Beam LiDAR + 6&times; Surround RGB</span>
+          <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+          <span class="window-title">Fig1_DriveOSS_Overview.png &mdash; 128-Beam LiDAR + 6&times; Surround RGB</span>
           <span></span>
         </div>
         <div class="media-body">
           <img src="static/images/overview_fig1.png" alt="DriveOSS Overview"
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="img-fallback" style="display:none;">
-            <i class="fas fa-images" style="font-size: 2.2rem; margin-bottom: 10px;"></i>
-            <h4 class="title is-5" style="margin-bottom: 6px; color:#1e3a8a;">Teaser Figure Placeholder</h4>
-            <p style="font-size: 0.9rem; color:#475569;"> <code>static/images/overview_fig1.png</code>.</p>
+            <i class="fas fa-images" style="font-size: 2rem; margin-bottom: 8px;"></i>
+            <h4 class="title is-5" style="margin-bottom: 4px; color:#1e3a8a;">Teaser Figure Placeholder</h4>
+            <p style="font-size: 0.88rem; color:#475569;"> Figure 1 at <code>static/images/overview_fig1.png</code></p>
           </div>
         </div>
       </div>
 
-      <!-- 6 Bento Metric Cards -->
-      <div class="columns is-multiline" style="margin-top: 1.5rem;">
+      <div class="columns is-multiline" style="margin-top: 1.25rem;">
         <div class="column is-2-desktop is-4-tablet is-6-mobile">
           <div class="metric-bento">
             <div class="metric-icon"><i class="fas fa-satellite-dish"></i></div>
@@ -929,42 +891,39 @@
     </div>
   </section>
 
-  <!-- 4. ABSTRACT & KEY CONTRIBUTIONS -->
+  <!-- 4. EXPANDABLE ABSTRACT & KEY CONTRIBUTIONS -->
   <section class="section section-bg-slate" id="contributions">
     <div class="container is-max-desktop">
       
-      <div class="has-text-centered" style="margin-bottom: 2rem;">
+      <div class="has-text-centered" style="margin-bottom: 1.75rem;">
         <span class="section-eyebrow">Motivation &amp; Scope</span>
         <h2 class="title is-3" style="margin-bottom: 0 !important;">Abstract</h2>
       </div>
 
       <div class="abstract-card">
-  <div style="position: relative;">
-    <div id="abstractContent" class="abstract-collapsible">
-      <p style="margin-bottom: 1rem;">
-        Recent advances in 3D semantic segmentation have significantly improved scene understanding in autonomous driving. However, existing methods are typically developed under a <strong>closed-set assumption</strong> and evaluated under standard driving conditions, where all categories are known in advance. In real-world driving, autonomous vehicles inevitably encounter previously unseen objects, making closed-set perception insufficient for safe deployment[cite: 3].
-      </p>
-      <p style="margin-bottom: 0;">
-        To address this challenge, we introduce <strong>DriveOSS</strong>, which, to the best of our knowledge, is the first real-world multimodal dataset and benchmark specifically designed for <strong>3D anomaly segmentation</strong> and <strong>open-set semantic segmentation</strong>. It contains <strong>12,661 synchronized and annotated frames</strong> captured using six surround-view RGB cameras, a 128-beam LiDAR, and a GPS/IMU unit. The dataset comprises 52 real-world driving scenes collected under clear, nighttime, cloudy, rainy, and snowy conditions and is organized into ID (in-distribution) and OOD (out-of-distribution) subsets. The ID scenes contain only known classes and are used for training, whereas the OOD scenes additionally contain unknown objects annotated as the <em>outlier</em> class and are used for validation and testing. Extensive experiments show that unseen objects remain a major challenge for current 3D perception systems. We will release the dataset, benchmark protocols, and code upon publication[cite: 3].
-      </p>
-    </div>
-    <div class="abstract-fade"></div>
-  </div>
-  <div class="abstract-toggle-wrap">
-    <button id="abstractBtn" class="btn-expand-abstract" onclick="toggleAbstract()">
-      <span>Show Full Abstract</span>
-      <i class="fas fa-chevron-down" id="abstractIcon"></i>
-    </button>
-  </div>
-</div>
+        <div style="position: relative;">
+          <div id="abstractContent" class="abstract-collapsible">
+            <p style="margin-bottom: 1rem;">
+              Recent advances in 3D semantic segmentation have significantly improved scene understanding in autonomous driving. However, existing methods are typically developed under a <strong>closed-set assumption</strong> and evaluated under standard driving conditions, where all categories are known in advance. In real-world driving, autonomous vehicles inevitably encounter previously unseen objects, making closed-set perception insufficient for safe deployment. To address this challenge, we introduce <strong>DriveOSS</strong>, which, to the best of our knowledge, is the first real-world multimodal dataset and benchmark specifically designed for <strong>3D anomaly segmentation</strong> and <strong>open-set semantic segmentation</strong>. It contains <strong>12,661 synchronized and annotated frames</strong> captured using six surround-view RGB cameras, a 128-beam LiDAR, and a GPS/IMU unit. The dataset comprises 52 real-world driving scenes collected under clear, nighttime, cloudy, rainy, and snowy conditions and is organized into ID (in-distribution) and OOD (out-of-distribution) subsets. The ID scenes contain only known classes and are used for training, whereas the OOD scenes additionally contain unknown objects annotated as the <em>outlier</em> class and are used for validation and testing. Extensive experiments show that unseen objects remain a major challenge for current 3D perception systems. We will release the dataset, benchmark protocols, and code upon publication.
+            </p>
+          </div>
+          <div class="abstract-fade"></div>
+        </div>
+        <div class="abstract-toggle-wrap">
+          <button id="abstractBtn" class="btn-expand-abstract" onclick="toggleAbstract()">
+            <span>Show Full Abstract</span>
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
+      </div>
 
       <!-- 3 Key Contribution Cards -->
-      <div class="columns is-multiline" style="margin-top: 2.25rem;">
+      <div class="columns is-multiline" style="margin-top: 2rem;">
         <div class="column is-4">
           <div class="pillar-card">
             <div class="pillar-icon-box icon-blue"><i class="fas fa-cloud-moon-rain"></i></div>
             <h4 class="title is-5" style="margin-bottom: 10px;">Adverse Weather &amp; Disjoint Splits</h4>
-            <p style="color:#475569; font-size:0.94rem;">
+            <p style="color:#475569; font-size:0.92rem;">
               Recorded with an Ouster OS1-128 LiDAR (20 Hz), 6 Basler RGB cameras (10 Hz), and RTK-INS (600 Hz) across <strong>Clear, Nighttime, Cloudy, Rainy, and Snowy</strong> conditions on geographically disjoint ID and OOD routes.
             </p>
           </div>
@@ -973,8 +932,8 @@
           <div class="pillar-card">
             <div class="pillar-icon-box icon-indigo"><i class="fas fa-cubes"></i></div>
             <h4 class="title is-5" style="margin-bottom: 10px;">Unified 3D Open-IoU Protocol</h4>
-            <p style="color:#475569; font-size:0.94rem;">
-              Unlike binary anomaly benchmarks that discard background semantics, DriveOSS retains all <strong>19 known ID classes + 1 Outlier class</strong> in OOD scenes, enabling true 3D Open-Set evaluation via <strong>3D mOpen-IoU</strong>.
+            <p style="color:#475569; font-size:0.92rem;">
+              Unlike binary anomaly benchmarks that discard background semantics, DriveOSS retains all <strong>19 known ID classes + 1 Outlier class</strong> in OOD scenes, enabling joint evaluation via <strong>3D mOpen-IoU</strong>.
             </p>
           </div>
         </div>
@@ -982,7 +941,7 @@
           <div class="pillar-card">
             <div class="pillar-icon-box icon-teal"><i class="fas fa-microchip"></i></div>
             <h4 class="title is-5" style="margin-bottom: 10px;">LiDAR &amp; Multimodal Baselines</h4>
-            <p style="color:#475569; font-size:0.94rem;">
+            <p style="color:#475569; font-size:0.92rem;">
               Benchmarks P3Former, LCPS-lidar, Mask4Former3D, LIDO, LCPS, and our query-level fusion baseline <strong>Mask4Former3D*</strong> across MSP, MaxLogit, Energy, Entropy, and RbA scoring.
             </p>
           </div>
@@ -995,7 +954,7 @@
   <!-- 5. DATASET COMPARISON TABLE -->
   <section class="section" id="comparison">
     <div class="container is-max-desktop">
-      <div class="has-text-centered" style="margin-bottom: 2rem;">
+      <div class="has-text-centered" style="margin-bottom: 1.75rem;">
         <span class="section-eyebrow">Literature Context</span>
         <h2 class="title is-3">Comparison with Automotive 3D Datasets</h2>
       </div>
@@ -1008,78 +967,24 @@
               <th>Year</th>
               <th>Weather &amp; Illumination</th>
               <th>Modality</th>
-              <th>LiDAR Beams</th>
+              <th>#Beam</th>
               <th>Cameras</th>
               <th>OOD Scene Annotations</th>
               <th>Tasks</th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>SemanticKITTI</td>
-              <td>2019</td>
-              <td>Clear only</td>
-              <td><span class="tag-mod tag-lc">L + C</span></td>
-              <td>64</td>
-              <td>Front</td>
-              <td><span class="check-no">&times; None (Closed-set)</span></td>
-              <td>SS, PS</td>
-            </tr>
-            <tr>
-              <td>Panoptic nuScenes</td>
-              <td>2021</td>
-              <td>Diverse</td>
-              <td><span class="tag-mod tag-lc">L + C</span></td>
-              <td>32</td>
-              <td>6&times; Surround</td>
-              <td><span class="check-no">&times; None (Closed-set)</span></td>
-              <td>PS</td>
-            </tr>
-            <tr>
-              <td>SemanticSTF</td>
-              <td>2023</td>
-              <td>Fog / Rain / Snow</td>
-              <td><span class="tag-mod tag-lc">L + C</span></td>
-              <td>64</td>
-              <td>Front</td>
-              <td><span class="check-no">&times; None (Closed-set)</span></td>
-              <td>SS</td>
-            </tr>
-            <tr>
-              <td>Panoptic-CUDAL</td>
-              <td>2025</td>
-              <td>Rain</td>
-              <td><span class="tag-mod tag-lc">L + C</span></td>
-              <td>128</td>
-              <td>Surround</td>
-              <td><span class="check-no">&times; None (Closed-set)</span></td>
-              <td>PS</td>
-            </tr>
-            <tr>
-              <td>STU</td>
-              <td>2025</td>
-              <td>Clear only</td>
-              <td><span class="tag-mod tag-lc">L + C</span></td>
-              <td>128</td>
-              <td>Surround</td>
-              <td>Binary (Inlier / Outlier)</td>
-              <td>PS, AS</td>
-            </tr>
-            <tr>
-              <td>LIDO (Synthetic Mix)</td>
-              <td>2026</td>
-              <td>Clear only</td>
-              <td><span class="tag-mod tag-l">LiDAR</span></td>
-              <td>32 / 40 / 64</td>
-              <td>&mdash;</td>
-              <td>Binary (Inlier / Outlier)</td>
-              <td>AS</td>
-            </tr>
+            <tr><td>SemanticKITTI</td><td>2019</td><td>Clear only</td><td><span class="tag-mod tag-lc">L+C</span></td><td>64</td><td>Front</td><td><span class="check-no">&times; None (Closed-set)</span></td><td>SS, PS</td></tr>
+            <tr><td>Panoptic nuScenes</td><td>2021</td><td>Diverse</td><td><span class="tag-mod tag-lc">L+C</span></td><td>32</td><td>6&times; Surround</td><td><span class="check-no">&times; None (Closed-set)</span></td><td>PS</td></tr>
+            <tr><td>SemanticSTF</td><td>2023</td><td>Fog / Rain / Snow</td><td><span class="tag-mod tag-lc">L+C</span></td><td>64</td><td>Front</td><td><span class="check-no">&times; None (Closed-set)</span></td><td>SS</td></tr>
+            <tr><td>Panoptic-CUDAL</td><td>2025</td><td>Rain</td><td><span class="tag-mod tag-lc">L+C</span></td><td>128</td><td>Surround</td><td><span class="check-no">&times; None (Closed-set)</span></td><td>PS</td></tr>
+            <tr><td>STU</td><td>2025</td><td>Clear only</td><td><span class="tag-mod tag-lc">L+C</span></td><td>128</td><td>Surround</td><td>Binary (Inlier / Outlier)</td><td>PS, AS</td></tr>
+            <tr><td>LIDO (Synthetic Mix)</td><td>2026</td><td>Clear only</td><td><span class="tag-mod tag-l">L</span></td><td>32/40/64</td><td>&mdash;</td><td>Binary (Inlier / Outlier)</td><td>AS</td></tr>
             <tr class="ours-row">
               <td><i class="fas fa-star" style="color:#f59e0b; margin-right:6px;"></i>DriveOSS (Ours)</td>
               <td>2027</td>
               <td>Clear, Night, Cloudy, Rain, Snow</td>
-              <td><span class="tag-mod tag-lc">L + C</span></td>
+              <td><span class="tag-mod tag-lc">L+C</span></td>
               <td>128</td>
               <td>6&times; Surround</td>
               <td><span class="check-yes">&check; 19 ID Classes + Outlier</span></td>
@@ -1091,23 +996,202 @@
     </div>
   </section>
 
-  <!-- 6. INTERACTIVE TABBED BENCHMARK EXPLORER -->
+  <!-- 6. SENSOR SUITE, CALIBRATION & WEATHER DISTRIBUTION -->
+  <section class="section section-bg-slate" id="sensors">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered" style="margin-bottom: 2rem;">
+        <span class="section-eyebrow">Hardware &amp; Environmental Diversity</span>
+        <h2 class="title is-3">Multimodal Sensor Suite &amp; Weather Distribution</h2>
+      </div>
+
+      <div class="columns is-vcentered" style="margin-bottom: 2rem;">
+        <div class="column is-5">
+          <div class="pillar-card">
+            <div class="pillar-icon-box icon-blue"><i class="fas fa-car-side"></i></div>
+            <h4 class="title is-5" style="margin-bottom: 10px;">Synchronized Recording Platform</h4>
+            <p class="justified-text" style="color:#475569; font-size:0.92rem; margin-bottom: 12px;">
+              All sensors are hardware-synchronized to a common GPS-derived time reference across urban, rural, downtown, pedestrian, and industrial zones:
+            </p>
+            <ul class="justified-text" style="color:#334155; font-size:0.89rem; line-height:1.75; padding-left: 18px;">
+              <li><strong>1&times; LiDAR (Ouster OS1-128):</strong> 128 beams, 360&deg; H-FOV, &minus;22.5&deg; to +22.5&deg; V-FOV @ 20 Hz.</li>
+              <li><strong>6&times; RGB Cameras (Basler ace2R):</strong> Surround-view 1920&times;1080 resolution @ 10 Hz.</li>
+              <li><strong>1&times; GNSS/INS (Certus RTK):</strong> &gt;600 Hz update rate, 0.01 m horizontal &amp; 0.015 m vertical accuracy.</li>
+            </ul>
+          </div>
+        </div>
+        <div class="column is-7">
+          <div class="media-window" style="margin-bottom: 0;">
+            <div class="media-window-bar">
+              <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+              <span class="window-title">Fig2_Sensor_Platform.png</span>
+              <span></span>
+            </div>
+            <div class="media-body">
+              <img src="static/images/sensor_platform.png" alt="DriveOSS Sensor Vehicle"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="img-fallback" style="display:none; padding: 2rem;">
+                <i class="fas fa-car" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
+                <p style="font-size: 0.88rem;">Figure 2 at <code>static/images/sensor_platform.png</code></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="media-window" style="margin-bottom: 2.25rem;">
+        <div class="media-window-bar">
+          <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+          <span class="window-title">Fig3_Surround_LiDAR_Camera_Calibration.png</span>
+          <span></span>
+        </div>
+        <div class="media-body">
+          <img src="static/images/calibration_6views.png" alt="LiDAR-Camera Calibration"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="img-fallback" style="display:none; padding: 2rem;">
+            <i class="fas fa-camera-retro" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
+            <p style="font-size: 0.88rem;"> Figure 3 at <code>static/images/calibration_6views.png</code></p>
+          </div>
+        </div>
+      </div>
+
+      <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.25rem;">Distribution Across Splits &amp; 5 Weather Domains</h3>
+      <div class="modern-table-card">
+        <table class="modern-table">
+          <thead>
+            <tr>
+              <th>Condition</th>
+              <th>ID Train (Seq / Frames)</th>
+              <th>ID Val (Seq / Frames)</th>
+              <th>OOD Val (Seq / Frames / OOD Points)</th>
+              <th>OOD Test (Seq / Frames / OOD Points)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>☀️ Clear</td><td>4 / 809</td><td>6 / 1,701</td><td>9 / 2,315 / 252,606</td><td>8 / 1,766 / 885,729</td></tr>
+            <tr><td>🌙 Nighttime</td><td>1 / 184</td><td>1 / 79</td><td>2 / 287 / 22,132</td><td>2 / 357 / 42,979</td></tr>
+            <tr><td>☁️ Cloudy</td><td>2 / 636</td><td>1 / 186</td><td>2 / 742 / 43,548</td><td>2 / 666 / 71,440</td></tr>
+            <tr><td>🌧️ Rainy</td><td>1 / 399</td><td>1 / 165</td><td>2 / 696 / 35,104</td><td>2 / 618 / 66,509</td></tr>
+            <tr><td>❄️ Snowy</td><td>1 / 212</td><td>1 / 253</td><td>2 / 238 / 12,898</td><td>2 / 352 / 89,803</td></tr>
+            <tr class="ours-row"><td>Overall DriveOSS</td><td>9 / 2,240</td><td>10 / 2,384</td><td>17 / 4,278 / 366,288</td><td>16 / 3,759 / 1,156,460</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- 7. OOD TAXONOMY & 6-STAGE ANNOTATION QC -->
+  <section class="section" id="taxonomy">
+    <div class="container is-max-desktop">
+      <div class="has-text-centered" style="margin-bottom: 2rem;">
+        <span class="section-eyebrow">Anomalies &amp; Ground Truth Quality</span>
+        <h2 class="title is-3">OOD Hazard Taxonomy &amp; Multi-Stage Annotation QC</h2>
+      </div>
+
+      <div class="media-window" style="margin-bottom: 2rem;">
+        <div class="media-window-bar">
+          <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+          <span class="window-title">Fig4_Representative_OOD_Anomalies.png</span>
+          <span></span>
+        </div>
+        <div class="media-body">
+          <img src="static/images/ood_anomalies_grid.png" alt="Representative OOD Objects"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+          <div class="img-fallback" style="display:none; padding: 2rem;">
+            <i class="fas fa-boxes" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
+            <p style="font-size: 0.88rem;"> Figure 4 at <code>static/images/ood_anomalies_grid.png</code></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-multiline" style="margin-bottom: 2rem;">
+        <div class="column is-4">
+          <div class="pillar-card">
+            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">📦 1. Containers &amp; Packaging</h5>
+            <p style="color:#475569; font-size:0.88rem;">Cardboard boxes, plastic boxes, foam blocks, garbage bags, and small trash bins with simple geometries and diverse materials.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="pillar-card">
+            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🪑 2. Furniture &amp; Fixtures</h5>
+            <p style="color:#475569; font-size:0.88rem;">Office chairs, folding chairs, wooden chairs, clothes racks, and advertising signs with complex structures and varying heights.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="pillar-card">
+            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🪜 3. Tools &amp; Industrial Equipment</h5>
+            <p style="color:#475569; font-size:0.88rem;">Ladders, shovels, metal barriers, and maintenance equipment featuring rigid structures and occasionally high reflectivity.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="pillar-card">
+            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🎒 4. Personal Belongings</h5>
+            <p style="color:#475569; font-size:0.88rem;">Backpacks, bicycle helmets, bags, and personal items representing small low-profile hazards with irregular shapes.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="pillar-card">
+            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🛒 5. Utility &amp; Service Equipment</h5>
+            <p style="color:#475569; font-size:0.88rem;">Shopping carts, waste-collection carts, and mobile bins commonly encountered in urban and commercial driving zones.</p>
+          </div>
+        </div>
+        <div class="column is-4">
+          <div class="pillar-card">
+            <h5 class="title is-6" style="color:#1e3a8a; margin-bottom:8px;">🪵 6. Roadside Debris &amp; Misc.</h5>
+            <p style="color:#475569; font-size:0.88rem;">Wooden boards, fallen signs, tires, and unstructured obstacles with diverse appearances and physical properties.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="columns is-vcentered">
+        <div class="column is-5">
+          <div class="pillar-card">
+            <h4 class="title is-5" style="margin-bottom: 10px;">Spatial-Hazard Protocol &amp; 6-Stage QC</h4>
+            <p style="color:#475569; font-size:0.9rem; margin-bottom: 10px;">
+              To maintain an objective boundary between <code>outlier</code> and <code>other-object</code>, any non-ID object located on or immediately adjacent to the drivable surface (road, parking, lane-marking, or sidewalk curb) is strictly annotated as <code>outlier</code>, while permanent off-road fixtures (bus shelters, benches) are labeled <code>other-object</code>.
+            </p>
+            <p style="color:#475569; font-size:0.9rem;">
+              <strong>100% of OOD objects are manually annotated from scratch.</strong> For ID classes, KISS-ICP registered scans are initialized with coarse Mask4Former pre-labels and thoroughly overhauled via plane removal, class-isolation filtering, and independent dual-annotator verification.
+            </p>
+          </div>
+        </div>
+        <div class="column is-7">
+          <div class="media-window" style="margin-bottom: 0;">
+            <div class="media-window-bar">
+              <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+              <span class="window-title">Suppl_Fig4_Prelabel_vs_Refined_GT.png</span>
+              <span></span>
+            </div>
+            <div class="media-body">
+              <img src="static/images/prelabel_vs_gt.png" alt="Pre-label vs Refined Ground Truth"
+                   onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+              <div class="img-fallback" style="display:none; padding: 2rem;">
+                <i class="fas fa-check-double" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
+                <p style="font-size: 0.88rem;"> Supplementary Figure 4 at <code>static/images/prelabel_vs_gt.png</code></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. INTERACTIVE TABBED BENCHMARK EXPLORER (ZERO HORIZONTAL SCROLL) -->
   <section class="section section-bg-slate" id="benchmark">
     <div class="container is-max-desktop">
       <div class="has-text-centered" style="margin-bottom: 1.5rem;">
         <span class="section-eyebrow">Quantitative Evaluation</span>
         <h2 class="title is-3" style="margin-bottom: 0.75rem !important;">Interactive Benchmark Explorer</h2>
         <p style="color:#475569; max-width: 720px; margin: 0 auto 1.5rem;">
-          Switch between our three benchmark tasks and hardware runtime profile on the DriveOSS test set.
+          Showing the best-performing anomaly scoring variant per architecture across all 19 known classes + Outlier.
         </p>
 
-        <!-- Segmented Pill Switcher -->
         <div class="pill-tabs">
           <button class="pill-tab-btn active" onclick="switchBenchTab('tab-oss', this)">
-            <i class="fas fa-bullseye" style="margin-right:6px;"></i>3D Open-Set (mOpen-IoU)
+            <i class="fas fa-bullseye" style="margin-right:6px;"></i>3D Open-Set (All 19 Classes + Outlier)
           </button>
           <button class="pill-tab-btn" onclick="switchBenchTab('tab-anom', this)">
-            <i class="fas fa-exclamation-circle" style="margin-right:6px;"></i>3D Anomaly (AUROC / FPR95)
+            <i class="fas fa-exclamation-circle" style="margin-right:6px;"></i>3D Anomaly (AUROC / FPR@95)
           </button>
           <button class="pill-tab-btn" onclick="switchBenchTab('tab-closed', this)">
             <i class="fas fa-shapes" style="margin-right:6px;"></i>Closed-Set (mIoU)
@@ -1118,81 +1202,102 @@
         </div>
       </div>
 
-      <!-- TAB 1: COMPLETE 19-CLASS + OUTLIER 3D OPEN-SET TABLE (Table 6) -->
-<div id="tab-oss" class="tab-pane active">
-  <div class="modern-table-card">
-    <table class="dense-table">
-      <thead>
-        <tr>
-          <th>Method</th>
-          <th><span class="th-vert">Modality</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#6496f5;"></span>car</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#f59664;"></span>bicycle</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#963c1e;"></span>motorcycle</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#501eb4;"></span>truck</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#0000ff;"></span>other-veh.</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ff1e1e;"></span>person</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ff28c8;"></span>bicyclist</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#961e5a;"></span>motorcyclist</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ff00ff;"></span>road</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ff96ff;"></span>parking</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#4b004b;"></span>sidewalk</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#af004b;"></span>other-ground</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ffc800;"></span>building</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ff7832;"></span>fence</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#00af00;"></span>vegetation</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#873c00;"></span>trunk</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#96f050;"></span>terrain</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#fff096;"></span>pole</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ff0000;"></span>traffic-sign</span></th>
-          <th><span class="th-vert"><span class="cls-dot" style="background:#ef4444;"></span>outlier &uarr;</span></th>
-          <th><span class="th-vert" style="color:#38bdf8;">mOpen-IoU &uarr;</span></th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td>P3Former + MSP</td><td><span class="tag-mod tag-l">L</span></td><td>24.69</td><td>0.0</td><td>0.0</td><td>6.56</td><td>0.0</td><td>0.14</td><td>1.00</td><td>0.0</td><td>0.03</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.05</td><td>0.13</td><td>1.26</td><td>0.05</td><td>0.0</td><td>0.03</td><td>0.06</td><td class="col-summary">0.28</td><td class="col-summary">1.79</td></tr>
-        <tr><td>P3Former + ML</td><td><span class="tag-mod tag-l">L</span></td><td>22.96</td><td>0.0</td><td>0.0</td><td>6.33</td><td>0.0</td><td>0.95</td><td>0.28</td><td>0.0</td><td>0.02</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.37</td><td>0.48</td><td>1.43</td><td>0.28</td><td>0.01</td><td>0.07</td><td>0.27</td><td class="col-summary">0.27</td><td class="col-summary">1.80</td></tr>
-        <tr><td>P3Former + Energy</td><td><span class="tag-mod tag-l">L</span></td><td>25.45</td><td>0.0</td><td>0.0</td><td>6.55</td><td>0.0</td><td>1.14</td><td>0.30</td><td>0.0</td><td>0.02</td><td>0.0</td><td>0.0</td><td>0.0</td><td>1.70</td><td>0.49</td><td>1.16</td><td>0.32</td><td>0.0</td><td>0.07</td><td>0.30</td><td class="col-summary">0.27</td><td class="col-summary">1.98</td></tr>
-        <tr><td>P3Former + Entropy</td><td><span class="tag-mod tag-l">L</span></td><td>24.65</td><td>0.0</td><td>0.0</td><td>6.63</td><td>0.0</td><td>0.15</td><td>0.85</td><td>0.0</td><td>0.02</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.05</td><td>0.16</td><td>1.07</td><td>0.05</td><td>0.0</td><td>0.03</td><td>0.05</td><td class="col-summary">0.27</td><td class="col-summary">1.78</td></tr>
-        <tr><td>P3Former + RbA</td><td><span class="tag-mod tag-l">L</span></td><td>2.13</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>0.0</td><td>16.62</td><td>1.03</td><td>0.51</td><td>0.72</td><td>65.18</td><td>0.08</td><td>53.47</td><td>13.10</td><td>4.49</td><td>0.35</td><td>1.14</td><td class="col-summary"><span class="gold-medal">1.51</span></td><td class="col-summary">8.36</td></tr>
+      <!-- TAB 1: ZERO-SCROLL ALL 19 CLASSES + OUTLIER + mOpen-IoU (Best Variant per Backbone) -->
+      <div id="tab-oss" class="tab-pane active">
+        <div class="modern-table-card">
+          <table class="fit-all-table">
+            <colgroup>
+              <col class="col-method">
+              <col class="col-mod">
+              <col class="col-cls"><col class="col-cls"><col class="col-cls"><col class="col-cls"><col class="col-cls">
+              <col class="col-cls"><col class="col-cls"><col class="col-cls"><col class="col-cls"><col class="col-cls">
+              <col class="col-cls"><col class="col-cls"><col class="col-cls"><col class="col-cls"><col class="col-cls">
+              <col class="col-cls"><col class="col-cls"><col class="col-cls"><col class="col-cls">
+              <col class="col-out">
+              <col class="col-mean">
+            </colgroup>
+            <thead>
+              <tr>
+                <th>Method (Best Variant)</th>
+                <th><span class="th-vert">Mod.</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#6496f5;"></span>car</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#f59664;"></span>bicycle</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#963c1e;"></span>motorcycle</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#501eb4;"></span>truck</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#0000ff;"></span>other-veh.</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ff1e1e;"></span>person</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ff28c8;"></span>bicyclist</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#961e5a;"></span>motorcyclist</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ff00ff;"></span>road</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ff96ff;"></span>parking</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#4b004b;"></span>sidewalk</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#af004b;"></span>other-gnd.</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ffc800;"></span>building</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ff7832;"></span>fence</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#00af00;"></span>vegetation</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#873c00;"></span>trunk</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#96f050;"></span>terrain</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#fff096;"></span>pole</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ff0000;"></span>traffic-sign</span></th>
+                <th><span class="th-vert"><span class="cls-dot" style="background:#ef4444;"></span>outlier &uarr;</span></th>
+                <th><span class="th-vert" style="color:#38bdf8;">mOpen-IoU &uarr;</span></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>P3Former + RbA</td>
+                <td><span class="tag-mod tag-l">L</span></td>
+                <td>2.13</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>0.00</td><td>16.62</td><td>1.03</td><td>0.51</td><td>0.72</td><td>65.18</td><td>0.08</td><td>53.47</td><td>13.10</td><td>4.49</td><td>0.35</td><td>1.14</td>
+                <td class="col-summary"><span class="gold-medal">1.51</span></td>
+                <td class="col-summary">8.36</td>
+              </tr>
+              <tr>
+                <td>LCPS-lidar + Entropy</td>
+                <td><span class="tag-mod tag-l">L</span></td>
+                <td>41.47</td><td>9.79</td><td>1.53</td><td>11.27</td><td>0.00</td><td>29.53</td><td>10.01</td><td>0.00</td><td>31.51</td><td>0.14</td><td>8.84</td><td>0.00</td><td>75.30</td><td>16.50</td><td>55.06</td><td>5.89</td><td>0.32</td><td>13.56</td><td>65.25</td>
+                <td class="col-summary">0.61</td>
+                <td class="col-summary"><span class="silver-medal">20.75</span></td>
+              </tr>
+              <tr>
+                <td>M4F3D + RbA</td>
+                <td><span class="tag-mod tag-l">L</span></td>
+                <td>34.90</td><td>11.11</td><td>8.39</td><td>11.84</td><td>0.53</td><td>28.14</td><td>27.06</td><td>0.00</td><td>18.85</td><td>13.46</td><td>17.87</td><td>0.16</td><td>4.44</td><td>0.26</td><td>2.64</td><td>3.59</td><td>2.43</td><td>0.73</td><td>1.60</td>
+                <td class="col-summary">0.32</td>
+                <td class="col-summary">9.58</td>
+              </tr>
+              <tr class="ours-row">
+                <td>LIDO (Joint)</td>
+                <td><span class="tag-mod tag-l">L</span></td>
+                <td>38.77</td><td>7.64</td><td>0.00</td><td>10.00</td><td>11.32</td><td>18.52</td><td>17.06</td><td>0.00</td><td>38.76</td><td>11.97</td><td>36.27</td><td>0.02</td><td>93.97</td><td>62.56</td><td>78.08</td><td>13.96</td><td>21.36</td><td>7.30</td><td>0.16</td>
+                <td class="col-summary"><span class="silver-medal">1.07</span></td>
+                <td class="col-summary"><span class="gold-medal">22.98</span></td>
+              </tr>
+              <tr>
+                <td>LCPS + Entropy</td>
+                <td><span class="tag-mod tag-lc">L+C</span></td>
+                <td>37.88</td><td>1.94</td><td>3.60</td><td>7.40</td><td>0.22</td><td>24.64</td><td>17.50</td><td>0.00</td><td>26.08</td><td>0.10</td><td>5.76</td><td>0.04</td><td>77.60</td><td>26.88</td><td>40.30</td><td>4.71</td><td>1.67</td><td>8.49</td><td>45.93</td>
+                <td class="col-summary">0.57</td>
+                <td class="col-summary">17.41</td>
+              </tr>
+              <tr>
+                <td>M4F3D* + RbA</td>
+                <td><span class="tag-mod tag-lc">L+C</span></td>
+                <td>44.83</td><td>5.30</td><td>4.88</td><td>8.21</td><td>2.48</td><td>37.81</td><td>32.96</td><td>0.52</td><td>17.18</td><td>0.03</td><td>18.55</td><td>0.65</td><td>10.49</td><td>2.91</td><td>3.45</td><td>8.86</td><td>7.87</td><td>2.94</td><td>4.20</td>
+                <td class="col-summary">0.21</td>
+                <td class="col-summary">11.27</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
 
-        <tr class="group-divider"><td>LCPS-lidar + MSP</td><td><span class="tag-mod tag-l">L</span></td><td>41.78</td><td>9.74</td><td>1.46</td><td>11.21</td><td>0.0</td><td>29.56</td><td>9.91</td><td>0.0</td><td>31.21</td><td>0.14</td><td>8.55</td><td>0.0</td><td>74.63</td><td>16.03</td><td>54.87</td><td>5.60</td><td>0.32</td><td>13.55</td><td>64.90</td><td class="col-summary">0.61</td><td class="col-summary">20.66</td></tr>
-        <tr><td>LCPS-lidar + ML</td><td><span class="tag-mod tag-l">L</span></td><td>16.48</td><td>17.52</td><td>2.54</td><td>11.19</td><td>0.0</td><td>23.98</td><td>16.67</td><td>0.0</td><td>16.40</td><td>1.03</td><td>35.03</td><td>0.29</td><td>40.60</td><td>19.63</td><td>35.17</td><td>19.51</td><td>1.68</td><td>13.03</td><td>31.90</td><td class="col-summary">0.25</td><td class="col-summary">14.97</td></tr>
-        <tr><td>LCPS-lidar + Energy</td><td><span class="tag-mod tag-l">L</span></td><td>16.33</td><td>17.29</td><td>2.48</td><td>10.97</td><td>0.0</td><td>23.71</td><td>16.46</td><td>0.0</td><td>16.03</td><td>0.92</td><td>34.12</td><td>0.29</td><td>39.99</td><td>18.82</td><td>34.96</td><td>18.68</td><td>1.63</td><td>12.53</td><td>31.39</td><td class="col-summary">0.27</td><td class="col-summary">14.64</td></tr>
-        <tr><td>LCPS-lidar + Entropy</td><td><span class="tag-mod tag-l">L</span></td><td>41.47</td><td>9.79</td><td>1.53</td><td>11.27</td><td>0.0</td><td>29.53</td><td>10.01</td><td>0.0</td><td>31.51</td><td>0.14</td><td>8.84</td><td>0.0</td><td>75.30</td><td>16.50</td><td>55.06</td><td>5.89</td><td>0.32</td><td>13.56</td><td>65.25</td><td class="col-summary">0.61</td><td class="col-summary"><span class="silver-medal">20.75</span></td></tr>
-        <tr><td>LCPS-lidar + RbA</td><td><span class="tag-mod tag-l">L</span></td><td>8.79</td><td>3.16</td><td>1.96</td><td>0.70</td><td>0.0</td><td>7.15</td><td>10.06</td><td>0.0</td><td>4.66</td><td>0.79</td><td>0.50</td><td>0.59</td><td>1.95</td><td>0.91</td><td>34.83</td><td>1.85</td><td>0.98</td><td>0.47</td><td>32.62</td><td class="col-summary">0.32</td><td class="col-summary">4.08</td></tr>
-
-        <tr class="group-divider"><td>M4F3D + MSP</td><td><span class="tag-mod tag-l">L</span></td><td>38.96</td><td>7.50</td><td>11.90</td><td>14.49</td><td>0.00</td><td>35.85</td><td>18.18</td><td>0.00</td><td>0.27</td><td>0.08</td><td>0.26</td><td>0.01</td><td>0.18</td><td>0.23</td><td>0.08</td><td>0.34</td><td>0.01</td><td>0.03</td><td>0.25</td><td class="col-summary">0.30</td><td class="col-summary">6.77</td></tr>
-        <tr><td>M4F3D + ML</td><td><span class="tag-mod tag-l">L</span></td><td>28.77</td><td>6.83</td><td>8.93</td><td>9.82</td><td>0.00</td><td>30.10</td><td>16.11</td><td>0.00</td><td>3.71</td><td>0.26</td><td>2.51</td><td>0.02</td><td>7.19</td><td>1.43</td><td>7.68</td><td>4.52</td><td>0.52</td><td>2.97</td><td>3.72</td><td class="col-summary">0.33</td><td class="col-summary">7.11</td></tr>
-        <tr><td>M4F3D + Energy</td><td><span class="tag-mod tag-l">L</span></td><td>15.69</td><td>1.56</td><td>6.36</td><td>7.35</td><td>0.09</td><td>20.36</td><td>8.39</td><td>0.00</td><td>1.50</td><td>0.54</td><td>0.84</td><td>0.13</td><td>1.20</td><td>0.34</td><td>1.12</td><td>0.83</td><td>0.19</td><td>0.41</td><td>0.59</td><td class="col-summary">0.32</td><td class="col-summary">3.88</td></tr>
-        <tr><td>M4F3D + Entropy</td><td><span class="tag-mod tag-l">L</span></td><td>34.41</td><td>8.15</td><td>11.91</td><td>14.26</td><td>0.05</td><td>34.42</td><td>18.94</td><td>0.00</td><td>0.25</td><td>0.08</td><td>0.25</td><td>0.01</td><td>2.43</td><td>0.05</td><td>0.95</td><td>0.29</td><td>0.01</td><td>0.03</td><td>0.27</td><td class="col-summary">0.30</td><td class="col-summary">6.52</td></tr>
-        <tr><td>M4F3D + RbA</td><td><span class="tag-mod tag-l">L</span></td><td>34.90</td><td>11.11</td><td>8.39</td><td>11.84</td><td>0.53</td><td>28.14</td><td>27.06</td><td>0.00</td><td>18.85</td><td>13.46</td><td>17.87</td><td>0.16</td><td>4.44</td><td>0.26</td><td>2.64</td><td>3.59</td><td>2.43</td><td>0.73</td><td>1.60</td><td class="col-summary">0.32</td><td class="col-summary">9.58</td></tr>
-
-        <tr class="ours-row group-divider"><td>LIDO (Joint)</td><td><span class="tag-mod tag-l">L</span></td><td>38.77</td><td>7.64</td><td>0.00</td><td>10.00</td><td>11.32</td><td>18.52</td><td>17.06</td><td>0.00</td><td>38.76</td><td>11.97</td><td>36.27</td><td>0.02</td><td>93.97</td><td>62.56</td><td>78.08</td><td>13.96</td><td>21.36</td><td>7.30</td><td>0.16</td><td class="col-summary"><span class="silver-medal">1.07</span></td><td class="col-summary"><span class="gold-medal">22.98</span></td></tr>
-
-        <tr class="group-divider"><td>LCPS + MSP</td><td><span class="tag-mod tag-lc">L+C</span></td><td>37.99</td><td>1.91</td><td>3.56</td><td>7.22</td><td>0.22</td><td>24.57</td><td>17.38</td><td>0.0</td><td>25.86</td><td>0.09</td><td>5.41</td><td>0.04</td><td>76.74</td><td>27.13</td><td>40.03</td><td>4.51</td><td>1.65</td><td>8.41</td><td>45.23</td><td class="col-summary">0.57</td><td class="col-summary">17.26</td></tr>
-        <tr><td>LCPS + ML</td><td><span class="tag-mod tag-lc">L+C</span></td><td>4.99</td><td>0.59</td><td>0.0</td><td>0.89</td><td>0.0</td><td>6.15</td><td>4.20</td><td>0.0</td><td>11.45</td><td>0.97</td><td>0.67</td><td>0.66</td><td>26.86</td><td>6.04</td><td>18.70</td><td>4.97</td><td>5.61</td><td>2.97</td><td>5.58</td><td class="col-summary">0.39</td><td class="col-summary">5.29</td></tr>
-        <tr><td>LCPS + Energy</td><td><span class="tag-mod tag-lc">L+C</span></td><td>4.78</td><td>0.49</td><td>0.0</td><td>0.07</td><td>0.0</td><td>5.67</td><td>3.74</td><td>0.0</td><td>11.20</td><td>0.95</td><td>0.62</td><td>0.65</td><td>25.97</td><td>5.80</td><td>18.21</td><td>4.78</td><td>5.52</td><td>2.93</td><td>5.31</td><td class="col-summary">0.39</td><td class="col-summary">5.09</td></tr>
-        <tr><td>LCPS + Entropy</td><td><span class="tag-mod tag-lc">L+C</span></td><td>37.88</td><td>1.94</td><td>3.60</td><td>7.40</td><td>0.22</td><td>24.64</td><td>17.50</td><td>0.0</td><td>26.08</td><td>0.10</td><td>5.76</td><td>0.04</td><td>77.60</td><td>26.88</td><td>40.30</td><td>4.71</td><td>1.67</td><td>8.49</td><td>45.93</td><td class="col-summary">0.57</td><td class="col-summary">17.41</td></tr>
-        <tr><td>LCPS + RbA</td><td><span class="tag-mod tag-lc">L+C</span></td><td>4.73</td><td>4.47</td><td>5.03</td><td>11.37</td><td>0.04</td><td>19.68</td><td>22.66</td><td>0.0</td><td>11.50</td><td>2.18</td><td>10.25</td><td>2.05</td><td>20.38</td><td>1.98</td><td>14.04</td><td>32.98</td><td>9.24</td><td>2.28</td><td>7.48</td><td class="col-summary">0.37</td><td class="col-summary">9.60</td></tr>
-
-        <tr class="group-divider"><td>M4F3D* + MSP</td><td><span class="tag-mod tag-lc">L+C</span></td><td>53.49</td><td>2.51</td><td>6.67</td><td>8.42</td><td>0.53</td><td>32.45</td><td>28.43</td><td>0.56</td><td>10.84</td><td>0.00</td><td>0.56</td><td>0.05</td><td>1.19</td><td>0.78</td><td>0.66</td><td>2.00</td><td>0.46</td><td>0.33</td><td>0.52</td><td class="col-summary">0.30</td><td class="col-summary">7.92</td></tr>
-        <tr><td>M4F3D* + ML</td><td><span class="tag-mod tag-lc">L+C</span></td><td>26.19</td><td>1.27</td><td>3.45</td><td>6.96</td><td>0.10</td><td>17.83</td><td>14.10</td><td>0.00</td><td>2.17</td><td>0.00</td><td>0.30</td><td>0.01</td><td>0.37</td><td>0.11</td><td>0.19</td><td>0.50</td><td>0.03</td><td>0.04</td><td>0.07</td><td class="col-summary">0.31</td><td class="col-summary">3.88</td></tr>
-        <tr><td>M4F3D* + Energy</td><td><span class="tag-mod tag-lc">L+C</span></td><td>12.69</td><td>0.82</td><td>1.04</td><td>4.72</td><td>0.14</td><td>8.53</td><td>10.76</td><td>0.00</td><td>0.28</td><td>0.00</td><td>0.06</td><td>0.01</td><td>0.01</td><td>0.00</td><td>0.00</td><td>0.10</td><td>0.00</td><td>0.01</td><td>0.03</td><td class="col-summary">0.32</td><td class="col-summary">2.06</td></tr>
-        <tr><td>M4F3D* + Entropy</td><td><span class="tag-mod tag-lc">L+C</span></td><td>51.67</td><td>2.60</td><td>6.62</td><td>9.04</td><td>0.60</td><td>31.04</td><td>29.93</td><td>0.51</td><td>9.76</td><td>0.00</td><td>0.58</td><td>0.05</td><td>1.14</td><td>0.50</td><td>0.69</td><td>1.77</td><td>0.40</td><td>0.26</td><td>0.47</td><td class="col-summary">0.30</td><td class="col-summary">7.77</td></tr>
-        <tr><td>M4F3D* + RbA</td><td><span class="tag-mod tag-lc">L+C</span></td><td>44.83</td><td>5.30</td><td>4.88</td><td>8.21</td><td>2.48</td><td>37.81</td><td>32.96</td><td>0.52</td><td>17.18</td><td>0.03</td><td>18.55</td><td>0.65</td><td>10.49</td><td>2.91</td><td>3.45</td><td>8.86</td><td>7.87</td><td>2.94</td><td>4.20</td><td class="col-summary">0.21</td><td class="col-summary">11.27</td></tr>
-      </tbody>
-    </table>
-  </div>
-</div>
-
-      <!-- TAB 2: ANOMALY -->
+      <!-- TAB 2: ANOMALY (Best Variant per Backbone) -->
       <div id="tab-anom" class="tab-pane">
         <div class="modern-table-card">
           <table class="modern-table">
             <thead>
               <tr>
-                <th>Method</th>
+                <th>Method (Best Variant per Backbone)</th>
                 <th>Modality</th>
                 <th>AUROC (%) &uarr;</th>
                 <th>FPR@95 (%) &darr;</th>
@@ -1200,55 +1305,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>P3Former + RbA</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td><span class="silver-medal">89.80</span></td>
-                <td><span class="silver-medal">45.94</span></td>
-                <td>3.53</td>
-              </tr>
-              <tr>
-                <td>LCPS-lidar + Entropy</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>79.76</td>
-                <td>46.95</td>
-                <td>1.38</td>
-              </tr>
-              <tr>
-                <td>Mask4Former3D + MSP</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>79.43</td>
-                <td>98.74</td>
-                <td><span class="silver-medal">10.27</span></td>
-              </tr>
-              <tr>
-                <td>Mask4Former3D + RbA</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>67.91</td>
-                <td>100.00</td>
-                <td><span class="gold-medal">12.57</span></td>
-              </tr>
-              <tr class="ours-row">
-                <td>LIDO</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td><span class="gold-medal">91.70</span></td>
-                <td><span class="gold-medal">32.66</span></td>
-                <td>4.44</td>
-              </tr>
-              <tr>
-                <td>LCPS + Entropy</td>
-                <td><span class="tag-mod tag-lc">L + C</span></td>
-                <td>78.67</td>
-                <td>54.44</td>
-                <td>1.59</td>
-              </tr>
-              <tr>
-                <td>Mask4Former3D* + MSP</td>
-                <td><span class="tag-mod tag-lc">L + C</span></td>
-                <td>70.38</td>
-                <td>96.85</td>
-                <td>7.11</td>
-              </tr>
+              <tr><td>P3Former + RbA</td><td><span class="tag-mod tag-l">LiDAR</span></td><td><span class="silver-medal">89.80</span></td><td><span class="silver-medal">45.94</span></td><td>3.53</td></tr>
+              <tr><td>LCPS-lidar + Entropy</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>79.76</td><td>46.95</td><td>1.38</td></tr>
+              <tr><td>Mask4Former3D + RbA</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>67.91</td><td>100.00</td><td><span class="gold-medal">12.57</span></td></tr>
+              <tr class="ours-row"><td>LIDO (Joint Feature-Based)</td><td><span class="tag-mod tag-l">LiDAR</span></td><td><span class="gold-medal">91.70</span></td><td><span class="gold-medal">32.66</span></td><td>4.44</td></tr>
+              <tr><td>LCPS + Entropy</td><td><span class="tag-mod tag-lc">L + C</span></td><td>78.67</td><td>54.44</td><td>1.59</td></tr>
+              <tr><td>Mask4Former3D* + MSP</td><td><span class="tag-mod tag-lc">L + C</span></td><td>70.38</td><td>96.85</td><td><span class="silver-medal">7.11</span></td></tr>
             </tbody>
           </table>
         </div>
@@ -1268,48 +1330,12 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>P3Former</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>43.27</td>
-                <td>29.58</td>
-                <td>&minus;13.69</td>
-              </tr>
-              <tr>
-                <td>LCPS-lidar</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>51.94</td>
-                <td>33.75</td>
-                <td>&minus;18.19</td>
-              </tr>
-              <tr>
-                <td>Mask4Former3D</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>34.98</td>
-                <td>31.11</td>
-                <td><span class="gold-medal">&minus;3.87</span></td>
-              </tr>
-              <tr class="ours-row">
-                <td>LIDO</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td><span class="gold-medal">58.35</span></td>
-                <td><span class="gold-medal">40.99</span></td>
-                <td>&minus;17.36</td>
-              </tr>
-              <tr>
-                <td>LCPS</td>
-                <td><span class="tag-mod tag-lc">L + C</span></td>
-                <td><span class="silver-medal">54.05</span></td>
-                <td><span class="silver-medal">34.00</span></td>
-                <td>&minus;20.05</td>
-              </tr>
-              <tr>
-                <td>Mask4Former3D* (Query Fusion)</td>
-                <td><span class="tag-mod tag-lc">L + C</span></td>
-                <td>48.44</td>
-                <td>28.46</td>
-                <td>&minus;19.98</td>
-              </tr>
+              <tr><td>P3Former</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>43.27</td><td>29.58</td><td>&minus;13.69</td></tr>
+              <tr><td>LCPS-lidar</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>51.94</td><td>33.75</td><td>&minus;18.19</td></tr>
+              <tr><td>Mask4Former3D</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>34.98</td><td>31.11</td><td><span class="gold-medal">&minus;3.87</span></td></tr>
+              <tr class="ours-row"><td>LIDO</td><td><span class="tag-mod tag-l">LiDAR</span></td><td><span class="gold-medal">58.35</span></td><td><span class="gold-medal">40.99</span></td><td>&minus;17.36</td></tr>
+              <tr><td>LCPS</td><td><span class="tag-mod tag-lc">L + C</span></td><td><span class="silver-medal">54.05</span></td><td><span class="silver-medal">34.00</span></td><td>&minus;20.05</td></tr>
+              <tr><td>Mask4Former3D* (Query Fusion)</td><td><span class="tag-mod tag-lc">L + C</span></td><td>48.44</td><td>28.46</td><td>&minus;19.98</td></tr>
             </tbody>
           </table>
         </div>
@@ -1333,87 +1359,47 @@
               </tr>
             </thead>
             <tbody>
-              <tr class="ours-row">
-                <td>P3Former</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>51.29</td>
-                <td>0.07</td>
-                <td>0.10</td>
-                <td>0.13</td>
-                <td>0.10</td>
-                <td>0.11</td>
-                <td><span class="gold-medal">51.36 &ndash; 51.42 ms (~19.5 FPS)</span></td>
-              </tr>
-              <tr>
-                <td>LIDO</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>68.01</td>
-                <td colspan="5"><em>End-to-End Joint Semantic + Anomaly Branch</em></td>
-                <td><span class="silver-medal">68.01 ms (~14.7 FPS)</span></td>
-              </tr>
-              <tr>
-                <td>LCPS-lidar</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>85.44</td>
-                <td>0.12</td>
-                <td>0.17</td>
-                <td>0.25</td>
-                <td>0.19</td>
-                <td>0.18</td>
-                <td>85.56 &ndash; 85.69 ms</td>
-              </tr>
-              <tr>
-                <td>Mask4Former3D</td>
-                <td><span class="tag-mod tag-l">LiDAR</span></td>
-                <td>104.21</td>
-                <td>0.11</td>
-                <td>0.17</td>
-                <td>0.23</td>
-                <td>0.18</td>
-                <td>0.13</td>
-                <td>104.32 &ndash; 104.44 ms</td>
-              </tr>
-              <tr>
-                <td>Mask4Former3D* (Query Fusion)</td>
-                <td><span class="tag-mod tag-lc">L + C</span></td>
-                <td>106.35</td>
-                <td>0.10</td>
-                <td>0.16</td>
-                <td>0.21</td>
-                <td>0.17</td>
-                <td>0.12</td>
-                <td><strong>106.45 &ndash; 106.56 ms (+2.05% vs L-only)</strong></td>
-              </tr>
-              <tr>
-                <td>LCPS (Dense Point-Pixel Fusion)</td>
-                <td><span class="tag-mod tag-lc">L + C</span></td>
-                <td>179.80</td>
-                <td>0.11</td>
-                <td>0.16</td>
-                <td>0.21</td>
-                <td>0.15</td>
-                <td>0.16</td>
-                <td>179.91 &ndash; 180.01 ms (+110.4% vs L-only)</td>
-              </tr>
+              <tr class="ours-row"><td>P3Former</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>51.29</td><td>0.07</td><td>0.10</td><td>0.13</td><td>0.10</td><td>0.11</td><td><span class="gold-medal">51.36 &ndash; 51.42 ms (~19.5 FPS)</span></td></tr>
+              <tr><td>LIDO</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>68.01</td><td colspan="5"><em>End-to-End Joint Semantic + Anomaly Branch</em></td><td><span class="silver-medal">68.01 ms (~14.7 FPS)</span></td></tr>
+              <tr><td>LCPS-lidar</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>85.44</td><td>0.12</td><td>0.17</td><td>0.25</td><td>0.19</td><td>0.18</td><td>85.56 &ndash; 85.69 ms</td></tr>
+              <tr><td>Mask4Former3D</td><td><span class="tag-mod tag-l">LiDAR</span></td><td>104.21</td><td>0.11</td><td>0.17</td><td>0.23</td><td>0.18</td><td>0.13</td><td>104.32 &ndash; 104.44 ms</td></tr>
+              <tr><td>Mask4Former3D* (Query Fusion)</td><td><span class="tag-mod tag-lc">L + C</span></td><td>106.35</td><td>0.10</td><td>0.16</td><td>0.21</td><td>0.17</td><td>0.12</td><td><strong>106.45 &ndash; 106.56 ms (+2.05% vs L-only)</strong></td></tr>
+              <tr><td>LCPS (Dense Point-Pixel Fusion)</td><td><span class="tag-mod tag-lc">L + C</span></td><td>179.80</td><td>0.11</td><td>0.16</td><td>0.21</td><td>0.15</td><td>0.16</td><td>179.91 &ndash; 180.01 ms (+110.4% vs L-only)</td></tr>
             </tbody>
           </table>
+        </div>
+      </div>
+
+      <!-- QUALITATIVE RESULTS WINDOW -->
+      <div style="margin-top: 2.5rem;">
+        <h3 class="title is-4 has-text-centered" style="margin-bottom: 1.25rem;">Qualitative Comparison Across Benchmark Tasks</h3>
+        <div class="media-window">
+          <div class="media-window-bar">
+            <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
+            <span class="window-title">Suppl_Fig1_Qualitative_Benchmark_Comparison.png</span>
+            <span></span>
+          </div>
+          <div class="media-body">
+            <img src="static/images/qualitative_results.png" alt="Qualitative Results"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <div class="img-fallback" style="display:none; padding: 2rem;">
+              <i class="fas fa-layer-group" style="font-size: 1.8rem; margin-bottom: 8px;"></i>
+              <p style="font-size: 0.88rem;">Supplementary Figure 1 at <code>static/images/qualitative_results.png</code></p>
+            </div>
+          </div>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- 7. DARK-MODE BIBTEX TERMINAL -->
+  <!-- 9. DARK-MODE BIBTEX TERMINAL -->
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop">
       <div class="terminal-card">
         <div class="terminal-header">
           <div style="display:flex; align-items:center; gap:10px;">
-            <div class="window-dots">
-              <span class="dot-red"></span>
-              <span class="dot-amber"></span>
-              <span class="dot-green"></span>
-            </div>
+            <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
             <span style="color:#94a3b8; font-family:'JetBrains Mono', monospace; font-size:0.82rem; font-weight:600;">citation.bib</span>
           </div>
           <button class="copy-bibtex-btn" onclick="copyBibTeX()" style="padding: 6px 14px; font-size: 0.82rem;">
@@ -1424,7 +1410,7 @@
         <pre><code id="bibtex-code">@inproceedings{yan2027driveoss,
   title     = {DriveOSS: Dataset and Benchmark for 3D Anomaly Segmentation and Open-set Semantic Segmentation in Autonomous Driving},
   author    = {Yan, Zhiran and Bhanderi, Savankumar and Lolge, Sourabh and Song, Rui and Paneliya, Girdharbhai and Agrawal, Shiva and Elger, Gordon},
-  booktitle = {TODO},
+  booktitle = {TODO TODO},
   year      = {TODO}
 }</code></pre>
       </div>
@@ -1448,7 +1434,7 @@
     </div>
   </footer>
 
-  <!-- Tab Switching Logic -->
+  <!-- Interactive Scripts -->
   <script>
     function switchBenchTab(tabId, btnElement) {
       document.querySelectorAll('.tab-pane').forEach(el => el.classList.remove('active'));
@@ -1456,14 +1442,15 @@
       document.getElementById(tabId).classList.add('active');
       btnElement.classList.add('active');
     }
+
     function toggleAbstract() {
-  const content = document.getElementById('abstractContent');
-  const btn = document.getElementById('abstractBtn');
-  const isExpanded = content.classList.toggle('expanded');
-  btn.innerHTML = isExpanded
-    ? '<span>Show Less</span><i class="fas fa-chevron-up"></i>'
-    : '<span>Show Full Abstract</span><i class="fas fa-chevron-down"></i>';
-}
+      const content = document.getElementById('abstractContent');
+      const btn = document.getElementById('abstractBtn');
+      const isExpanded = content.classList.toggle('expanded');
+      btn.innerHTML = isExpanded
+        ? '<span>Show Less</span><i class="fas fa-chevron-up"></i>'
+        : '<span>Show Full Abstract</span><i class="fas fa-chevron-down"></i>';
+    }
   </script>
 
 </body>
