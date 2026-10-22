@@ -23,9 +23,10 @@
   <style>
     :root {
       --brand-dark: #0f172a;
-      --brand-teal: #0d9488;
-      --brand-emerald: #059669;
-      --brand-amber: #d97706;
+      --brand-indigo: #4f46e5;
+      --brand-violet: #7c3aed;
+      --brand-coral: #ff6259;
+      --brand-orange: #ff9a1f;
       --surface-bg: #f8fafc;
       --border-subtle: #e2e8f0;
       --text-main: #0f172a;
@@ -62,7 +63,7 @@
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-      padding: 0.65rem 1.5rem;
+      padding: 0.55rem 1.5rem;
     }
     .nav-container {
       max-width: 1150px;
@@ -85,8 +86,8 @@
       transition: all 0.25s ease;
     }
     .nav-brand:hover {
-      background: #f0fdfa;
-      color: var(--brand-teal);
+      background: #eef2ff;
+      color: var(--brand-indigo);
     }
     .nav-links {
       display: flex;
@@ -111,7 +112,7 @@
       left: 0;
       width: 0%;
       height: 2.5px;
-      background: linear-gradient(90deg, #0d9488, #f59e0b);
+      background: linear-gradient(90deg, #4f46e5, #ec4899, #ff9a1f);
       transition: width 0.3s ease;
     }
     .nav-links a:hover {
@@ -122,22 +123,22 @@
       width: 100%;
     }
     .nav-links a.nav-cta {
-      background: #f0fdfa;
-      color: #0f766e;
+      background: linear-gradient(135deg, #eef2ff 0%, #fae8ff 100%);
+      color: #4f46e5;
       font-weight: 600;
-      border: 1px solid #99f6e4;
+      border: 1px solid #c7d2fe;
     }
 
-    /* 2. ARCHITECTURAL HERO SECTION */
+    /* 2. ARCHITECTURAL HERO SECTION (REDUCED TOP MARGIN) */
     .hero-mesh {
       position: relative;
       background-color: #ffffff;
       background-image: 
-        radial-gradient(at 50% 0%, rgba(13, 148, 136, 0.09) 0px, transparent 60%),
-        radial-gradient(at 85% 20%, rgba(245, 158, 11, 0.06) 0px, transparent 50%),
+        radial-gradient(at 30% 0%, rgba(79, 70, 229, 0.08) 0px, transparent 55%),
+        radial-gradient(at 80% 15%, rgba(255, 98, 89, 0.07) 0px, transparent 50%),
         radial-gradient(#cbd5e1 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 24px 24px;
-      padding: 3.25rem 1.5rem 2.75rem;
+      padding: 1.35rem 1.5rem 2.25rem;
       border-bottom: 1px solid var(--border-subtle);
     }
 
@@ -145,30 +146,30 @@
     .hero-title {
       font-size: clamp(1.32rem, 2.08vw, 1.82rem) !important;
       font-weight: 800 !important;
-      line-height: 1.32 !important;
+      line-height: 1.3 !important;
       letter-spacing: -0.02em;
       color: #0f172a;
       max-width: 1140px;
-      margin: 0 auto 1.5rem !important;
+      margin: 0 auto 1.25rem !important;
     }
     .title-line {
       display: block;
       white-space: nowrap;
     }
     .gradient-brand {
-      background: linear-gradient(135deg, #0f766e 0%, #0284c7 60%, #4f46e5 100%);
+      background: linear-gradient(135deg, #4f46e5 0%, #9333ea 50%, #ff6259 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    /* 3. AUTHOR PILLS WITH HOVER SHADE + LEFT-TO-RIGHT SWEEP */
+    /* 3. AUTHOR PILLS WITH MULTI-COLOR SWEEP & SHIMMER */
     .authors-wrap {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: 10px;
       max-width: 980px;
-      margin: 0 auto 1.25rem;
+      margin: 0 auto 1.1rem;
     }
     .author-chip {
       position: relative;
@@ -187,7 +188,6 @@
       display: inline-flex;
       align-items: center;
     }
-    /* Bottom sweep bar on every author pill */
     .author-chip::after {
       content: '';
       position: absolute;
@@ -195,7 +195,7 @@
       left: 0;
       width: 0%;
       height: 3px;
-      background: linear-gradient(90deg, #0d9488, #f59e0b, #ec4899);
+      background: linear-gradient(90deg, #4f46e5, #ec4899, #ff9a1f);
       transition: width 0.32s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .author-chip span.author-name {
@@ -204,21 +204,21 @@
       transition: color 0.25s ease;
     }
     .author-chip:hover {
-      transform: translateY(-4px) scale(1.03);
-      border-color: #5eead4;
-      background: #f0fdfa;
-      box-shadow: 0 10px 20px -5px rgba(13, 148, 136, 0.20);
+      transform: translateY(-3px) scale(1.03);
+      border-color: #a5b4fc;
+      background: #f5f3ff;
+      box-shadow: 0 10px 20px -5px rgba(79, 70, 229, 0.18);
     }
     .author-chip:hover span.author-name {
-      color: #0f766e;
+      color: #4f46e5;
     }
     .author-chip:hover::after {
       width: 100%;
     }
     .author-chip.is-self {
-      background: linear-gradient(135deg, #f0fdfa 0%, #ccfbf1 100%);
-      border-color: #5eead4;
-      color: #0f766e;
+      background: linear-gradient(135deg, #eef2ff 0%, #ede9fe 100%);
+      border-color: #a5b4fc;
+      color: #4338ca;
     }
     .author-chip sup {
       color: #64748b;
@@ -227,52 +227,37 @@
       font-size: 0.75rem;
     }
 
-    /* 4. CONFERENCE PILL (BETWEEN AUTHORS & AFFILIATIONS) */
+    /* 4. CONFERENCE PILL (STATIC COLOR, NO COLOR CHANGE ON HOVER) */
     .conf-badge-wrap {
-      margin: 0.4rem auto 0.85rem;
+      margin: 0.35rem auto 0.75rem;
     }
     .conf-badge {
-      position: relative;
-      overflow: hidden;
       display: inline-flex;
       align-items: center;
       gap: 9px;
-      background: linear-gradient(135deg, #134e4a 0%, #0f766e 100%);
-      color: #ffffff;
-      padding: 7px 22px;
+      background: linear-gradient(135deg, #eef2ff 0%, #f5f3ff 100%);
+      color: #3730a3;
+      border: 1.5px solid #c7d2fe;
+      padding: 6px 20px;
       border-radius: 999px;
-      font-size: 0.84rem;
+      font-size: 0.82rem;
       font-weight: 700;
-      letter-spacing: 0.7px;
+      letter-spacing: 0.6px;
       text-transform: uppercase;
-      box-shadow: 0 8px 20px -4px rgba(15, 118, 110, 0.38);
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.10);
       cursor: default;
-    }
-    .conf-badge::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, #fbbf24, #34d399);
-      transition: width 0.35s ease;
-    }
-    .conf-badge:hover {
-      transform: translateY(-3px) scale(1.03);
-      background: linear-gradient(135deg, #0f766e 0%, #0d9488 100%);
-      box-shadow: 0 12px 24px -4px rgba(13, 148, 136, 0.48);
-    }
-    .conf-badge:hover::after {
-      width: 100%;
     }
     .conf-badge .dot {
       width: 8px;
       height: 8px;
-      background: #fbbf24;
+      background: #4f46e5;
       border-radius: 50%;
-      box-shadow: 0 0 8px #fbbf24;
+      box-shadow: 0 0 8px rgba(79, 70, 229, 0.6);
+      animation: pulseDot 2s infinite;
+    }
+    @keyframes pulseDot {
+      0%, 100% { transform: scale(1); opacity: 1; }
+      50% { transform: scale(1.25); opacity: 0.75; }
     }
 
     /* 5. MARKUS-42 STYLE AFFILIATION CARDS */
@@ -282,7 +267,7 @@
       align-items: stretch;
       flex-wrap: wrap;
       gap: 2.5rem;
-      margin: 0.25rem auto 1.85rem;
+      margin: 0.2rem auto 1.6rem;
       max-width: 780px;
     }
     .affiliation-card {
@@ -292,7 +277,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: space-between;
-      padding: 1.1rem 2rem;
+      padding: 1rem 2rem;
       border-radius: 16px;
       background: transparent;
       border: 1px solid transparent;
@@ -308,7 +293,7 @@
       left: 0;
       width: 0%;
       height: 3.5px;
-      background: linear-gradient(90deg, #0d9488 0%, #f59e0b 50%, #ec4899 100%);
+      background: linear-gradient(90deg, #4f46e5 0%, #ec4899 50%, #ff9a1f 100%);
       transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
     }
     .affiliation-card:hover {
@@ -331,7 +316,7 @@
       transition: color 0.25s ease;
     }
     .affiliation-card:hover .affiliation-title {
-      color: #0f766e !important;
+      color: #4f46e5 !important;
     }
     .affiliation-title sup {
       font-size: 0.78rem;
@@ -371,7 +356,7 @@
       transform: scale(1.07);
     }
 
-    /* 6. UNIFIED ACTION PILLS WITH SHADE-SHIFT & SWEEP ANIMATION */
+    /* 6. CORAL-ORANGE GRADIENT ACTION PILLS (MATCHING SCREENSHOT) */
     .cta-group {
       display: flex;
       flex-wrap: wrap;
@@ -385,62 +370,79 @@
       align-items: center;
       gap: 9px;
       padding: 11px 24px;
-      border-radius: 999px;
-      background: #1e293b;
-      color: #f8fafc !important;
+      border-radius: 14px;
+      background: linear-gradient(90deg, #ff5e62 0%, #ff9966 100%);
+      color: #ffffff !important;
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-weight: 700;
-      font-size: 0.92rem;
-      border: 1px solid #334155;
-      box-shadow: 0 6px 16px -3px rgba(15, 23, 42, 0.22);
+      font-size: 0.93rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 6px 16px -3px rgba(255, 94, 98, 0.38);
       text-decoration: none !important;
-      z-index: 1;
-      transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     }
-    /* Animated shade-changing fill layer on hover */
-    .btn-action-pill::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, #0f766e 0%, #0d9488 55%, #059669 100%);
-      z-index: -1;
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-    /* Animated bottom gold-amber underline sweep */
+    /* Subtle glass light-glint sweep on hover (keeps exact same orange-coral color) */
     .btn-action-pill::after {
       content: '';
       position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 0%;
-      height: 3px;
-      background: linear-gradient(90deg, #fbbf24, #38bdf8);
-      transition: width 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+      top: 0;
+      left: -120%;
+      width: 65%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+      transform: skewX(-22deg);
+      transition: left 0.55s ease;
     }
     .btn-action-pill i {
-      color: #5eead4;
-      transition: transform 0.3s ease, color 0.3s ease;
+      color: #ffffff;
+      transition: transform 0.25s ease;
     }
     .btn-action-pill:hover {
-      transform: translateY(-4px) scale(1.03);
-      border-color: #14b8a6;
-      box-shadow: 0 12px 26px -5px rgba(13, 148, 136, 0.42);
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+      box-shadow: 0 10px 24px -4px rgba(255, 94, 98, 0.55);
       color: #ffffff !important;
     }
-    .btn-action-pill:hover::before {
-      transform: scaleX(1);
-    }
     .btn-action-pill:hover::after {
-      width: 100%;
+      left: 140%;
     }
     .btn-action-pill:hover i {
-      color: #fde68a;
       transform: scale(1.12);
     }
 
-    /* 7. SHOWCASE MEDIA FRAMES */
+    /* 7. SHOWCASE MEDIA FRAMES & EQUAL-HEIGHT SIDE-BY-SIDE ALIGNMENT */
+    .columns.is-vcentered {
+      align-items: stretch !important;
+    }
+    .columns.is-vcentered > .column {
+      display: flex;
+      flex-direction: column;
+    }
+    .columns.is-vcentered .pillar-card {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+    .columns.is-vcentered .media-window {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 0 !important;
+    }
+    .columns.is-vcentered .media-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .columns.is-vcentered .media-body img {
+      max-height: 360px;
+      width: 100%;
+      object-fit: contain;
+      margin: 0 auto;
+    }
+
     .media-window {
       background: #ffffff;
       border-radius: 16px;
@@ -448,6 +450,11 @@
       box-shadow: 0 18px 36px -14px rgba(15, 23, 42, 0.10);
       overflow: hidden;
       margin-bottom: 1.5rem;
+      transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .media-window:hover {
+      border-color: #94a3b8;
+      box-shadow: 0 22px 44px -12px rgba(15, 23, 42, 0.15);
     }
     .media-window-bar {
       background: #f1f5f9;
@@ -468,18 +475,24 @@
       color: #64748b;
       font-family: 'JetBrains Mono', monospace;
     }
-    .media-body { padding: 12px; background: #ffffff; }
-    .media-body img { width: 100%; border-radius: 8px; display: block; }
+    .media-body { padding: 14px; background: #ffffff; }
+    .media-body img {
+      width: 100%;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
     .img-fallback {
-      background: linear-gradient(135deg, #f8fafc 0%, #f0fdfa 100%);
-      border: 2px dashed #5eead4;
+      background: linear-gradient(135deg, #f8fafc 0%, #eef2ff 100%);
+      border: 2px dashed #a5b4fc;
       border-radius: 12px;
       padding: 2.5rem 1.5rem;
       text-align: center;
-      color: #0f766e;
+      color: #4338ca;
+      width: 100%;
     }
 
-    /* 8. METRIC BENTO CARDS */
+    /* 8. MULTI-COLOR METRIC BENTO CARDS WITH SHIMMER, ICON SPIN & NUMBER POP */
     .metric-bento {
       background: #ffffff;
       border-radius: 16px;
@@ -488,45 +501,110 @@
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
       text-align: center;
       height: 100%;
-      transition: all 0.28s ease;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
       position: relative;
       overflow: hidden;
+      cursor: default;
     }
     .metric-bento::before {
       content: '';
       position: absolute;
       top: 0; left: 0; right: 0; height: 4px;
-      background: linear-gradient(90deg, #0d9488, #f59e0b);
+      background: linear-gradient(90deg, #4f46e5, #06b6d4);
+      transition: height 0.3s ease;
     }
-    .metric-bento:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 14px 26px -6px rgba(13, 148, 136, 0.16);
-      border-color: #99f6e4;
+    /* Diagonal light sheen sweep across card */
+    .metric-bento::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 75%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+      transform: skewX(-25deg);
+      transition: left 0.6s ease;
+      pointer-events: none;
+    }
+    .metric-bento:hover::after {
+      left: 140%;
     }
     .metric-icon {
-      width: 36px; height: 36px; border-radius: 10px;
-      background: #f0fdfa; color: #0d9488;
+      width: 38px; height: 38px; border-radius: 11px;
+      background: #eef2ff; color: #4f46e5;
       display: inline-flex; align-items: center; justify-content: center;
-      font-size: 1rem; margin-bottom: 8px;
+      font-size: 1.05rem; margin-bottom: 8px;
+      transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
     .metric-value {
       font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 1.75rem; font-weight: 800; color: #0f172a; line-height: 1.15;
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), color 0.3s ease;
     }
     .metric-title {
       font-size: 0.8rem; font-weight: 600; color: #64748b; margin-top: 5px;
+      transition: color 0.3s ease;
     }
+    .metric-bento:hover {
+      transform: translateY(-6px) scale(1.03);
+      box-shadow: 0 16px 30px -8px rgba(79, 70, 229, 0.18);
+      border-color: #a5b4fc;
+    }
+    .metric-bento:hover .metric-icon {
+      transform: scale(1.18) rotate(-10deg);
+      box-shadow: 0 6px 14px rgba(79, 70, 229, 0.22);
+    }
+    .metric-bento:hover .metric-value {
+      transform: scale(1.08);
+      color: #4f46e5;
+    }
+    .metric-bento:hover .metric-title {
+      color: #1e293b;
+    }
+
+    /* Individual Color Themes for the 6 Bento Cards */
+    .columns .column:nth-child(1) .metric-bento::before { background: linear-gradient(90deg, #4f46e5, #38bdf8); }
+    .columns .column:nth-child(1) .metric-icon { background: #eef2ff; color: #4f46e5; }
+    
+    .columns .column:nth-child(2) .metric-bento::before { background: linear-gradient(90deg, #9333ea, #ec4899); }
+    .columns .column:nth-child(2) .metric-icon { background: #faf5ff; color: #9333ea; }
+    .columns .column:nth-child(2) .metric-bento:hover .metric-value { color: #9333ea; }
+    .columns .column:nth-child(2) .metric-bento:hover { border-color: #d8b4fe; box-shadow: 0 16px 30px -8px rgba(147, 51, 234, 0.18); }
+
+    .columns .column:nth-child(3) .metric-bento::before { background: linear-gradient(90deg, #ff5e62, #ff9966); }
+    .columns .column:nth-child(3) .metric-icon { background: #fff1f2; color: #f43f5e; }
+    .columns .column:nth-child(3) .metric-bento:hover .metric-value { color: #f43f5e; }
+    .columns .column:nth-child(3) .metric-bento:hover { border-color: #fda4af; box-shadow: 0 16px 30px -8px rgba(244, 63, 94, 0.18); }
+
+    .columns .column:nth-child(4) .metric-bento::before { background: linear-gradient(90deg, #f59e0b, #fbbf24); }
+    .columns .column:nth-child(4) .metric-icon { background: #fffbeb; color: #d97706; }
+    .columns .column:nth-child(4) .metric-bento:hover .metric-value { color: #d97706; }
+    .columns .column:nth-child(4) .metric-bento:hover { border-color: #fde68a; box-shadow: 0 16px 30px -8px rgba(217, 119, 6, 0.18); }
+
+    .columns .column:nth-child(5) .metric-bento::before { background: linear-gradient(90deg, #0284c7, #38bdf8); }
+    .columns .column:nth-child(5) .metric-icon { background: #f0f9ff; color: #0284c7; }
+    .columns .column:nth-child(5) .metric-bento:hover .metric-value { color: #0284c7; }
+    .columns .column:nth-child(5) .metric-bento:hover { border-color: #7dd3fc; box-shadow: 0 16px 30px -8px rgba(2, 132, 199, 0.18); }
+
+    .columns .column:nth-child(6) .metric-bento::before { background: linear-gradient(90deg, #059669, #34d399); }
+    .columns .column:nth-child(6) .metric-icon { background: #ecfdf5; color: #059669; }
+    .columns .column:nth-child(6) .metric-bento:hover .metric-value { color: #059669; }
+    .columns .column:nth-child(6) .metric-bento:hover { border-color: #6ee7b7; box-shadow: 0 16px 30px -8px rgba(5, 150, 105, 0.18); }
 
     /* 9. EXPANDABLE ABSTRACT & PILLARS */
     .tldr-banner {
-      background: linear-gradient(135deg, #f0fdfa 0%, #f8fafc 100%);
-      border: 1px solid #99f6e4;
-      border-left: 5px solid #0d9488;
+      background: linear-gradient(135deg, #eef2ff 0%, #fff7ed 100%);
+      border: 1px solid #c7d2fe;
+      border-left: 5px solid #4f46e5;
       border-radius: 14px;
       padding: 16px 22px;
       margin-bottom: 1.75rem;
       font-size: 1rem;
       color: #1e293b;
+      transition: box-shadow 0.3s ease;
+    }
+    .tldr-banner:hover {
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.08);
     }
     .abstract-card {
       background: #ffffff;
@@ -554,12 +632,12 @@
     }
     .abstract-collapsible.expanded + .abstract-fade { opacity: 0; }
     .abstract-toggle-wrap { text-align: center; margin-top: 14px; }
+    
+    /* Show Full Abstract Pill: Static soft slate color, no color change on hover */
     .btn-expand-abstract {
-      position: relative;
-      overflow: hidden;
-      background: #1e293b;
-      color: #ffffff;
-      border: 1px solid #334155;
+      background: #f1f5f9;
+      color: #334155;
+      border: 1px solid #cbd5e1;
       padding: 8px 22px;
       border-radius: 999px;
       font-family: 'Plus Jakarta Sans', sans-serif;
@@ -569,47 +647,74 @@
       display: inline-flex;
       align-items: center;
       gap: 7px;
-      transition: all 0.28s ease;
-    }
-    .btn-expand-abstract::after {
-      content: '';
-      position: absolute;
-      bottom: 0; left: 0; width: 0%; height: 3px;
-      background: linear-gradient(90deg, #34d399, #fbbf24);
-      transition: width 0.3s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .btn-expand-abstract:hover {
-      background: #0f766e;
-      border-color: #0d9488;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 14px rgba(13, 148, 136, 0.28);
+      background: #f1f5f9;
+      color: #334155;
+      transform: translateY(-1px);
+      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.08);
     }
-    .btn-expand-abstract:hover::after { width: 100%; }
 
+    /* Pillar Cards with Shimmer, Bottom Gradient Sweep & Icon Pop */
     .pillar-card {
+      position: relative;
+      overflow: hidden;
       background: #ffffff;
       border-radius: 16px;
       padding: 24px 22px;
       border: 1px solid #e2e8f0;
       box-shadow: 0 6px 18px -4px rgba(15, 23, 42, 0.04);
       height: 100%;
-      transition: all 0.25s ease;
+      transition: all 0.32s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    .pillar-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0%;
+      height: 3.5px;
+      background: linear-gradient(90deg, #4f46e5, #ec4899, #ff9966);
+      transition: width 0.38s ease;
+    }
+    .pillar-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -130%;
+      width: 70%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.04), transparent);
+      transform: skewX(-25deg);
+      transition: left 0.65s ease;
+      pointer-events: none;
     }
     .pillar-card:hover {
-      transform: translateY(-4px);
-      border-color: #5eead4;
-      box-shadow: 0 14px 28px -8px rgba(13, 148, 136, 0.12);
+      transform: translateY(-5px) scale(1.015);
+      border-color: #a5b4fc;
+      box-shadow: 0 16px 32px -8px rgba(79, 70, 229, 0.14);
+    }
+    .pillar-card:hover::before {
+      width: 100%;
+    }
+    .pillar-card:hover::after {
+      left: 140%;
     }
     .pillar-icon-box {
-      width: 44px; height: 44px; border-radius: 12px;
+      width: 46px; height: 46px; border-radius: 12px;
       display: inline-flex; align-items: center; justify-content: center;
       font-size: 1.25rem; margin-bottom: 14px;
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
-    .icon-blue { background: #f0fdfa; color: #0d9488; }
-    .icon-indigo { background: #fef3c7; color: #d97706; }
-    .icon-teal { background: #eef2ff; color: #4f46e5; }
+    .pillar-card:hover .pillar-icon-box {
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .icon-blue { background: #eef2ff; color: #4f46e5; }
+    .icon-indigo { background: #fff1f2; color: #f43f5e; }
+    .icon-teal { background: #fffbeb; color: #d97706; }
 
-    /* 10. REDESIGNED WEATHER SPLIT TABLE (ZERO SLASHES, MULTI-TIER HEADERS) */
+    /* 10. REDESIGNED WEATHER SPLIT TABLE & ANIMATED INFO PILLS */
     .section-bg-slate {
       background-color: #f8fafc;
       border-top: 1px solid #e2e8f0;
@@ -620,9 +725,11 @@
       letter-spacing: 1.2px;
       font-size: 0.78rem;
       font-weight: 800;
-      color: #0d9488;
+      background: linear-gradient(90deg, #4f46e5, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 6px;
-      display: block;
+      display: inline-block;
     }
     .modern-table-card {
       background: #ffffff;
@@ -674,42 +781,80 @@
       font-weight: 700;
       color: #0f172a;
     }
+    .modern-table tbody tr {
+      transition: background-color 0.2s ease;
+    }
     .modern-table tbody tr:hover { background-color: #f8fafc; }
 
+    /* Interactive Animations for Table Info Pills */
     .seq-badge {
       display: inline-block;
       background: #f1f5f9;
       color: #475569;
       font-weight: 700;
       font-size: 0.78rem;
-      padding: 2px 9px;
+      padding: 2px 10px;
       border-radius: 999px;
       border: 1px solid #cbd5e1;
+      transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+    tr:hover .seq-badge,
+    .seq-badge:hover {
+      transform: scale(1.12);
+      background: #eef2ff;
+      color: #4f46e5;
+      border-color: #a5b4fc;
+      box-shadow: 0 3px 8px rgba(79, 70, 229, 0.15);
+    }
+
     .ood-pts-pill {
+      position: relative;
+      overflow: hidden;
       display: inline-block;
-      background: #fffbeb;
+      background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
       color: #b45309;
       font-weight: 700;
       font-size: 0.82rem;
-      padding: 3px 10px;
+      padding: 3px 11px;
       border-radius: 8px;
       border: 1px solid #fde68a;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+    tr:hover .ood-pts-pill,
+    .ood-pts-pill:hover {
+      transform: scale(1.07);
+      background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+      box-shadow: 0 4px 12px rgba(245, 158, 11, 0.22);
+    }
+
     .weather-chip {
       display: inline-flex;
       align-items: center;
       gap: 8px;
       font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      transition: all 0.28s cubic-bezier(0.34, 1.56, 0.64, 1);
     }
+    .weather-chip i {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    }
+    tr:hover .weather-chip {
+      background: #f1f5f9;
+      transform: translateX(4px);
+    }
+    tr:hover .weather-chip i {
+      transform: scale(1.25) rotate(15deg);
+    }
+
     .ours-row {
-      background: linear-gradient(90deg, #f0fdfa 0%, #ecfeff 100%) !important;
+      background: linear-gradient(90deg, #eef2ff 0%, #fdf4ff 100%) !important;
       font-weight: 700;
     }
     .ours-row td {
-      color: #0f766e !important;
-      border-top: 1.5px solid #5eead4 !important;
-      border-bottom: 1.5px solid #5eead4 !important;
+      color: #3730a3 !important;
+      border-top: 1.5px solid #a5b4fc !important;
+      border-bottom: 1.5px solid #a5b4fc !important;
     }
 
     /* 11. BENCHMARK PILL TABS WITH HOVER ANIMATION */
@@ -741,21 +886,21 @@
       content: '';
       position: absolute;
       bottom: 0; left: 15%; width: 0%; height: 2.5px;
-      background: linear-gradient(90deg, #0d9488, #f59e0b);
+      background: linear-gradient(90deg, #4f46e5, #ff5e62);
       transition: width 0.3s ease;
     }
     .pill-tab-btn:hover {
       color: #0f172a;
-      background: rgba(255,255,255,0.6);
+      background: rgba(255,255,255,0.65);
       transform: translateY(-1px);
     }
     .pill-tab-btn:hover::after { width: 70%; }
     .pill-tab-btn.active {
-      background: #1e293b;
+      background: linear-gradient(135deg, #312e81 0%, #4f46e5 100%);
       color: #ffffff;
-      box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+      box-shadow: 0 4px 14px rgba(79, 70, 229, 0.32);
     }
-    .pill-tab-btn.active i { color: #5eead4; }
+    .pill-tab-btn.active i { color: #fda4af; }
     .tab-pane { display: none; }
     .tab-pane.active { display: block; animation: fadeInUp 0.3s ease-out; }
 
@@ -826,18 +971,26 @@
     }
 
     .tag-mod {
-      display: inline-block; padding: 2px 6px;
+      display: inline-block; padding: 2px 7px;
       border-radius: 6px; font-size: 0.68rem; font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
     }
-    .tag-l { background: #ccfbf1; color: #115e59; }
-    .tag-lc { background: #fef3c7; color: #92400e; }
+    tr:hover .tag-mod {
+      transform: scale(1.08);
+    }
+    .tag-l { background: #e0f2fe; color: #0369a1; }
+    .tag-lc { background: #f3e8ff; color: #7e22ce; }
     .check-yes { color: #059669; font-weight: 700; }
     .check-no { color: #94a3b8; }
     .gold-medal {
+      display: inline-block;
       background: #fef3c7; color: #b45309;
       padding: 2px 5px; border-radius: 5px; font-weight: 800;
+      transition: transform 0.25s ease;
     }
+    tr:hover .gold-medal { transform: scale(1.1); }
     .silver-medal {
+      display: inline-block;
       background: #e2e8f0; color: #1e293b;
       padding: 2px 5px; border-radius: 5px; font-weight: 700;
       text-decoration: underline;
@@ -861,7 +1014,7 @@
       margin: 0 !important; padding: 1.5rem !important; color: #e2e8f0 !important;
     }
     .terminal-card code {
-      background: transparent !important; color: #5eead4 !important;
+      background: transparent !important; color: #a5b4fc !important;
       font-family: 'JetBrains Mono', monospace !important;
       font-size: 0.86rem !important; line-height: 1.65;
     }
@@ -883,7 +1036,7 @@
   <header class="glass-nav">
     <div class="nav-container">
       <a class="nav-brand" href="https://bhanderisavan.github.io">
-        <i class="fas fa-arrow-left" style="color: #0d9488;"></i>
+        <i class="fas fa-arrow-left" style="color: #4f46e5;"></i>
         <span>Savankumar Bhanderi</span>
       </a>
       <nav class="nav-links">
@@ -970,7 +1123,7 @@
 
       </div>
 
-      <!-- Unified Charcoal-Slate Action Pills with Emerald-Teal Hover Sweep -->
+      <!-- Warm Coral-Orange Action Pills (Subtle Highlight on Hover) -->
       <div class="cta-group">
         <a href="static/pdfs/DriveOSS_WACV2027.pdf" target="_blank" class="btn-action-pill">
           <i class="fas fa-file-pdf"></i>
@@ -998,7 +1151,7 @@
     <div class="container is-max-desktop">
 
       <div class="tldr-banner">
-        <strong><i class="fas fa-bolt" style="color:#0d9488; margin-right:6px;"></i>TL;DR:</strong>
+        <strong><i class="fas fa-bolt" style="color:#4f46e5; margin-right:6px;"></i>TL;DR:</strong>
         <strong>DriveOSS</strong> is the first real-world multimodal autonomous driving dataset and benchmark designed to jointly evaluate <strong>Closed-Set 3D Semantic Segmentation</strong>, <strong>3D Anomaly Segmentation</strong>, and <strong>3D Open-Set Semantic Segmentation</strong> across 5 weather and lighting conditions (Clear, Night, Cloudy, Rain, Snow).
       </div>
 
@@ -1013,7 +1166,7 @@
                onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
           <div class="img-fallback" style="display:none;">
             <i class="fas fa-images" style="font-size: 2rem; margin-bottom: 8px;"></i>
-            <h4 class="title is-5" style="margin-bottom: 4px; color:#0f766e;">Teaser Figure Placeholder</h4>
+            <h4 class="title is-5" style="margin-bottom: 4px; color:#4338ca;">Teaser Figure Placeholder</h4>
             <p style="font-size: 0.88rem; color:#475569;"> Figure 1  as <code>static/images/overview_fig1.png</code></p>
           </div>
         </div>
@@ -1367,37 +1520,37 @@
       <div class="columns is-multiline" style="margin-bottom: 2rem;">
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">📦 1. Containers &amp; Packaging</h5>
+            <h5 class="title is-6" style="color:#4338ca; margin-bottom:8px;">📦 1. Containers &amp; Packaging</h5>
             <p style="color:#475569; font-size:0.88rem;">Cardboard boxes, plastic boxes, foam blocks, garbage bags, and small trash bins with simple geometries and diverse materials.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🪑 2. Furniture &amp; Fixtures</h5>
+            <h5 class="title is-6" style="color:#7e22ce; margin-bottom:8px;">🪑 2. Furniture &amp; Fixtures</h5>
             <p style="color:#475569; font-size:0.88rem;">Office chairs, folding chairs, wooden chairs, clothes racks, and advertising signs with complex structures and varying heights.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🪜 3. Tools &amp; Industrial Equipment</h5>
+            <h5 class="title is-6" style="color:#e11d48; margin-bottom:8px;">🪜 3. Tools &amp; Industrial Equipment</h5>
             <p style="color:#475569; font-size:0.88rem;">Ladders, shovels, metal barriers, and maintenance equipment featuring rigid structures and occasionally high reflectivity.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🎒 4. Personal Belongings</h5>
+            <h5 class="title is-6" style="color:#d97706; margin-bottom:8px;">🎒 4. Personal Belongings</h5>
             <p style="color:#475569; font-size:0.88rem;">Backpacks, bicycle helmets, bags, and personal items representing small low-profile hazards with irregular shapes.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🛒 5. Utility &amp; Service Equipment</h5>
+            <h5 class="title is-6" style="color:#0284c7; margin-bottom:8px;">🛒 5. Utility &amp; Service Equipment</h5>
             <p style="color:#475569; font-size:0.88rem;">Shopping carts, waste-collection carts, and mobile bins commonly encountered in urban and commercial driving zones.</p>
           </div>
         </div>
         <div class="column is-4">
           <div class="pillar-card">
-            <h5 class="title is-6" style="color:#0f766e; margin-bottom:8px;">🪵 6. Roadside Debris &amp; Misc.</h5>
+            <h5 class="title is-6" style="color:#059669; margin-bottom:8px;">🪵 6. Roadside Debris &amp; Misc.</h5>
             <p style="color:#475569; font-size:0.88rem;">Wooden boards, fallen signs, tires, and unstructured obstacles with diverse appearances and physical properties.</p>
           </div>
         </div>
@@ -1501,7 +1654,7 @@
                 <th><span class="th-vert"><span class="cls-dot" style="background:#fff096;"></span>pole</span></th>
                 <th><span class="th-vert"><span class="cls-dot" style="background:#ff0000;"></span>traffic-sign</span></th>
                 <th><span class="th-vert"><span class="cls-dot" style="background:#ef4444;"></span>outlier &uarr;</span></th>
-                <th><span class="th-vert" style="color:#5eead4;">mOpen-IoU &uarr;</span></th>
+                <th><span class="th-vert" style="color:#a5b4fc;">mOpen-IoU &uarr;</span></th>
               </tr>
             </thead>
             <tbody>
@@ -1663,7 +1816,7 @@
             <div class="window-dots"><span class="dot-red"></span><span class="dot-amber"></span><span class="dot-green"></span></div>
             <span style="color:#94a3b8; font-family:'JetBrains Mono', monospace; font-size:0.82rem; font-weight:600;">citation.bib</span>
           </div>
-          <button class="copy-bibtex-btn" onclick="copyBibTeX()" style="padding: 6px 14px; font-size: 0.82rem; background:#0d9488;">
+          <button class="copy-bibtex-btn" onclick="copyBibTeX()" style="padding: 6px 14px; font-size: 0.82rem; background: linear-gradient(90deg, #ff5e62 0%, #ff9966 100%);">
             <i class="fas fa-copy"></i>
             <span class="copy-text">Copy BibTeX</span>
           </button>
@@ -1679,7 +1832,7 @@
   </section>
 
   <!-- SCROLL TO TOP BUTTON -->
-  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top" style="background:#0d9488;">
+  <button class="scroll-to-top" onclick="scrollToTop()" aria-label="Scroll to top" style="background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);">
     <i class="fas fa-arrow-up"></i>
   </button>
 
